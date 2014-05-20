@@ -9,7 +9,7 @@ This is where I'll be blogging from now on. No fancy engine. Just plain github +
 
 It will be pretty bare-bones, yes:
 
-![](bare-bones.png)
+![]({{ cdn_url }}bare-bones.png)
 
 Inserting code might be most maintainable if done as gists:
 

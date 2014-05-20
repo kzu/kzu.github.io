@@ -30,6 +30,8 @@ author :
 #
 production_url : http://blog.cazzulino.com
 
+cdn_url : http://cloud.cazzulino.com/blog/
+
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
 JB :
