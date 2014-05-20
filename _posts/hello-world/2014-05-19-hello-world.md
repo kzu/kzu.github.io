@@ -13,6 +13,6 @@ It will be pretty bare-bones, yes:
 
 Inserting code might be most maintainable if done as gists:
 
-{% gist kzu/2bb3316d59a3aa7a2216 %}
+{% gist kzu/6be398a134d6ecda35b7 %}
 
 You may try the [Programming]({{ BASE_PATH }}{{ site.tags.programming }}) category.
