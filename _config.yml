@@ -3,20 +3,16 @@
 permalink: /:title 
 
 markdown: kramdown
-# markdown: rdiscount
-# enables SmartyPants (nice curly quotation marks, em/en dashes, elipses, etc):
-# rdiscount:
-#  extensions: [smart]
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 paginate: 10
-pygments: false
+pygments: true
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : kzu blog
-tagline: Daniel Cazzulino's blog
+title : Daniel Cazzulino (a.k.a. kzu) blog
+tagline: 
 author :
   name : Daniel Cazzulino
   email : daniel@cazzulino.com
