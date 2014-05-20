@@ -2,10 +2,15 @@
 # For more see: http://jekyllrb.com/docs/permalinks/
 permalink: /:title 
 
-markdown: kramdown
+# markdown: kramdown
+markdown: rdiscount
+# enables SmartyPants (nice curly quotation marks, em/en dashes, elipses, etc):
+rdiscount:
+  extensions: [smart]
+
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 paginate: 10
-pygments: true
+pygments: false
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
