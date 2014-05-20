@@ -2,11 +2,11 @@
 # For more see: http://jekyllrb.com/docs/permalinks/
 permalink: /:title 
 
-# markdown: kramdown
-markdown: rdiscount
+markdown: kramdown
+# markdown: rdiscount
 # enables SmartyPants (nice curly quotation marks, em/en dashes, elipses, etc):
-rdiscount:
-  extensions: [smart]
+# rdiscount:
+#  extensions: [smart]
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 paginate: 10
