@@ -10,7 +10,7 @@ Back in 2001 I was making as much money as you could, programming in a language 
 
 I remember vividly my first encounter with .NET. I could totally see the upcoming sea change, and how anyone programming in anything but .NET  was doomed (well, kinda ;)). So I became very proficient at C# before it even shipped. I started a couple open source projects, wrote articles, books, presented at conferences and eventually became a Microsoft Most Valuable Professional. An XML MVP even, if you can believe it.
 
-<img src="http://cdn.cazzulino.com/vs2002.jpg" width="25%" align="left">
+<img src="http://cdn.cazzulino.com/vs2002.png" width="25%" align="left">
 My first international conference as a presenter was .NET One 2002 in Frankfurt, where I met Miguel de Icaza who was also presenting on open source software: Mono! We parted ways, and two years later I co-founded [Clarius Consulting](http://clariusconsulting.net) with my partner in early ASP.NET adventures and writings Victor Garcia Aprea. Clarius became an almost immediate success given the high-caliber talent we gathered in a short time based on our sheer pasion for .NET and relentless desire to understand how everything worked down to the lowest level, while combining that knowledge with high level design patterns and agile practices to advance our craft.  
 
 Among other things, many of us at Clarius specialized in Visual Studio extensibility, as part of our engagements with Microsoft, which was constantly looking for ways to make developer's lives easier by leveraging their awesome IDE. With Clarius’ VSX Division, we were able to deliver effective Visual Studio tooling for a decade to both Microsoft and enterprise customers worldwide, but it has mostly been for the benefit of closed in-house teams.   
