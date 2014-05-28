@@ -32,6 +32,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.logo {
+    font-family: 'Kaushan Script', cursive;
+    font-size: xx-large;
+}
+
+.logo a:link:hover, a:active:hover, a:visited:hover { text-decoration:none; }
+
 div.breaker { clear:both; }
 .template { display:none; }
 

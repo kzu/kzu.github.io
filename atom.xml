@@ -4,10 +4,10 @@ layout: nil
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>{{ site.author.name }}</title>
-  <link href="http://{{ site.baseurl }}/atom.xml" rel="self"/>
-  <link href="http://{{ site.baseurl }}/"/>
+  <link href="{{ site.baseurl }}/atom.xml" rel="self"/>
+  <link href="{{ site.baseurl }}/"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <id>http://{{ site.baseurl }}/</id>
+  <id>{{ site.baseurl }}/</id>
   <author>
     <name>{{ site.author.name }}</name>
     <email>{{ site.author.email }}</email>
@@ -17,11 +17,11 @@ layout: nil
     <title>{{ post.title }}</title>
     <link href="http://{{ site.baseurl }}{{ post.url }}"/>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
-    <id>http://{{ site.baseurl }}{{ post.id }}</id>
+    <id>{{ site.baseurl }}{{ post.id }}</id>
     <content type="html">{{ post.content | xml_escape }}</content>
     <author>
       <name>{{ site.author.name }}</name>
-      <uri>http://{{ site.baseurl }}/about/</uri>
+      <uri>{{ site.baseurl }}/about/</uri>
     </author>
   </entry>
   {% endfor %}
