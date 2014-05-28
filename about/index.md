@@ -1,11 +1,11 @@
----
+﻿---
 layout: page
 title: About
 ---
 
 My name is Daniel Cazzulino. 
 
-Around the web my alias is usually "kzu" (pronounced like kazu, since the letter k is "ka" in spanish) or "danielkzu" (whenever 3 letter usernames are not allowed):
+Around the web my alias is usually "kzu" (pronounced like "kázu" rather than "kzú", since the letter k is "ka" in spanish):
 
 - [Twitter](http://twitter.com/kzu)
 - [GitHub](https://github.com/kzu)
