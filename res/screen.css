@@ -136,8 +136,8 @@ div.content.full-bleed {
   padding:0;
 }
 div.content.photo {
-  padding: 0;
-  margin:0;
+  /*padding: 0;
+  margin:0;*/
 }
   div.content:not(.sub) h1:first-child {
     margin-top:0; font-size:300%;
@@ -345,7 +345,7 @@ a.post-excerpt {
 /* photo post */
 
 div.content.photo-post {
-  padding-top: 0px;
+  /*padding-top: 0px;*/
 }
   div.content.photo-post p:first-child, div.content.photo-post img:first-child {
     padding-top:0;
