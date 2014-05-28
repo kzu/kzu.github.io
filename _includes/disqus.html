@@ -1,6 +1,6 @@
 <script>
 // Disqus
-var disqus_shortname = '{{ site.disqus }}';
+var disqus_shortname = '{{ site.author.disqus }}';
 if (!window.disqus_url) window.disqus_url = "{{ site.baseurl }}{{ page.url }}";
 if (!window.disqus_title) window.disqus_title = document.title;
 (function(){try{
@@ -32,4 +32,4 @@ if (polle) {
 }
 }catch(e){}})();
 </script>
-<script async src="http://disqus.com/forums/{{ site.disqus }}/count.js"></script>
+<script async src="http://disqus.com/forums/{{ site.author.disqus }}/count.js"></script>

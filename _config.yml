@@ -9,6 +9,7 @@ port: 3000
 pygments: false
 
 lsi: false
+# markdown: kramdown
 markdown: rdiscount
 # enables SmartyPants (nice curly quotation marks, em/en dashes, elipses, etc):
 rdiscount:
@@ -17,18 +18,14 @@ rdiscount:
 # Since GH pages override this to "true", we test this value to see if we are running locally
 safe: false
 
-# My own stuff
-cdn: http://cdn.cazzulino.com/
-feedburner : DanielCazzulino
-
-# This is the disqus website short name
-disqus: kzu
-
-title : El Xamurai
-tagline: Delightful C# Mobile
+title : Ramblings of Daniel Cazzulino
+description : A blog about .NET, C#, Visual Studio, Mobile, Xamarin and technology
 author :
   name : Daniel Cazzulino
   alias: kzu
   email : daniel@cazzulino.com
   github : kzu
   twitter : kzu
+  feedburner : DanielCazzulino
+  # This is the disqus website short name
+  disqus: kzu

@@ -4,11 +4,11 @@ layout: default
 <div class="posts">
   <div class="content full-bleed" id="recent-posts">
   {% for post in site.posts limit:25 %}<a
-    href="{{ post.url }}" class="post-excerpt{% if post.photo %} photo{% endif %}">
+    href="{{ post.url }}" class="post-excerpt{% if post.image %} photo{% endif %}">
       <div class="padded-content">
         <div class="title">{{ post.title }}</div>
-      {% if post.photo %}
-        <div class="image" style="background-image:url('{{ site.cdn }}{{ post.photo }}')"></div>
+      {% if post.image %}
+        <div class="image" style="background-image:url('{{ post.image }}')"></div>
       {% else %}
         <!-- <div class="title">{{ post.title }}</div> -->
         <info datetime="{{ page.date | date: "%Y-%m-%d" }}">
@@ -19,7 +19,7 @@ layout: default
         {% else %}
         <span class="body">{{ post.excerpt | strip_html }}</span>
         {% endif %}
-      {% endif %}<!-- post.photo -->
+      {% endif %}<!-- post.image -->
       </div>
     </a>{% endfor %}
     <div class="breaker"></div>
