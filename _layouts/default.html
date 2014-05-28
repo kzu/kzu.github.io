@@ -2,7 +2,7 @@
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="utf-8">
-    <title>{% if page.title %}{{ page.title }} &mdash; {% endif %}Daniel Cazzulino</title>
+    <title>{% if page.title %}{{ page.title }} &mdash; {% endif %}{{ site.author.name }}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     {% if page.title != "Archive (sidebar)" %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,13 +10,13 @@
     <link href='http://fonts.googleapis.com/css?family=Poly:400,400italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" media="screen, projection" href="/res/screen.css" type="text/css">
     <link rel="stylesheet" media="print" href="/res/print.css" type="text/css">
-    <link rel="alternate" type="application/atom+xml" title="Daniel Cazzulino" href="http://feeds.feedburner.com/DanielCazzulino">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" href="/res/apple-touch-icon-57x57-precomposed.png">
+    <link rel="alternate" type="application/atom+xml" title="{{ site.author.name }}" href="http://feeds.feedburner.com/{{ site.feedburner }}">
+    <!--<link rel="shortcut icon" href="/favicon.ico">-->
+    <!--<link rel="apple-touch-icon-precomposed" href="/res/apple-touch-icon-57x57-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/res/apple-touch-icon-{% if page.ios_app_name %}{{page.ios_app_name}}-{% endif %}72x72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/res/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/res/apple-touch-icon-114x114-precomposed.png">-->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@kzu">
+    <meta name="twitter:site" content="@{{ site.author.twitter }}">
     {% if page.ios_app_name %}
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -31,7 +31,7 @@
     <meta name="og:description" content="{{ content | strip_html | truncatewords: 25 }}">
     {% endif %}
     {% else %}
-    <meta name="description" content="Ramblings by Daniel Cazzulino">
+    <meta name="description" content="Ramblings by {{ site.author.name }}">
     {% endif %}
     {% if page.image %}
     <meta property="og:image" content="{{ site.cdn }}{{ page.image }}">
@@ -40,8 +40,8 @@
     <meta property="og:image" content="{{ site.cdn }}{{ page.photo }}">
     {% endif %}
     {% endif %}
-    <meta property="og:url" content="http://www.cazzulino.com{{ page.url | remove_first:'index.html' }}">
-    <meta property="og:site_name" content="www.cazzulino.com">
+    <meta property="og:url" content="http://{{ site.baseurl }}{{ page.url | remove_first:'index.html' }}">
+    <meta property="og:site_name" content="{{ site.baseurl }}">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="en_US" />
     {% if page.date %}

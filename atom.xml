@@ -3,25 +3,25 @@ layout: nil
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Daniel Cazzulino</title>
-  <link href="http://www.cazzulino.com/atom.xml" rel="self"/>
-  <link href="http://www.cazzulino.com/"/>
+  <title>{{ site.author.name }}</title>
+  <link href="http://{{ site.baseurl }}/atom.xml" rel="self"/>
+  <link href="http://{{ site.baseurl }}/"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <id>http://www.cazzulino.com/</id>
+  <id>http://{{ site.baseurl }}/</id>
   <author>
-    <name>Daniel Cazzulino</name>
-    <email>daniel@cazzulino.com</email>
+    <name>{{ site.author.name }}</name>
+    <email>{{ site.author.email }}</email>
   </author>
   {% for post in site.posts limit:10 %}
   <entry>
     <title>{{ post.title }}</title>
-    <link href="http://www.cazzulino.com{{ post.url }}"/>
+    <link href="http://{{ site.baseurl }}{{ post.url }}"/>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
-    <id>http://www.cazzulino.com{{ post.id }}</id>
+    <id>http://{{ site.baseurl }}{{ post.id }}</id>
     <content type="html">{{ post.content | xml_escape }}</content>
     <author>
-      <name>Daniel Cazzulino</name>
-      <uri>http://www.cazzulino.com/about/</uri>
+      <name>{{ site.author.name }}</name>
+      <uri>http://{{ site.baseurl }}/about/</uri>
     </author>
   </entry>
   {% endfor %}
