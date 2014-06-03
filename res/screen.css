@@ -1,27 +1,16 @@
 @viewport {
   width: device-width;
 }
-@font-face {
-  font-family: 'M+ 1mn';
-  font-style: normal;
-  font-weight: 300;
-  src: local('mplus-1mn-light'), local('M+ 1mn light'), url('/res/mplus-1mn-light.ttf')
-       format('truetype');
-}
-@font-face {
-  font-family: 'M+ 1mn';
-  font-style: normal;
-  font-weight: 500;
-  src: local('mplus-1mn-regular'), local('M+ 1mn regular'), url('/res/mplus-1mn-regular.ttf')
-       format('truetype');
-}
+
+/*  base : fonts
+/* ------------------------------------ */
+body { font-family: "Titillium", Arial, sans-serif; }
 
 /* Base */
 * { margin:0; padding:0; font-family:inherit; }
 body {
   background:#ddd;
   color:#444;
-  font:14px 'Poly', georgia, serif;
   line-height:1.5;
   font-weight: lighter;
   margin: 0 auto;
