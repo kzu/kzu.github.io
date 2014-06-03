@@ -2,6 +2,21 @@
   width: device-width;
 }
 
+@font-face {
+  font-family: 'M+ 1mn';
+  font-style: normal;
+  font-weight: 300;
+  src: local('mplus-1mn-light'), local('M+ 1mn light'), url('/res/mplus-1mn-light.ttf')
+       format('truetype');
+}
+@font-face {
+  font-family: 'M+ 1mn';
+  font-style: normal;
+  font-weight: 500;
+  src: local('mplus-1mn-regular'), local('M+ 1mn regular'), url('/res/mplus-1mn-regular.ttf')
+       format('truetype');
+}
+
 /*  base : fonts
 /* ------------------------------------ */
 body { font-family: "Titillium", Arial, sans-serif; }
@@ -45,7 +60,7 @@ strong { font-weight:bold; }
 hr { height:1px; border:none; background-color:#ddd; }
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: 'Poly', helvetica, sans-serif;
+  font-family: 'Titillium', helvetica, sans-serif;
   font-weight:normal;
   color:#040404;
   margin: 1.618em 0 1em 0;
@@ -151,7 +166,7 @@ div.content.photo {
   div.content ul > li { margin-left:1.4em; }
   
   div.content blockquote {
-    font-family: 'Poly', georgia;
+    font-family: 'Titillium', georgia;
     font-style:italic;
     line-height:1.618;
     background:transparent url(quotation-mark.png) no-repeat scroll 25px 1.4em;
