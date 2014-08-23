@@ -7,3 +7,10 @@ tags: programming, msbuild
 <img src="http://cdn.cazzulino.com/msbuild-codetaskfactory.jpg" width="50%" align="right" class="image">
 
 I've posted before 
+
+Errors on 2010:
+
+			<dependentAssembly>
+				<assemblyIdentity name="Microsoft.Build.Framework" publicKeyToken="b03f5f7f11d50a3a" culture="neutral"/>
+				<bindingRedirect oldVersion="12.0.0.0" newVersion="4.0.0.0"/>
+			</dependentAssembly>
