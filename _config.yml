@@ -1,7 +1,6 @@
 encoding: UTF-8
 permalink: /:title.html 
 baseurl: http://www.cazzulino.com
-cdn: http://cdn.cazzulino.com
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 # paginate: 10
