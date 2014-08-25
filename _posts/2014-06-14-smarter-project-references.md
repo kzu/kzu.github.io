@@ -58,6 +58,6 @@ Go ahead and install it:
 Install-Package SmartReferences
 ```
 
-It's all NETFx open source and we'd gladly take PRs and issues you may find. 
+It's [open source on GitHub](https://github.com/kzu/SmartReferences) and I'd gladly take PRs and issues you may find. 
 
 Enjoy!
