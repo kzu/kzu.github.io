@@ -42,7 +42,7 @@ this.IsReadOnly = new FileInfo(this.FileName).IsReadOnly;
 
 This task simply constructs a file info and returns its readonly state. Note that it has both input and output parameters.
 
-The parameters simply become properties that you can access from within the code using “this.” as MSBuild is surely generating a class for you with the given usings and properties and compiling it on the fly with the optional References element that you can specify too.
+The parameters simply become properties that you can access from within the code using “this.” as MSBuild is generating a class for you with the given usings and properties and compiling it on the fly with the optional References element that you can specify too.
 
 You consume it from a targets like any built-in or custom task:
 
