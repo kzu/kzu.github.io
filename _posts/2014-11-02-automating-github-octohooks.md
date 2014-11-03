@@ -122,3 +122,8 @@ AutoTask will automatically create a task list on referenced issues, that will a
 Since the task was closed, its corresponding item in the #495 issue task list is checked automatically. If you now closed #498, it would become checked right afterwards too via AutoClose.
 
 AutoClose works with [cross-repository references](https://help.github.com/articles/writing-on-github/#references) too, so you can automatically notify completion status on other repositories.
+
+
+In a future post I will also show how to create your own custom OctoHooks that plug automatically into this GitHub controller.
+
+Enjoy!
