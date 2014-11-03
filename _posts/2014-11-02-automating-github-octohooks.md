@@ -10,13 +10,13 @@ GitHub is an awesome platform for hosting your source code, and the issue tracke
 
 The developer documentation for the [GitHub API](http://api.github.com) is fantastic. You should go a scan its topics just to get an idea of its  amazing breath, which covers everything from retrieving issues to creating new Git commits all via a friendly Json-based REST API. I wish this was the standard for all sites or services that host your data in one way or another.
 
-If you're a .NET developer, there's something even better than a friendly Json-based REST API: a NuGet package! 
+If you're a .NET developer, there's something even better than a friendly Json-based REST API: a [NuGet package](https://www.nuget.org/packages/Octokit)! 
 
 	PM> Install-Package Octokit
 	// or
 	PM> Install-Package Octokit.Reactive
 
-The Reactive version supports should have parity with the non-Reactive version, but is much better for incrementally doing work across many items in the API (i.e. processing all Issues or reading all commits, etc.), since the observable notifies back your code incrementally as more data is fetched (by leveraging GitHub's API paging automatically).
+The [Reactive](https://www.nuget.org/packages/Octokit.Reactive) version supports should have parity with the non-Reactive version, but is much better for incrementally doing work across many items in the API (i.e. processing all Issues or reading all commits, etc.), since the observable notifies back your code incrementally as more data is fetched (by leveraging GitHub's API paging automatically).
 
 I started automating GitHub issue tracker quite a bit for our [little project](http://xamarin.com/visualstudio), and I realized that the features I was adding where quite general-purpose and could be easily reused. So I decided to turn them into granular NuGet packages that you can easily choose and pick for your particular project.
 
