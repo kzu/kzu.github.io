@@ -40,15 +40,15 @@ By default, Windows Installer will just update the components you have previousl
 
 Don't worry, you don't have to go download anything again, here are the easy steps to ensure you turn the bits on for 2015:
 
-1. Go to Add/Remove programs and search for Xamarin:
+1 - Go to Add/Remove programs and search for Xamarin:
 
 ![Add/Remove Xamarin](http://www.cazzulino.com/img/mspreview-change.png)
 
-2. Click Next on the installer window and select Change on the next screen:
+2 - Click Next on the installer window and select Change on the next screen:
 
 ![Change MSI](http://www.cazzulino.com/img/mspreview-change-msi.png)
 
-3. Finally, make sure you check and install locally the Visual Studio 2015 feature:
+3 - Finally, make sure you check and install locally the Visual Studio 2015 feature:
 
 ![Install 2015 Feature](http://www.cazzulino.com/img/mspreview-change-check.png)
 
