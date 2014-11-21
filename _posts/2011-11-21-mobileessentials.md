@@ -1,6 +1,5 @@
 ---
 title: "Mobile Essentials: Productivity Tools for Mobile Developers"
-image: http://www.cazzulino.com/img/monkey-face.jpg
 layout: post
 tags: programming, mobile, xamarin
 ---
@@ -8,7 +7,7 @@ A bunch of mobile development and tooling enthusiasts here at the office wanted 
 
 The goal of these extensions is to be completely independent of your other tools in VS (like your Xamarin installation) so that you can try them without risking breaking your stable development environment. If something doesn't quite work, you just remove the extension and you're done. Pristine environment back!
 
-At Xamarin, we may use this gallery also for early prototypes or spikes we do on top of the Xamarin Platform, so that we can gather early feedback without disrupting your stable installation and without requiring you to switch between official channels. Whatever we put out will be for use "at your own risk" so to speak. As I said, it could become a way for us to also share bits earlier and get timely feedback for things that may make it into the core product. It also would allow us to discard ideas that don't get traction :).
+At Xamarin, we may use this gallery also for early prototypes or spikes we do on top of the [Xamarin Platform](http://www.xamarin.com), so that we can gather early feedback without disrupting your stable installation and without requiring you to switch between official channels. Whatever we put out will be for use "at your own risk" so to speak. As I said, it could become a way for us to also share bits earlier and get timely feedback for things that may make it into the core product. It also would allow us to discard ideas that don't get traction :).
 
 The source code for the gallery itself as well as installation instructions are [available on GitHub](https://github.com/MobileEssentials/Gallery). I'm copying the [instructions](https://github.com/MobileEssentials/Gallery/blob/master/README.md) here for convenience:
 
