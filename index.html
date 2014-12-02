@@ -6,10 +6,10 @@ layout: default
   {% for post in site.posts limit:25 %}<a
     href="{{ post.url }}" class="post-excerpt{% if post.image %} photo{% endif %}">
       <div class="padded-content">
-        <div class="title">{{ post.title }}</div>
       {% if post.image %}
         <div class="image" style="background-image:url('{{ post.image }}')"></div>
       {% else %}
+        <div class="title">{{ post.title }}</div>
         <!-- <div class="title">{{ post.title }}</div> -->
         <info datetime="{{ page.date | date: "%Y-%m-%d" }}">
           {{ post.date | date: "%b %Y" }}
