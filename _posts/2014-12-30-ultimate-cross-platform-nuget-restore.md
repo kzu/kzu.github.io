@@ -113,4 +113,10 @@ So there it goes: a simple .targets file alongside the solution file, and you ca
 You can just [download the entire targets file](https://raw.githubusercontent.com/kzu/kzu.github.io/master/code/AutoRestore/Before.MyApp.sln.targets "Targets file for automated restore") alongside your .sln and name it `Before.[solution file name].targets`.
 
 
+**Update**: to make this even easier, I just turned the thing into a [nuget package](https://www.nuget.org/packages/build) :). So in your repository root, just run:
+
+    NuGet Install build -ExcludeVersion
+
+Full project source in [GitHub](https://github.com/kzu/oss). 
+
 Happy nugetting! ;)
