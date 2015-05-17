@@ -4,8 +4,6 @@ description: "Now that MSBuild is open source and cross-platform, you easily boo
 layout: post
 tags: programming, msbuild, xbuild, nuget
 ---
-# Bootstrapping Cross Platform MSBuild with XBuild and NuGet
-
 I have to admit I'm a fan of MSBuild. Not necessarily a fan of the file format, 
 but of the feature set. [At work](http://www.xamarin.com), I've encountered now 
 and then inconsistencies and missing features in XBuild that I just had to work 
