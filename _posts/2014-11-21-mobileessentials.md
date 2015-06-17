@@ -36,5 +36,8 @@ Updates also show in this same window, under the respective category `Updates > 
 
 # Remarks
 
-As you can see, one of the first extensions we've uploaded is an initial version of Xamarin.Forms intellisense. You probably guessed that that's one that will definitely make it into the main Xamarin installation in the future ;). 
+~~As you can see, one of the first extensions we've uploaded is an initial version of Xamarin.Forms intellisense. You probably guessed that that's one that will definitely make it into the main Xamarin installation in the future ;). ~~
 
+The latest stable Xamarin for Visual Studio has built-in support for Xamarin Forms Intellisense, so we dropped that extension from the mobile essentials gallery. If you had installed it, please remove it to enjoy the built-in one.
+
+Updated the Using screenshot to showcase another one we provide through the gallery, the CocoSharp templates.
