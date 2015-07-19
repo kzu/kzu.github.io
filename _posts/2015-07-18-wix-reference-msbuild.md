@@ -1,5 +1,5 @@
 ---
-title: "How to accesss project reference metadata from WiX project in MSBuild"
+title: "How to access project reference metadata from WiX project in MSBuild"
 description: "Accessing project references metadata, such as the typical $(var.MyCustomAction.TargetDir) is pretty common from WiX fragments. Here's how to do the same from MSBuild"
 layout: post
 tags: programming, msbuild, wix, installer

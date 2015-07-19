@@ -50,12 +50,12 @@ contain at certain points, as well as potentially useful item metadata I might w
 for my task at hand. 
 
 For example, say you want to do something [interesting with project references](http://www.cazzulino.com/smarter-project-references.html) 
-that requires you to know precisly what's going on in the built-in targets after project 
+that requires you to know precisely what's going on in the built-in targets after project 
 and assembly references are resolved. You can just create a console app, install the package 
 
     install-package MSBuilder.DumpItems
 
-and edit the .csproj to dump items AfterBuild for inspection of the items built by one 
+and edit the .csproj to dump items on AfterBuild for inspection of the items built by one 
 of the [many targets involving ResolveReferences](https://github.com/Microsoft/msbuild/blob/master/src/XMakeTasks/Microsoft.Common.CurrentVersion.targets#L1327), 
 such as the [_ResolvedProjectReferencePaths](https://github.com/Microsoft/msbuild/blob/master/src/XMakeTasks/Microsoft.Common.CurrentVersion.targets#L1527) which 
 looks kinda interesting:
