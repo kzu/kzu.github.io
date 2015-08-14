@@ -6,7 +6,7 @@ tags: programming, xamarin, forms, vs2015
 ---
 Straight answer first just in case you're in a hurry:
 
-1. Delete `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Xamarin\Xamarin\4.0.0.868\static.14.pkgdef`
+1. Delete `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Xamarin\Xamarin\[VERSION]\static.14.pkgdef`
 2. Run `devenv /updateconfiguration`
 
 Now the long answer if you're interested :)
