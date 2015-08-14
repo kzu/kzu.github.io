@@ -9,12 +9,14 @@ Straight answer first just in case you're in a hurry:
 1. Delete `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Xamarin\Xamarin\[VERSION]\static.14.pkgdef`
 2. Run `devenv /updateconfiguration`
 
+In addition to this manual workaround, we'll post an updated Xamarin.Forms pre-release nuget package that won't provide the design assemblies to XAML and will stop the crash from happening. But that won't turn off XAML intellisense, which will be all red (as it is without the 1.5-pre nuget).
+
 Now the long answer if you're interested :)
 
 ## XML vs XAML intellisense
 For Visual Studio 2012 and 2013, we provide Xamarin.Forms intellisense by extending the core text editor using the same extensibility APIs you use to extend any other text-based editor. Besides being able to use some XML-editor provided APIs to access the current document, we basically have to keep track of keystrokes, completion sessions, dismissal on `Esc` and so on. In addition to also discovering types and members available for completion.
 
-In Visual Studio 2015, the XAML editor became extensible so we could take advantage of all the work already done by Microsoft for WPF by just providing some metadata and registering our Xamarin.Forms namespace to opt-in XAML intellisense instead. This was the result of close collaboration with the XAML team, since XF is pretty much the first non-WPF flavor of XAML around.
+In Visual Studio 2015, the XAML editor became extensible so we could take advantage of all the work already done by Microsoft for WPF by just providing some metadata via the NuGet package itself, and registering our Xamarin.Forms namespace to opt-in XAML intellisense instead. This was the result of close collaboration with the XAML team, since XF is pretty much the first non-WPF flavor of XAML around.
 
 In addition to being a solid editor for many years, opting in for XAML intellisense also means we will get all new features they add to WPF for free. In particular around the data binding expressions and markup extensions.
 
