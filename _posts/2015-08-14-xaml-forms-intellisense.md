@@ -6,9 +6,8 @@ tags: programming, xamarin, forms, vs2015
 ---
 Straight answer first just in case you're in a hurry:
 
-1. Rename `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Xamarin\Xamarin\[VERSION]\static.14.pkgdef` to `static.14.pkgundef`
-2. Rename the `static.14.pkgdef` to `static.14.pkgundef` in the `extension.vsixmanifest` in the same directory 
-2. Run `devenv /updateconfiguration`
+1. Download [devenv.pkgundef](http://www.cazzulino.com/code/devenv.pkgundef) to `C:\Program Files (x86)\Microsoft Visual Studio [VSVERSION]\Common7\IDE\`
+2. Run `devenv /updateconfiguration` from a developer command prompt (for the relevant VS versions).
 
 In addition to this manual workaround, we'll post an updated Xamarin.Forms pre-release nuget package that won't provide the design assemblies to XAML and will stop the crash from happening. But that won't turn off XAML intellisense, which will be all red (as it is without the 1.5-pre nuget).
 
