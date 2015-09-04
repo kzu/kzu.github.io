@@ -57,7 +57,7 @@ of the referenced project, for example.
 
 Here's the `AddProjectReferenceMetadata` target:
 
-    <Target Name="AddProjectReferenceMetadata">
+    <Target Name="AddProjectReferenceMetadata" Condition=" '@(_ResolvedProjectReferencePaths)' != '' ">
       <!-- Fist invoke the built-in task, but retrieve the outputs as items
              rather than a single property, which is what the built-in targets do -->
       <CreateProjectReferenceDefineConstants
