@@ -4,11 +4,9 @@ description: "With Xamarin 4, the remote connectivity with the Mac is better tha
 layout: post
 tags: programming, msbuild, xbuild, xamarin, mac, ios
 ---
-# How Visual Studio builds on the Mac with Xamarin
-
 When we started working for Xamarin [as consultants](http://clariusconsulting.net), a couple years ago, it was nothing short of amazing for us that Xamarin had already achieved a pretty solid "F5 experience" with an app building on the Mac and debugging like any regular local .NET app. I had the same feeling the first time I did the same thing against an Azure website. Felt like magic (in the [Arthur C. Clark](http://www.brainyquote.com/quotes/quotes/a/arthurccl101182.html#ZaMC1KSvguO7s706.99) way). 
 
-During the past year and a half since [the we joined Xamarin](http://www.cazzulino.com/hello-xamarin.html), we iterated (among other things) on the this key component of the developer experience, culminating in our most recent release, [Xamarin 4](http://xmn.io/xamarin4). What started as a (more or less) batch process of "zip sources, HTTP post to Mac, build, run" (with frequent rebuilds needed), is now a fine-tuned granular incremental build system driven by MSBuild, connecting to the Mac over a resilient, auto-deployed and always-on messaging layer running on top of a bi-directional binary protocol over TCP, secured by an SSH tunnel. 
+During the past year and a half since [the we joined Xamarin](http://www.cazzulino.com/hello-xamarin.html), we iterated (among other things) on this key component of the developer experience, culminating in our most recent release, [Xamarin 4](http://xmn.io/xamarin4). What started as a (more or less) batch process of "zip sources, HTTP post to Mac, build, run" (with frequent rebuilds needed), is now a fine-tuned granular incremental build system driven by MSBuild, connecting to the Mac over a resilient, auto-deployed and always-on messaging layer running on top of a bi-directional binary protocol over TCP, secured by an SSH tunnel. 
 
 At the user experience level, it might seem that little has changed other than a fancy new connection dialog. But as Tim Cook said "the only thing that changed is everything", so I'll go over the details of how it works today with the new Xamarin 4 experience.
 
@@ -19,7 +17,7 @@ MSBuild (and XBuild on the Mac) already support incremental builds, so the first
 
 ![Xamarin MSBuild Flow](http://www.cazzulino.com/img/xam4-msbuild.png)
 
-You can see that exactly the same targets and tasks are shared between the Mac and Windows. This allows us to minimize inconsistencies between VS and XS builds. The only difference is that the Windows version of the tasks do a remote invocation on the Mac whenever the tasks that need to run on the Mac are executed. We evaluate tasks individually to determine if they must run remotely or if they can be run locally. 
+You can see that exactly the same targets and tasks are shared between the Mac and Windows. This allows us to minimize inconsistencies between VS and XS builds. The only difference is that the Windows version of the tasks do a remote invocation to the Mac whenever the tasks that need to run on the Mac are executed. We evaluate tasks individually to determine if they must run remotely or if they can be run locally. 
 
 > The unit of remote invocation to the Mac is the MSBuild `Task.Execute`
 
@@ -27,7 +25,7 @@ One example of a task that always runs remotely is compiling iOS storyboards, si
 
 > Some parts of the build are done on Windows, some parts on the Mac
 
-The next step was to improve the targets to provide relevant Inputs/Outputs to enable incremental build (TODO: LINK). An interesting challenge there was that for MSBuild to determine that a given target doesn't need run again (or that certain outputs are out of date with regards to their inputs), the Outputs files need to exist on the Windows side. But since all we need those output files for is for incremental build support, they are actually written as empty files on Windows :). MSBuild doesn't care, as long as the timestamp on those files can be compared with the Inputs to detect the out-of-date items.
+The next step was to improve the targets to provide relevant Inputs/Outputs to enable [incremental build](https://msdn.microsoft.com/en-us/library/ms171483.aspx). An interesting challenge there was that for MSBuild to determine that a given target doesn't need run again (or that certain outputs are out of date with regards to their inputs), the Outputs files need to exist on the Windows side. But since all we need those output files for is for incremental build support, they are actually written as empty files on Windows :). MSBuild doesn't care, as long as the timestamp on those files can be compared with the Inputs to detect the out-of-date items.
 
 This mechanism existed prior to Xamarin 4, and we just replaced the underlying remote call protocol, which was almost trivial to do since the core changes to unify XS/VS builds had already been done. Our goal was to have at least comparable performance to our previous releases.
 
