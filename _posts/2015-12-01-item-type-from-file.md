@@ -5,15 +5,13 @@ layout: post
 tags: programming, vsx
 ---
 
-When working with Roslyn inside a Visual Studio extension, it's not rare to need to go back and 
-forth between the two. In Roslyn-land, projects are mostly identified by their Guid. This is the 
+When working inside a Visual Studio extension, it's not rare to need to go back and 
+forth between the two. Projects can be uniquely identified in a solution by their Guid. This is the 
 ProjectGuid MSBuild property of a project, available from the IVsHierarchy 
-[VSHPROPID_ProjectIDGuid](https://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop.__vshpropid.aspx) property that uniquely identifies the 
-project in a solution. And documents are most easily identified by their 
-[FilePath](http://source.roslyn.io/#Microsoft.CodeAnalysis.Workspaces/Workspace/Solution/TextDocument.cs,380f113d776f7a17) property.
+[VSHPROPID_ProjectIDGuid](https://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop.__vshpropid.aspx) property that uniquely identifies the project in a solution. And files are frequently need to be located 
+within a project given their path.
 
-In my case, I needed to retrieve the item type (build action in the property browser), given 
-the things that the Roslyn API works with: project id, file path. Tell me it 
+In my case, I needed to retrieve the item type (build action in the property browser), given those two values: project id, file path. Tell me it 
 doesn't give you the creeps:
 
 	static string GetItemType (IServiceProvider services, Guid projectId, string filePath)
@@ -36,6 +34,6 @@ doesn't give you the creeps:
 		return itemType;
 	}
 
-And when [searching for things like this](http://stackoverflow.com/questions/33624416/get-build-action-from-roslyn-api), it's pretty awesome to come across posts that say things like [Who said building Visual Studio Extensions was hard?](http://www.diaryofaninja.com/blog/2014/02/18/who-said-building-visual-studio-extensions-was-hard).
+It's pretty awesome to come across posts that say things like [Who said building Visual Studio Extensions was hard?](http://www.diaryofaninja.com/blog/2014/02/18/who-said-building-visual-studio-extensions-was-hard)...
 
 *shudder*
