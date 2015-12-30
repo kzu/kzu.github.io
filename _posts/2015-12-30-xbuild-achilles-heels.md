@@ -80,7 +80,7 @@ the Include as the ItemSpec for those two ResxCode items. You might suggest that
 
 That doesn't work however, unless *every* `EmbeddedResource` has a `Generator` metadata item defined, which is 
 the very thing that `WithMetadataValue` solves elegantly. And no, 
-[ItemDefinitionGroup](https://msdn.microsoft.com/en-us/library/bb629392.aspx) doesn't work either.
+[ItemDefinitionGroup](https://msdn.microsoft.com/en-us/library/bb629392.aspx) doesn't work either (see below).
 
 
 ## Calculating Properties from Item Groups
@@ -206,6 +206,66 @@ To avoid writing a sample and broken output for each one, the rest of the list o
 # Other
 
 There are myriad others that are also equally painful. Here are some:
+
+## Item Definition Groups
+
+[ItemDefinitionGroup](https://msdn.microsoft.com/en-us/library/bb629392.aspx) are a way to define the items you'll 
+use in your projects, and assign default metadata values if they are not provided when declaring an item.
+
+For example, if you want to define a `File` item for your projects, which will (say) have some codegen associated, 
+you can specify that the codegen will by default be `public` unless overriden for a particular file:
+
+	<ItemDefinitionGroup>
+		<!-- Say you want to provide a default value for all, unless explicitly overriden -->
+		<File>
+			<IsPublic>true</IsPublic>
+		</File>
+	</ItemDefinitionGroup>
+
+This allows you to simplify the items declaration, since you only need to specify the `IsPublic` metadata if 
+you want to override the default:
+
+	<ItemGroup>
+		<File Include="Default.resx" />
+		<File Include="NonPublic.resx">
+			<IsPublic>false</IsPublic>
+		</File>
+		<File Include="Public.resx">
+			<IsPublic>true</IsPublic>
+		</File>
+	</ItemGroup>
+
+	<Target Name="Build">
+		<Message Importance="high" Text="%(File.Identity): IsPublic=%(File.IsPublic)" />
+		<!-- 
+	MSBuild Output:
+		Default.resx: IsPublic=true
+		NonPublic.resx: IsPublic=false
+		Public.resx: IsPublic=true
+  
+	XBuild:
+		Default.resx: IsPublic=
+		NonPublic.resx: IsPublic=false
+		Public.resx: IsPublic=true
+		-->
+    </Target>
+
+Note how the default value was never applied in XBuild's case. Moreover, the treatment of the missing value is 
+highly inconsistent, since with the exact same items above, adding a filtered item group inside the Build target:
+
+	<Target Name="Build">
+        <ItemGroup>
+            <PublicFile Include="@(File)" Condition=" '%(IsPublic)' == 'true' " />
+        </ItemGroup>
+
+Causes the build to fail with:
+
+    error : Error building target Build: Metadata named 'IsPublic' not found in item named Default.resx in item list named File
+
+I'm not sure I should be thankful or not about the extra looseness when referring to item metadata in task 
+attributes, but the inconsistency is definitely not welcomed. It's one more of those "if you know its limitations" 
+thing that you have to constantly remember. 
+
 
 ## Property Functions in Attributes
 
