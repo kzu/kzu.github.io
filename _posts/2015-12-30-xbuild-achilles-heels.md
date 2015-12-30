@@ -456,6 +456,6 @@ I just [install this package](https://github.com/kzu/GitInfo/blob/master/src/bui
 build and [redefine the targets](https://github.com/kzu/GitInfo/blob/master/src/build/GitInfo.xbuild#L25) to invoke 
 MSBuild directly on a Mac, as I explained some time ago [on my blog](http://www.cazzulino.com/xplat-msbuild.html).
 
-And one day, when Microsoft (with Xamarin's help?) is done porting MSBuild to the Mac, I can just breathe and 
+And one day, when Microsoft (with Xamarin's help) is done porting MSBuild to the Mac, I can just breathe and 
 kill [a single line of code](https://github.com/kzu/GitInfo/blob/master/src/build/GitInfo.targets#L732) and forget 
 all this pain ever happened.
