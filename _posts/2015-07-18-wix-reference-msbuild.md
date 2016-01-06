@@ -13,7 +13,7 @@ could, for example, include a file from a project reference easily with:
 
 WiX has a task that automatically fetches metadata about project references 
 and turns them into those vars you can use, which are then passed to the 
-rest of the WiX compile process (candle, light, what-not). The resulting 
+rest of the WiX compile process (candle, light, etc.). The resulting 
 command-line for those tools end up looking something like:
 
     candle.exe ... 
