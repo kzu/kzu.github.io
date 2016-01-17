@@ -1,6 +1,5 @@
 ---
 title: "Open Source Oslo M"
-layout: post
 image: http://www.cazzulino.com/img/oslo-m.png
 tags: programming, dotnetfoundation, opensource
 ---

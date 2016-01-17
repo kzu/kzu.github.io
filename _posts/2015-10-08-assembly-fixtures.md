@@ -1,7 +1,6 @@
 ---
 title: "Sharing assembly-level context across unit tests"
 description: "How to achieve per-assembly fixture state sharing for xunit tests"
-layout: post
 tags: programming, xunit, tdd
 ---
 Finally got around to implementing this for Xunit since I needed it for something (to be blogged soon too ;)). Copied from the [project page](https://github.com/kzu/xunit.assemblyfixture). Enjoy!

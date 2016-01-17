@@ -1,6 +1,5 @@
 ---
 title: "Mobile Essentials: Productivity Tools for Mobile Developers"
-layout: post
 tags: programming, mobile, xamarin
 ---
 A bunch of mobile development and tooling enthusiasts here at the office wanted to put out some tools, templates and general productivity enhancements for mobile developers, so we decided to set up a custom Visual Studio gallery that you can set up to get these tools in an integrated fashion in the Extensions and Updates dialog (a.k.a. Extension Manager). These will generally be projects we work on the side, on weekends and nights and hackathons.

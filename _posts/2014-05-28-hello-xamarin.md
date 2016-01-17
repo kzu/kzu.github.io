@@ -2,7 +2,6 @@
 title: "Joining Xamarin"
 description: "My next big adventure: helping to build the best mobile development ever, inside Visual Studio!"
 image: http://www.cazzulino.com/img/monkey-face.jpg
-layout: post
 tags: programming
 ---
 <img src="http://www.cazzulino.com/img/vb6.png" width="35%" align="right" class="image">

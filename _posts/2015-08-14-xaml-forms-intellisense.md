@@ -1,12 +1,11 @@
 ---
 title: "How to disable Xamarin Forms XAML Intellisense in VS 2015"
 description: "What's going on with XF XAML intellisense in VS 2015, and why you may need to disable it until Udpate 1"
-layout: post
 tags: programming, xamarin, forms, vs2015
 ---
 Straight answer first just in case you're in a hurry:
 
-1. Download [devenv.pkgundef](http://www.cazzulino.com/code/devenv.pkgundef) to `C:\Program Files (x86)\Microsoft Visual Studio [VSVERSION]\Common7\IDE\`
+1. Download [devenv.pkgundef]({{ site.url }}/code/devenv.pkgundef) to `C:\Program Files (x86)\Microsoft Visual Studio [VSVERSION]\Common7\IDE\`
 2. Run `devenv /updateconfiguration` from a developer command prompt (for the relevant VS versions).
 
 In addition to this manual workaround, we'll post an updated Xamarin.Forms pre-release nuget package that won't provide the design assemblies to XAML and will stop the crash from happening. But that won't turn off XAML intellisense, which will be all red (as it is without the 1.5-pre nuget).

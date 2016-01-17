@@ -20,9 +20,11 @@ layout: page
 
         <div class="post-entry">
             {% if post.description %}
-            {{ post.description | xml_escape}}
+            {{ post.description }}
+            {% elsif post.excerpt %}
+            {{ post.excerpt }}
             {% else %}
-            {{ post.content | truncatewords: 50 | strip_html | xml_escape}}
+            {{ post.content | truncatewords: 50 }}
             {% endif %}
             <a href="{{ site.baseurl }}{{ post.url }}" class="post-read-more">[Read&nbsp;More]</a>
         </div>

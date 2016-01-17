@@ -1,7 +1,6 @@
 ---
 title: "Installing Xamarin for Visual Studio 2015 Preview"
 description: "If you currently have a previous version of Xamarin installed, you may not get the 2015 bits automatically when installing the new alpha for VS2015 Preview. Here's how to ensure it's properly installed."
-layout: post
 tags: programming, xamarin, visual studio
 ---
 By now you probably got the blurb of last week's Microsoft announcements:

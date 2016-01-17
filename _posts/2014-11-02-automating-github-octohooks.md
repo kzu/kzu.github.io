@@ -1,7 +1,6 @@
 ---
 title: "Automating GitHub: Introducing OctoHooks"
 description: "If GitHub doesn't do 100% of what you need, then you can leverage OctoHooks and the GitHub API to automate and customize its behavior to your heart's content. In this blog post I show you how easy it is."
-layout: post
 tags: programming, github, automation
 ---
 GitHub is an awesome platform for hosting your source code, and the issue tracker is pretty decent. Some might argue that it's too simplistic and that larger projects require more features and customization, but I'll beg to differ, and show you how you can tune it to your heart's content by leveraging its comprehensive API, and do so even without writing a single line of code ;)

@@ -1,7 +1,6 @@
 ---
 title: "Ultimate Cross Platform NuGet Restore"
 description: "Now that 'Enable NuGet Package Restore' is the deprecated non-recommended way of doing package restores, everyone is coming up with a different way of doing it in a way that works on build servers and command line builds. Here is an approach that follows NuGet's own guidance but also works from command line MSBuild, build servers, Linux/Mac via Mono's xbuild and even Xamarin Studio. Oh, and it requires NO tuning of your build process, you just continue to build your solution files as usual."
-layout: post
 tags: programming, msbuild, xbuild, nuget, xamarin
 ---
 > If you just want the straight solution, [download the targets file](https://raw.githubusercontent.com/kzu/kzu.github.io/master/code/AutoRestore/Before.MyApp.sln.targets "Targets file for automated restore") alongside your .sln and name it `Before.[solution file name].targets`. Now just build from either IDEs or command lines :).

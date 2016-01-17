@@ -1,7 +1,6 @@
 ---
 title: "Dynamic Xamarin Forms From XAML and JSON"
 description: "How to dynamically load XAML for Xamarin.Forms, as well as creating dynamic data-only view models using JSON."
-layout: post
 tags: programming, xamarin, forms, xaml
 ---
 Yes, I'm well aware that the official API set for Xamarin.Forms only allows loading the compiled XAML into its "owning" view, using the `LoadFromXaml<TView>(this TView view, Type callingType)` extension method from the `Xamarin.Forms.Xaml.Extensions` class. And this is of course the actual real and supported way of doing it (for whatever reason, I'm not part of the Xamarin.Forms team :)). 

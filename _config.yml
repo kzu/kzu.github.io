@@ -28,8 +28,22 @@ pygments: false
 lsi: false
 markdown: kramdown
 
-# Since GH pages override this to "true", we test this value to see if we are running locally
-safe: false
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      comments: true
+      layout: post
+      excerpt_separator: <!--more-->
+      tags: programming
+  -
+    scope:
+      path: "" # all files
+    values:
+      layout: "default"
+
 
 # --- THEME OPTIONS --- #
 
@@ -41,9 +55,9 @@ avatar: /img/kzu.jpg
 
 # List of links in the navigation bar
 navbar-links:
-  Home: ""
-  Archive: "archive/"
-  About Me: "about/"
+  Home: "/"
+  Archive: "/archive/"
+  About Me: "/about/"
   
 # --- Footer options --- #
 # Select which links to show in the footer
@@ -61,21 +75,6 @@ footer-links-active:
 url-pretty: "cazzulino.com"
   
 # --- Don't need to touch anything below here (but you can if you want) --- #
-
-# Default YAML values (more information on Jekyll's site)
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      comments: true  # add comments to all blog posts
-	  layout: post
-  -
-    scope:
-      path: "" # all files
-    values:
-      layout: "default"
 
 # prose.io config
 prose:

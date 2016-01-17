@@ -1,7 +1,6 @@
 ---
 title: "How Visual Studio builds on the Mac with Xamarin"
 description: "With Xamarin 4, the remote connectivity with the Mac is better than ever for Visual Studio developers. In this post, I go over the details of how it all works."
-layout: post
 tags: programming, msbuild, xbuild, xamarin, mac, ios
 ---
 When we started working for Xamarin [as consultants](http://clariusconsulting.net), a couple years ago, it was nothing short of amazing for us that Xamarin had already achieved a pretty solid "F5 experience" with an app building on the Mac and debugging like any regular local .NET app. I had the same feeling the first time I did the same thing against an Azure website. Felt like magic (in the [Arthur C. Clark](http://www.brainyquote.com/quotes/quotes/a/arthurccl101182.html#ZaMC1KSvguO7s706.99) way). 

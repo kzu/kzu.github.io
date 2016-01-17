@@ -1,7 +1,6 @@
 ---
 title: "How to enable Xamarin.Forms XAML Intellisense in VS 2015 Update 1"
 description: "Visual Studio excelent built-in language service for XAML can now be used for Xamarin.Forms editing. Learn how to get an early preview and help us polish the experience!"
-layout: post
 tags: programming, xamarin, forms, vs2015
 ---
 As explained in [XML vs XAML intellisense](http://www.cazzulino.com/xaml-forms-intellisense.html) section of my blog post, Xamarin 4 ships with an XML-based intellisense for Xamarin.Forms we wrote from scratch. We have worked with Microsoft to make it possible to use the excelent built-in XAML language service instead, which knows about XAML's specifics, and is driven by metadata provided by the Xamarin.Forms library.
