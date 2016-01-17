@@ -5,7 +5,7 @@ layout: page
 <div class="posts-list">
     {% for post in paginator.posts %}
     <article class="post-preview">
-        <a href="{{ post.url | prepend: site.baseurl }}">
+        <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
             <h2 class="post-title">{{ post.title }}</h2>
 
             {% if post.subtitle %}
@@ -24,7 +24,7 @@ layout: page
             {% else %}
             {{ post.content | truncatewords: 50 | strip_html | xml_escape}}
             {% endif %}
-            <a href="{{ post.url | prepend: site.baseurl }}" class="post-read-more">[Read&nbsp;More]</a>
+            <a href="{{ post.url | | prepend: site.baseurl | replace: '//', '/' }}" class="post-read-more">[Read&nbsp;More]</a>
         </div>
 
     </article>
