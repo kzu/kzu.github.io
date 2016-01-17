@@ -24,8 +24,6 @@ paginate: 10
 
 port: 3000
 pygments: false
-
-lsi: false
 markdown: kramdown
 
 defaults:
@@ -37,7 +35,7 @@ defaults:
       comments: true
       layout: post
       excerpt_separator: <!--more-->
-      tags: programming
+      category: programming
   -
     scope:
       path: "" # all files
