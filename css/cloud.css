@@ -1,8 +1,8 @@
 /* Tag cloud styles */
 
 .cloud {
-    width: 300px;
-    height: 100px;
+    width: 100%;
+    height: 150px;
 }
 
 div.jqcloud {
@@ -11,11 +11,6 @@ div.jqcloud {
 }
 
 @media only screen and (min-width: 768px) {
-    .cloud {
-        width: 768px;
-        height: 250px;
-    }
-
     div.jqcloud span {
         padding-left: 2px;
         padding-right: 2px;
