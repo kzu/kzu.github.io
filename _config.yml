@@ -18,11 +18,12 @@ google_analytics: "UA-20330792-1"
 feed:             http://feeds.feedburner.com/DanielCazzulino
 feed-type:        atom    # atom | rss
 
-exclude:    [ "README.md", "CNAME", ".gitattributes", ".gitignore", ".editorconfig" ]
-paginate:   10
-pygments:   true
-port:       3000
-host:       127.0.0.1
+exclude:      [ "README.md", "CNAME", ".gitattributes", ".gitignore", ".editorconfig" ]
+paginate:     10
+pygments:     true
+highlighter:  'pygments'
+port:         3000
+host:         127.0.0.1
 
 defaults:
   -
@@ -83,9 +84,9 @@ prose:
   rooturl: '_posts'
   media: 'img'
   ignore:
-    - 404.html
     - LICENSE
-    - feed.xml
+    - atom.xml
+    - sitemap.xml
     - _config.yml
     - /_layouts
     - /_includes
