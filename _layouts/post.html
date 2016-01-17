@@ -1,27 +1,50 @@
 ---
 layout: default
 ---
-<div class="content{% if page.photo %} photo-post{% endif %}">
-  <div class="post single">
-    <h1>{{ page.title }}</h1>
-    <info datetime="{{ page.date | date: "%Y-%m-%d" }}">
-      {{ page.date | date: "%b %d, %Y" }}
-    </info>
-    <div class="body">{{ content }}</div>
-    <div class="breaker"></div>
 
-  {% if page.nocomments %}
-  {% else %}
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-      window.disqus_identifier = "{{ page.id }}";
-    </script>
-    <script async src="http://{{ site.author.disqus }}.disqus.com/embed.js"></script>
-    <noscript>Please enable JavaScript to view the
-      <a href="http://disqus.com/?ref_noscript={{ site.author.disqus }}">comments powered by Disqus.</a>
-    </noscript>
-    {% include disqus.html %}
+<header class="header-post">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="post-heading">
+        <h1>{{ page.title }}</h1>
+        {% if page.subtitle %}
+        <h2 class="post-subheading">{{ page.subtitle }}</h2>
+        {% endif %}
+        <span class="post-meta">Posted on {{ page.date | date: "%B %-d, %Y" }}</span>
+      </div>
+     </div>
   </div>
-  {% endif %}
+</header>
+
+<article>
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+	  {{ content }}
+	</div>
+  </div>
+</article>
+
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <ul class="pager blog-pager">
+      {% if page.previous.url %}
+      <li class="previous">
+        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
+      </li>
+      {% endif %}
+      {% if page.next.url %}
+      <li class="next">
+        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
+      </li>
+      {% endif %}
+    </ul>
   </div>
 </div>
+
+{% if page.comments %}
+<div class="row disqus-comments">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    {% include disqus.html %}
+  </div>
+</div>
+{% endif %}

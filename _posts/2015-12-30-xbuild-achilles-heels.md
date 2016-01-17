@@ -1,6 +1,9 @@
 ---
 title: "XBuild Achilles Heels"
-description: "XBuild at first seems like a pretty usable implementation of MSBuild for *nix. Its shortcomings are too many to ignore though. Here are my 'favorites'"
+description: |
+  XBuild at first seems like a pretty usable implementation of 
+  MSBuild for *nix. Its shortcomings are too many to ignore though. 
+  Here are my 'favorites'...
 layout: post
 tags: programming, msbuild, xbuild
 ---

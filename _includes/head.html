@@ -1,0 +1,82 @@
+﻿<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="author" content="{{ site.author.name }}" />
+    <link rel="alternate" type="application/{{ site.feed-type }}+xml" title="{{ site.title }}" href="{{ site.feed }}">
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}">
+    <meta name="og:description" content="{{ page.description }}">
+    {% else if page.subtitle %}
+    <meta name="description" content="{{ page.subtitle }}">
+    <meta name="og:description" content="{{ page.subtitle }}">
+    {% else if site.description %}
+    <meta name="description" content="{{ site.description }}">
+    <meta name="og:description" content="{{ site.description }}">
+    {% endif %}
+
+    {% if site.author.twitter %}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@{{ site.author.twitter }}">
+    {% endif %}
+
+    {% if site.author.google %}
+    <link rel="author" href="https://plus.google.com/{{ site.author.google }}" />
+    {% endif %}
+
+    {% if page.common-ext-css %}
+    {% for css in page.common-ext-css %}
+    <link rel="stylesheet" href="{{ css }}" />
+    {% endfor %}
+    {% endif %}
+
+    {% if page.common-css %}
+    {% for css in page.common-css %}
+    <link rel="stylesheet" href="{{ css | prepend: site.baseurl | replace: '//', '/' }}" />
+    {% endfor %}
+    {% endif %}
+
+    {% if page.common-googlefonts %}
+    {% for font in page.common-googlefonts %}
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family={{ font }}" />
+    {% endfor %}
+    {% endif %}
+
+    {% if page.ext-css %}
+    {% for css in page.ext-css %}
+    <link rel="stylesheet" href="{{ css }}" />
+    {% endfor %}
+    {% endif %}
+
+    {% if page.css %}
+    {% for css in page.css %}
+    <link rel="stylesheet" href="{{ css | prepend: site.baseurl | replace: '//', '/' }}" />
+    {% endfor %}
+    {% endif %}
+
+    {% if page.googlefonts %}
+    {% for font in page.googlefonts %}
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family={{ font }}" />
+    {% endfor %}
+    {% endif %}
+
+    <!-- Facebook OpenGraph tags -->
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ site.url }}">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US" />
+
+    {% if page.id %}
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}/" />
+    {% else %}
+    <meta property="og:url" content="{{ site.url }}{{ page.url | remove: '/index.html' | remove: '.html' }}" />
+    {% endif %}
+
+    {% if page.image %}
+    <meta property="og:image" content="{{ page.image }}">
+    {% else if page.photo %}
+    <meta property="og:image" content="{{ page.photo }}">
+    {% endif %}
+</head>
