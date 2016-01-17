@@ -1,27 +1,28 @@
 title : Daniel Cazzulino
 description : A blog about .NET, C#, Visual Studio, Mobile, Xamarin and technology
 author :
-  name : Daniel Cazzulino
-  alias: kzu
-  email : daniel@cazzulino.com
-  github : kzu
-  twitter : kzu
-  stackoverflow: 24684/kzu
-  linkedin: in/danielcazzulino
-  google: +DanielCazzulino
+  name :          Daniel Cazzulino
+  alias:          kzu
+  email :         daniel@cazzulino.com
+  github :        kzu
+  twitter :       kzu
+  stackoverflow:  24684/kzu
+  linkedin:       in/danielcazzulino
+  google:         +DanielCazzulino
 
-permalink: /:title.html 
-url: http://www.cazzulino.com
-baseurl: ""
-disqus: kzu
+permalink:        /:title.html 
+url:              http://www.cazzulino.com
+baseurl:          ""
+disqus:           kzu
 google_analytics: "UA-20330792-1"
-feed: http://feeds.feedburner.com/DanielCazzulino
-feed-type: atom    # atom | rss
+feed:             http://feeds.feedburner.com/DanielCazzulino
+feed-type:        atom    # atom | rss
 
-exclude: [ "README.md", "CNAME", ".gitattributes", ".gitignore", ".editorconfig" ]
-paginate: 10
-port: 3000
-host: 127.0.0.1
+exclude:    [ "README.md", "CNAME", ".gitattributes", ".gitignore", ".editorconfig" ]
+paginate:   10
+pygments:   true
+port:       3000
+host:       127.0.0.1
 
 defaults:
   -
@@ -35,7 +36,7 @@ defaults:
       type: "posts"
     values:
       comments: true
-      layout: post
+      layout:   post
       category: programming
   -
     scope:
