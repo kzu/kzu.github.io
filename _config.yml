@@ -38,12 +38,8 @@ defaults:
       category: programming
   -
     scope:
-      path: "*.xml"
-    values:
-      layout: ""
-  -
-    scope:
-      path: "" # all files
+      path: ""
+      type: "pages"
     values:
       layout: "default"
 
