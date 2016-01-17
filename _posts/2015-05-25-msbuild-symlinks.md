@@ -1,7 +1,7 @@
 ---
 title: "How to use symlinks with MSBuild"
 description: "Symlinks are very useful. This post shows how to leverage them for conditional processing using MSBuild item groups."
-tags: programming, msbuild
+tags: msbuild
 ---
 I needed to conditionally re-create symlinks to a known location in the machine from the output of an C# project file (MSBuild custom tasks and targets, that should go to `$(MSBuildExtensionsPath)\[Company]\[Product]`).
 

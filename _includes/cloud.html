@@ -1,0 +1,17 @@
+<div id="cloud" class="cloud"></div>
+<div id="archives">
+    {% for item in items %}
+    <div class="archive-group">
+        {% capture item_name %}{{ item | first }}{% endcapture %}
+        <div style="display: block"><a style="padding-top: 10px" id="{{ item_name | slugize }}" name="{{ item_name | slugize }}">&nbsp;</a></div>
+        <h3>{{ item_name }}</h3>
+        <ul>
+            {% for post in items[item_name] %}
+            <li>
+                {{ post.date | date: "%b %d, %Y"  }} &mdash; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</div>

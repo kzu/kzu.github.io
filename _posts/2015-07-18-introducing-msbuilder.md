@@ -1,7 +1,7 @@
 ---
 title: "Bite-sized reusable MSBuild targets, properties and tasks"
 description: "Introducing MSBuilder, an open source project that enables you to pick & choose the specific extensions you need for your MSBuild project, powered by NuGet."
-tags: programming, msbuild, 
+tags: [msbuild, nuget] 
 ---
 I'm a long-time MSBuild fan. Now that [it's open source](https://github.com/Microsoft/msbuild), 
 I've even played with bootstrapping it [with xbuild](http://www.cazzulino.com/xplat-msbuild.html) 

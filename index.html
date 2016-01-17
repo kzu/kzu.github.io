@@ -26,7 +26,9 @@ layout: page
             {% else %}
             {{ post.content | truncatewords: 50 }}
             {% endif %}
-            <a href="{{ site.baseurl }}{{ post.url }}" class="post-read-more">[Read&nbsp;More]</a>
+            <p>
+                <a href="{{ site.baseurl }}{{ post.url }}" class="post-read-more">[Read&nbsp;More]</a>
+            </p>
         </div>
 
     </article>

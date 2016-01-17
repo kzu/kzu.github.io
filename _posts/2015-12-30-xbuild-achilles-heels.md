@@ -4,7 +4,7 @@ description: |
   XBuild at first seems like a pretty usable implementation of 
   MSBuild for *nix. Its shortcomings are too many to ignore though. 
   Here are my 'favorites'...
-tags: programming, msbuild, xbuild
+tags: [msbuild, xbuild]
 ---
 
 Invariable, every time I complain about XBuild, some long-time user of it tells me it's not so bad 

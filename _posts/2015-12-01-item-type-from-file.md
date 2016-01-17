@@ -1,7 +1,7 @@
 ---
 title: "How to get the item type or build action of a file in a project"
 description: "Sounds like it should be pretty easy, getting the item type (shown in Visual Studio as the build action) of an arbitrary file given its containing project identifier. Yeah, right..."
-tags: programming, vsx
+tags: [vsx]
 ---
 
 When working inside a Visual Studio extension, it's not rare to need to go back and 

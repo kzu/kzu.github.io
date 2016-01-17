@@ -1,7 +1,7 @@
 ---
 title: "Bootstrapping Cross Platform MSBuild with XBuild and NuGet"
 description: "Now that MSBuild is open source and cross-platform, you easily bootstrap it via XBuild and NuGet to build on a Mac/*nix too."
-tags: programming, msbuild, xbuild, nuget
+tags: [msbuild, xbuild, nuget]
 ---
 I have to admit I'm a fan of MSBuild. Not necessarily a fan of the file format, 
 but of the feature set. [At work](http://www.xamarin.com), I've encountered now 

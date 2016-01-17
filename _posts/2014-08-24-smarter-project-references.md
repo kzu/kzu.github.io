@@ -1,7 +1,7 @@
 ---
 title: "Smarter Project References"
 description: "Sometimes the simple act of adding a project or assembly reference results in multiple subsequent attempts to fix the build because of the myriad indirect references that those depend on in turn, and which you are forced to add. Some other times, you just wish you were able to remove all those external projects that clutter the solution and slow down VS, but you need the project references for those tough debugging times. Welcome to Smarter Project References!"
-tags: programming msbuild
+tags: msbuild
 ---
 Sometimes the simple act of adding a project or assembly reference results in multiple subsequent attempts to fix the build because of the myriad indirect references that those depend on in turn, and which you are forced to add. Some other times, you just wish you were able to remove all those external projects that clutter the solution and slow down VS, but you need the project references for those tough debugging times. Welcome to Smarter Project References!
 

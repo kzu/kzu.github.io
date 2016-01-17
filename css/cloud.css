@@ -1,0 +1,23 @@
+/* Tag cloud styles */
+
+.cloud {
+    width: 300px;
+    height: 100px;
+}
+
+div.jqcloud {
+    /* Defines the starting size for the smallest tag */
+    font-size: 16px;
+}
+
+@media only screen and (min-width: 768px) {
+    .cloud {
+        width: 768px;
+        height: 250px;
+    }
+
+    div.jqcloud span {
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+}

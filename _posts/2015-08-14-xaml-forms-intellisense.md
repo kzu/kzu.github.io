@@ -1,7 +1,7 @@
 ---
 title: "How to disable Xamarin Forms XAML Intellisense in VS 2015"
 description: "What's going on with XF XAML intellisense in VS 2015, and why you may need to disable it until Udpate 1"
-tags: programming, xamarin, forms, vs2015
+tags: [xamarin, forms]
 ---
 Straight answer first just in case you're in a hurry:
 

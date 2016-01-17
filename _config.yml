@@ -10,7 +10,6 @@ author :
   linkedin: in/danielcazzulino
   google: +DanielCazzulino
 
-encoding: UTF-8
 permalink: /:title.html 
 url: http://www.cazzulino.com
 baseurl: ""
@@ -21,12 +20,15 @@ feed-type: atom    # atom | rss
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "CNAME"]
 paginate: 10
-
 port: 3000
-pygments: false
-markdown: kramdown
+host: 127.0.0.1
 
 defaults:
+  -
+    scope:
+      path: ""
+    values:
+      excerpt_separator: <!--more-->
   -
     scope:
       path: ""
@@ -34,7 +36,6 @@ defaults:
     values:
       comments: true
       layout: post
-      excerpt_separator: <!--more-->
       category: programming
   -
     scope:

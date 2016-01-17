@@ -2,7 +2,6 @@
 title: "Joining Xamarin"
 description: "My next big adventure: helping to build the best mobile development ever, inside Visual Studio!"
 image: http://www.cazzulino.com/img/monkey-face.jpg
-tags: programming
 ---
 <img src="http://www.cazzulino.com/img/vb6.png" width="35%" align="right" class="image">
 Back in 2001 I was making good bucks, programming in a language that I had grown to hate: Visual Basic 6.

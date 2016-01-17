@@ -1,7 +1,6 @@
 ---
 title: "Open Source is never Abandonware"
 description: "Back in the day, friend Scott Hanselman used Schematron as an example of abandoware. That ends today, thanks to the community, as it should."
-tags: programming, schematron
 ---
 
 Some time ago, [Scott Hanselman posted on Abandonware](http://www.hanselman.com/blog/WhatIsAbandonware.aspx) and 
