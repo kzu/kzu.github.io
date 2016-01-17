@@ -12,8 +12,8 @@ author :
 
 encoding: UTF-8
 permalink: /:title.html 
-url: http://www.cazzulino.com/
-baseurl: ""
+url: http://www.cazzulino.com
+baseurl: "/"
 disqus: kzu
 google_analytics: "UA-20330792-1"
 feed: http://feeds.feedburner.com/DanielCazzulino
