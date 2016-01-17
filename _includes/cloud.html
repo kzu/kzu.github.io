@@ -1,12 +1,14 @@
 <div id="cloud" class="cloud"></div>
 <div id="archives">
-    {% for item in items %}
+    {% capture name %}{% for item in items %}{{ item[0] }}{% unless forloop.last %}|{% endunless %}{% endfor %}{% endcapture %}
+    {% assign names = name | split: '|' | sort %}
+    {% for name in names %}
+    {% assign item = items[name] %}
     <div class="archive-group">
-        {% capture item_name %}{{ item | first }}{% endcapture %}
-        <div style="display: block"><a style="padding-top: 10px" id="{{ item_name | slugize }}" name="{{ item_name | slugize }}">&nbsp;</a></div>
-        <h3>{{ item_name }}</h3>
+        <div style="display: block"><a style="padding-top: 10px" id="{{ name | slugize }}" name="{{ name | slugize }}">&nbsp;</a></div>
+        <h3>{{ name }}</h3>
         <ul>
-            {% for post in items[item_name] %}
+            {% for post in item %}
             <li>
                 {{ post.date | date: "%b %d, %Y"  }} &mdash; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             </li>
