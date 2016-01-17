@@ -5,7 +5,7 @@ layout: ""
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>{{ site.title  | xml_escape }}</title>
 	<subtitle>{{ site.description | xml_escape }}</subtitle>
-	<link href="{{ site.url }}{{ site.baseurl }}atom.xml" rel="self"/>
+	<link href="{{ site.url }}{{ site.baseurl }}/atom.xml" rel="self"/>
 	<link href="{{ site.url }}"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
 	<id>{{ site.url }}/</id>
@@ -23,7 +23,7 @@ layout: ""
 		<content type="html">{{ post.content | xml_escape }}</content>
 		<author>
 			<name>{{ site.author.name }}</name>
-			<uri>{{ site.baseurl }}about/</uri>
+			<uri>{{ site.baseurl }}/about/</uri>
 		</author>
 	</entry>
 	{% endfor %}
