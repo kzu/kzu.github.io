@@ -1,5 +1,5 @@
 ---
-layout: nil
+layout: 
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -10,20 +10,20 @@ layout: nil
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>{{ site.url }}{{ site.baseurl }}about/</loc>
+    <loc>{{ site.url }}{{ site.baseurl }}/about/</loc>
     <lastmod>{{ site.time | date_to_xmlschema}}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>{{ site.url }}{{ site.baseurl }}archive/</loc>
+    <loc>{{ site.url }}{{ site.baseurl }}/archive/</loc>
     <lastmod>{{ site.time | date_to_xmlschema}}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   {% for post in site.posts %}
   <url>
-    <loc>{{ site.url }}{{ post.url | prepend: site.baseurl | replace: '//', '/' }}</loc>
+    <loc>{{ site.url }}{{ site.baseurl }}{{ post.url }}</loc>
     <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

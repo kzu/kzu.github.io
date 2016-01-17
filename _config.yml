@@ -13,7 +13,7 @@ author :
 encoding: UTF-8
 permalink: /:title.html 
 url: http://www.cazzulino.com
-baseurl: "/"
+baseurl: ""
 disqus: kzu
 google_analytics: "UA-20330792-1"
 feed: http://feeds.feedburner.com/DanielCazzulino
@@ -23,7 +23,7 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "
 paginate: 10
 
 port: 3000
-highlighter: ""
+pygments: false
 
 lsi: false
 markdown: kramdown
@@ -70,6 +70,7 @@ defaults:
       type: "posts"
     values:
       comments: true  # add comments to all blog posts
+	  layout: post
   -
     scope:
       path: "" # all files

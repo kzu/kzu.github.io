@@ -69,9 +69,9 @@
     <meta property="og:locale" content="en_US" />
 
     {% if page.id %}
-    <meta property="og:url" content="{{ site.url }}{{ page.url | prepend: site.baseurl | replace: '//', '/' }}/" />
+    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}/" />
     {% else %}
-    <meta property="og:url" content="{{ site.url }}{{ page.url | prepend: site.baseurl | replace: '//', '/' | remove: '/index.html' | remove: '.html' }}" />
+    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url | remove: '/index.html' | remove: '.html' }}" />
     {% endif %}
 
     {% if page.image %}
