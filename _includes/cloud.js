@@ -1,3 +1,5 @@
+{% assign items = include.items %}
+
 var words = [
 {% for item in items %}
     { text: "{{ item | first }}", weight: {{ item | last | size | times: 100 | divided_by: items.size }}, link: baseUrl + '#{{ item | first | slugize }}' }{% unless forloop.last %}, {% endunless %}

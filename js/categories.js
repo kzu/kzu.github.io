@@ -2,5 +2,4 @@
 layout: none
 ---
 var baseUrl = "{{ site.baseurl }}/categories/";
-{% assign items = site.categories %}
-{% include cloud.js %}
+{% include cloud.js items=site.categories %}
