@@ -7,7 +7,7 @@ description: |
 tags: [msbuild, xbuild]
 ---
 
-Invariable, every time I complain about XBuild, some long-time user of it tells me it's not so bad 
+Invariably, every time I complain about XBuild, some long-time user of it tells me it's not so bad 
 and it actually works pretty fine if you know its limitations. So I set out to document those, since 
 in my experience, they are so many as to cause beautifully and carefully crafted MSBuild targets to 
 become an entanglement of obsolete elements for the sake of satisfying XBuild (i.e. usage of CreateProperty 
