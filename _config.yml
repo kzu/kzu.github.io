@@ -21,6 +21,7 @@ feed-type:        atom    # atom | rss
 exclude:      [ "README.md", "CNAME", ".gitattributes", ".gitignore", ".editorconfig" ]
 paginate:     10
 highlighter:  'rouge'
+pygments:     true
 port:         3000
 host:         127.0.0.1
 
