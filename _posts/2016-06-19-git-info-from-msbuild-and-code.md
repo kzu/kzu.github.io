@@ -35,7 +35,8 @@ expose some environment variable that you can consume in some way too from those
 build scripts. Others would provide format strings and customization hooks to 
 tweak how the version numbers or assembly info is generated, requiring some 
 learning on the way. I've done so myself too at some point with 
-[SemanticGit](https://www.nuget.org/packages/SemanticGit). In the case of GitVersion, 
+[SemanticGit](https://www.nuget.org/packages/SemanticGit). In the case of 
+[GitVersion](https://github.com/GitTools/GitVersion), 
 it goes to the extreme of being [awfully complicated](http://gitversion.readthedocs.org/en/latest/more-info/how-it-works/).
 
 
