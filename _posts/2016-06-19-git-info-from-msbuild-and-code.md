@@ -51,12 +51,12 @@ When you install the package in your project that lives in a `git` repo, you
 automatically get the following MSBuild properties, ready to be consumed 
 by any target that depends on the provided `GitInfo` target:
 
-* $(GitRoot): the root directory (without trailing slash) of the git repository.
-              It's smart enough to also work for submodules, properly returning 
-              the containing repository root, not the submodule's.
-* $(GitBranch): the branch being built
-* $(GitCommit): the short (7 chars) commit sha being built
-* $(GitSha): the full commit sha being built
+* `$(GitRoot)`: the root directory (without trailing slash) of the git repository.
+                It's smart enough to also work for submodules, properly returning 
+                the containing repository root, not the submodule's.
+* `$(GitBranch)`: the branch being built
+* `$(GitCommit)`: the short (7 chars) commit sha being built
+* `$(GitSha)`: the full commit sha being built
 
 That may be all the information you need if you're not leveraging the commits 
 for versioning information. If so, in addition to consuming this from MSBuild 
@@ -76,15 +76,15 @@ named `ThisAssembly` in the intermediate output directory, like the following:
 			/// <summary>Provides access to the git information for the current assembly.</summary>
 			public partial class Git
 			{
-			/// <summary>Branch: master</summary>
-			public const string Branch = "master";
+				/// <summary>Branch: master</summary>
+				public const string Branch = "master";
 
-			/// <summary>Commit: 5335c2f</summary>
-			public const string Commit = "5335c2f";
+				/// <summary>Commit: 5335c2f</summary>
+				public const string Commit = "5335c2f";
 
-			/// <summary>Sha: 5335c2f914b56ddd3dab4c0c71b44aa0e070f059</summary>
-			public const string Sha = "5335c2f914b56ddd3dab4c0c71b44aa0e070f059";
-			...
+				/// <summary>Sha: 5335c2f914b56ddd3dab4c0c71b44aa0e070f059</summary>
+				public const string Sha = "5335c2f914b56ddd3dab4c0c71b44aa0e070f059";
+				...
 		}
 	}
 
@@ -111,9 +111,9 @@ via `AssemblyMetadataAttribute`s which are new in .NET 4.5, as follows:
 ## Leveraging git information for product versioning 
 
 It's quite common to derive a product version number from a branch or tag name 
-plus the number of commits since the branch/tag was created, [SemVer](http://semver.org) style, 
-like [GitVersion](https://www.nuget.org/packages/GitVersion) . The idea being that 
-if the branch is named 'v3.0.0' and there have been 40 commits to it since it was branched, 
+plus the number of commits since the branch/tag was created, [SemVer](http://semver.org)
+style. The idea being that if the branch is named 'v3.0.0' and there have 
+been 40 commits to it since it was branched,
 then the version number is 'v3.0.40'. Pretty straightforward and very useful, 
 since now you can locally build any branch and commit (or tag) and generate a 
 fully equivalent product (including version!) from what a continuous integration 
@@ -137,6 +137,7 @@ you can freely build the version number you want by just concatenating the
 values yourself.
 
 `GitInfo` exposes two version structures: 
+
 * `BaseVersion`: this is the base version determined from the branch, tag 
   or version file contents. It's expected to be a SemVer-like format, and 
   it's exposed as its individual components `Major`, `Minor` and `Patch`, 
@@ -356,12 +357,12 @@ Which causes the following msbuild log entry:
 
     GitInfoReport:
       Git Info:
-        GitRoot:              C:/Code/Xamarin/XamarinVS
+        GitRoot:              C:/Contoso
         GitBranch:            master
         GitCommit:            39cf84e
         GitSha:               39cf84eb9027ca669c8aa6cb4fe5f238009d42ba
         GitBaseVersion:       99.0.0
-        GitBaseVersionSource: C:\Code\Xamarin\XamarinVS\XamarinVS.Version
+        GitBaseVersionSource: C:\Contoso\Contoso.Version
         GitBaseVersionMajor:  99
         GitBaseVersionMinor:  0
         GitBaseVersionPatch:  0
@@ -380,5 +381,11 @@ a project, which can of course also benefit from `GitInfo` even without
 being a regular project containing code: it just needs to import the 
 targets and make its targets depend on 
 [GitInfoReport](https://github.com/kzu/GitInfo/blob/master/src/GitInfo/build/GitInfo.targets#L84)!
+
+But to me the best part is that all of the behavior is implemented in 
+a single .targets file, with plain native MSBuild with no custom tasks, 
+even [adding the commits to the base patch](https://github.com/kzu/GitInfo/blob/master/src/GitInfo/build/GitInfo.targets#L584)
+so it makes for an interesting read if you're looking to learn some 
+MSBuild tricks too :).
 
 Happy MSBuilding!
