@@ -1,7 +1,7 @@
 ---
 title: "Leveraging Azure Functions for MIT AppInventor Web Interactions"
 description: "The MIT AppInventor platform is awesome to teach kids programming concepts while building an actual Android app. Interacting with the web is super painful, however, and Azure Functions can provide the missing link."
-tags: [vsx, msi]
+tags: [ai2, azure, functions]
 ---
 
 I'm contributing a few hours a week on Fridays to tutor kids on programming and a bit of electronics, 
@@ -18,7 +18,7 @@ One of the kids wanted to build a translating app that would:
 
 1. Accept spoken spanish input
 2. Recognize the text and send it to a web api for translation
-3. Get the translated text and have the app speak it loud 
+3. Get the translated text and have the app speak it out loud 
 
 The [speech recognition](http://app.thunkable.com/reference/components/media.html#SpeechRecognizer) and 
 [text-to-speech](http://app.thunkable.com/reference/components/media.html#TextToSpeech) parts were very 
@@ -83,7 +83,7 @@ function name, which results in a nice looking url `https://stringify.azurewebsi
 I started directly with from the *Or create your own custom function* link at the bottom 
 of the wizard, and chose the `HttpTrigger - C#` template. Then I wrote the code in a 
 window without any intellisense (I hope that changes soon ;)) but it was dead-simple. The 
-**whole** function that takes POSTed JSON bodies and takes a "q=[JSON PATH]" argument 
+**whole** function that takes POSTed JSON bodies and a "q=[JSON PATH]" argument 
 for `stringifying` it is:
 
     #r "Newtonsoft.Json"
