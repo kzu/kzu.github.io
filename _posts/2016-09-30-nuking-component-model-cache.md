@@ -7,7 +7,8 @@ tags: [vsx, msi]
 A quick search on the web for [InvalidMEFCacheException](https://www.google.com.ar/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=InvalidMEFCacheException) 
 will yield quite a few results. If you have faced it, you know it's annoying like hell. 
 
-> I wonder, if VS already detected its cache is invalid, which doesn't it auto-nuke it and offer a quick Restart action?
+> I wonder, if VS already detected its cache is invalid, why doesn't it auto-nuke it 
+> and offer a quick Restart action?
 
 Two very common ways you can corrupt the MEF cache are:
 
