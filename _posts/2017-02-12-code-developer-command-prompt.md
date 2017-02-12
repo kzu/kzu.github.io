@@ -17,6 +17,14 @@ The editor will show red squiglies for the "funny" quoting of the `VsDevCmd.bat`
 
 Also, adjust the VS install path to your version/edition of Visual Studio.
 
+You may also find these two settings useful, if you want the same cursor style and blinking in the terminal 
+as in the editor:
+
+```
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
+```
+
 Finally, the default `Ctrl+K` keybinding to clear the terminal window won't work in `cmd.exe`, just rendering 
 a useless `^K`, so I also set it to `Ctrl+Shift+K` instead via the `File | Preferences | Keyboard Shortcuts` 
 menu by adding the following:
