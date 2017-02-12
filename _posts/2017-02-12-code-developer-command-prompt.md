@@ -4,7 +4,7 @@ description: "How to configure the VS Code integrated terminal to launch into a 
 tags: [code]
 ---
 
-Just add the following two settings:
+Just add the following two settings via `File | Preferences | Settings`:
 
 ```
     "terminal.integrated.shell.windows": "cmd.exe",
@@ -13,8 +13,22 @@ Just add the following two settings:
     ]
 ```
 
-The editor will show red squiglies for the "funny" quoting of the VsDevCmd.bat path, but it's the right one.
+The editor will show red squiglies for the "funny" quoting of the `VsDevCmd.bat` path, but it's the right one.
 
 Also, adjust the VS install path to your version/edition of Visual Studio.
+
+Finally, the default `Ctrl+K` keybinding to clear the terminal window won't work in `cmd.exe`, just rendering 
+a useless `^K`, so I also set it to `Ctrl+Shift+K` instead via the `File | Preferences | Keyboard Shortcuts` 
+menu by adding the following:
+
+```
+[
+    {
+        "key": "ctrl+shift+k",
+        "command": "workbench.action.terminal.clear",
+        "when": "terminalFocus"
+    }
+]
+```
 
 Back to coding...
