@@ -13,26 +13,29 @@ it's pretty straight-forward actually.
 Just create the following static class mimicking the CallContext API:
 
 ```csharp
+    /// <summary>
+    /// Provides a way to set contextual data that flows with the call and 
+    /// async context of a test or invocation.
+    /// </summary>
     public static class CallContext
     {
-        static ConcurrentDictionary<string, object> state = new ConcurrentDictionary<string, object>();
+        static ConcurrentDictionary<string, AsyncLocal<object>> state = new ConcurrentDictionary<string, AsyncLocal<object>>();
 
-        public static void SetData<T>(string name, T data)
-        {
-            ((AsyncLocal<T>)state.GetOrAdd(name, _ => new AsyncLocal<T>()))
-                .Value = data;
-        }
+        /// <summary>
+        /// Stores a given object and associates it with the specified name.
+        /// </summary>
+        /// <param name="name">The name with which to associate the new item in the call context.</param>
+        /// <param name="data">The object to store in the call context.</param>
+        public static void SetData(string name, object data) =>
+            state.GetOrAdd(name, _ => new AsyncLocal<object>()).Value = data;
 
-        public static T GetData<T>(string name)
-        {
-            object data;
-            if (state.TryGetValue(name, out data))
-                return ((AsyncLocal<T>)data).Value;
-
-            return default(T);
-        }
-
-        public static object GetData(string name) => GetData<object>(name);
+        /// <summary>
+        /// Retrieves an object with the specified name from the <see cref="CallContext"/>.
+        /// </summary>
+        /// <param name="name">The name of the item in the call context.</param>
+        /// <returns>The object in the call context associated with the specified name, or <see langword="null"/> if not found.</returns>
+        public static object GetData(string name) =>
+            state.TryGetValue(name, out AsyncLocal<object> data) ? data.Value : null;
     }
 ```
 
@@ -63,7 +66,7 @@ Threads just for the sake of it, and see the test pass:
                     new Thread(() => t10 = CallContext.GetData("d1")).Start();
                     Task.WaitAll(
                         Task.Run(() => t1 = CallContext.GetData("d1"))
-                            .ContinueWith(t => Task.Run(() => t11 = CallContext.GetData<object>("d1"))),
+                            .ContinueWith(t => Task.Run(() => t11 = CallContext.GetData("d1"))),
                         Task.Run(() => t12 = CallContext.GetData("d1")),
                         Task.Run(() => t13 = CallContext.GetData("d1"))
                     );
@@ -73,8 +76,8 @@ Threads just for the sake of it, and see the test pass:
                     CallContext.SetData("d2", d2);
                     new Thread(() => t20 = CallContext.GetData("d2")).Start();
                     Task.WaitAll(
-                        Task.Run(() => t2 = CallContext.GetData<object>("d2"))
-                            .ContinueWith(t => Task.Run(() => t21 = CallContext.GetData<object>("d2"))),
+                        Task.Run(() => t2 = CallContext.GetData("d2"))
+                            .ContinueWith(t => Task.Run(() => t21 = CallContext.GetData("d2"))),
                         Task.Run(() => t22 = CallContext.GetData("d2")),
                         Task.Run(() => t23 = CallContext.GetData("d2"))
                     );
@@ -93,10 +96,43 @@ Threads just for the sake of it, and see the test pass:
             Assert.Same(d2, t22);
             Assert.Same(d2, t23);
 
-            Assert.Null(CallContext.GetData<object>("d1"));
+            Assert.Null(CallContext.GetData("d1"));
             Assert.Null(CallContext.GetData("d2"));
         }
 ```
 
-Now add a bunch of parameter validation, type compatibility checks before casting 
-the `AsyncLocal<T>`, etc. But the gist of it is that it just works.
+You could also have a typed version of `CallContext`:
+
+```csharp
+    public static class CallContext<T>
+    {
+        static ConcurrentDictionary<string, AsyncLocal<T>> state = new ConcurrentDictionary<string, AsyncLocal<T>>();
+
+        /// <summary>
+        /// Stores a given object and associates it with the specified name.
+        /// </summary>
+        /// <param name="name">The name with which to associate the new item in the call context.</param>
+        /// <param name="data">The object to store in the call context.</param>
+        public static void SetData(string name, T data) => 
+            state.GetOrAdd(name, _ => new AsyncLocal<T>()).Value = data;
+
+        /// <summary>
+        /// Retrieves an object with the specified name from the <see cref="CallContext"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of the data being retrieved. Must match the type used when the <paramref name="name"/> was set via <see cref="SetData{T}(string, T)"/>.</typeparam>
+        /// <param name="name">The name of the item in the call context.</param>
+        /// <returns>The object in the call context associated with the specified name, or a default value for <typeparamref name="T"/> if none is found.</returns>
+        public static T GetData(string name) =>
+            state.TryGetValue(name, out AsyncLocal<T> data) ? data.Value : default(T);
+    }
+```
+
+which you would call like:
+
+```csharp
+CallContext<Foo>.SetData("foo", foo);
+...
+var foo = CallContext<Foo>.GetData("foo");
+```
+
+And it Just Works :D
