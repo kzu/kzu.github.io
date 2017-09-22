@@ -12,6 +12,7 @@ Index so far:
 
 * [Introduction]({{ site.baseurl }}{% post_url 2017-09-21-building-like-a-pro-introduction %})
 
+<br />
 
 ## Why MSBuild 
 
@@ -122,18 +123,5 @@ With those two in after `msbuild`, you'd get just:
 > repeating values on every invocation. `/nologo` has to be passed in via the cmdline arg, 
 > unfortunately.'[;]
 
-
-
-## A Primer
-
-If you have never tweaked your `.csproj`s in any significant way (i.e. beyond adding 
-a `Condition` here and there or tweaking a properly value), a quick overview of the 
-core concepts in MSBuild would be helpful before we move on to more advanced topics.
-
-A build typically uses *properties* (i.e. `Configuration` with a value of `Release`) 
-and *items* (i.e. all `.cs` files in a project) to produce some output (i.e. a `.dll`, 
-`.nupkg`, etc.) by processing then using *tasks* (i.e. `Copy`, or `Csc` to invoke the 
-C# compiler), which are grouped in *targets* (i.e. `Build`, `Compile`, `Publish` and so 
-on).
-
-You can think of properties as scalar values and items as arrays. 
+On the next post, I'll go over the key concepts in a nutshell. They aren't all that 
+many, I promise ;)
