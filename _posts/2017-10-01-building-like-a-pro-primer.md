@@ -281,7 +281,7 @@ Say we want to allow more than one name above. We'd use an item group instead:
 ```
 
 Items are added to the "array" `Name` (the element name within the item group becomes the 
-name of the array, so to speak) by "including" them in it via the `Include` attribute. 
+name of the array, so to speak) by "including" them via the `Include` attribute. 
 
 The simplest way to reference the items is with `@(ITEM)`:
 
@@ -297,7 +297,7 @@ would render:
 Hello kzu;daniel
 ```
 
-The `Text` attribute/parameter for the `Message` task is a simple string, adn therefore an 
+The `Text` attribute/parameter for the `Message` task is a simple string, and therefore an 
 automatic conversion from the array `@()` to a string scalar is performed by concatenating 
 the items with the default separator `;`. In this case, it would look better if we changed 
 the separator to a `, ` instead, which can be done as follows:
@@ -358,7 +358,7 @@ We could reference the new custom metadata just like the built-in metadata:
 ## Conditions
 
 Conditionally changing the outcome of the build is also a core characteristic in most cases, 
-sich as building differently for `Debug` vs `Release` builds. MSBuild has a consistent and 
+such as building differently for `Debug` vs `Release` builds. MSBuild has a consistent and 
 general mechanism for conditionally evaluating all the core elements discussed so far, by 
 simply appending a `Condition` attribute on them. A condition attribute must evaluate to 
 a string that can be parsed as a boolean (in a case insensitive manner, as everything else, 
