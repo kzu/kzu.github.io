@@ -136,7 +136,7 @@ as:
 ```xml
 <Project>
     <Target Name="Test">
-        <nessage text="Hello World!" importance="High" />
+        <message text="Hello World!" importance="High" />
     </Target>
 </Project>
 ```
