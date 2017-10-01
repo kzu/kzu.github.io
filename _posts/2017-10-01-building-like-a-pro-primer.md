@@ -232,7 +232,7 @@ You can also specify a value for a property via the command line, like `msbuild 
 ```
 
 It might be a bit confusing to see that message since we are clearly setting the value of the property
-to something else in the project. The reason for this is that by default, *any* MSBuild property can be overriden with the command line `/p` switch, regardless of whether it's assigned unconditionally in the project.
+to something else in the project. The reason for this is that by default, *any* MSBuild property can be overriden with the command line `/p` switch, even if it's assigned unconditionally in the project.
 
 In order to avoid this default behavior and allow the project-determined value to prevail, you can 
 add the following attribute to the `Project`:
