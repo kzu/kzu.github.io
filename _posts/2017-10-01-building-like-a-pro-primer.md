@@ -96,7 +96,7 @@ clean output.
 > parameterless void methods or entry points (i.e. `void Main()`).
 
 If your project has more than one target, you can specify which one to run with 
-`msbuild /t:TARGET`, such as `msbuild /t:test` (that the target name is case-insensitve 
+`msbuild /t:TARGET`, such as `msbuild /t:test` (note that the target name is case-insensitve 
 too). You can also specify that more than one target should run in sequence, like 
 `msbuild /t:build;test`
 
@@ -110,7 +110,8 @@ There are many built-in tasks for common operations (like copying, reading, writ
 deleting files, executing external tools and so on), but you can also author and consume 
 custom tasks.
 
-One very useful task while learning is `Message`, which receives just two arguments: 
+One very useful task while learning is [`Message`](https://docs.microsoft.com/en-us/visualstudio/msbuild/message-task), 
+which receives just two arguments: 
 `Text` and `Importance` and renders that to the output:
 
 ```xml
@@ -297,7 +298,8 @@ would render:
 Hello kzu;daniel
 ```
 
-The `Text` attribute/parameter for the `Message` task is a simple string, and therefore an 
+The `Text` attribute/parameter for the [`Message` task](https://docs.microsoft.com/en-us/visualstudio/msbuild/message-task) 
+is a simple string, and therefore an 
 automatic conversion from the array `@()` to a string scalar is performed by concatenating 
 the items with the default separator `;`. In this case, it would look better if we changed 
 the separator to a `, ` instead, which can be done as follows:
@@ -378,7 +380,7 @@ otherwise we'd overwrite the envvar-provided value:
     </PropertyGroup>
 ```
 
-That property can now be safely overriden by both environment variables and commadn line 
+That property can now be safely overriden by both environment variables and command line 
 arguments.
 
 The condition could be placed in the entire `PropertyGroup` too, for the case where the 
