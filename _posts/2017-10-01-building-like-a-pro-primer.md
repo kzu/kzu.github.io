@@ -6,9 +6,9 @@ constructs."
 tags: [msbuild]
 ---
 
-In this second installment in the series, I'll showcase the core concepts in 
-MSBuild that will get you up and running quickly, with concrete examples to try out the various 
-constructs.
+In this second installment in [the series](({{ site.baseurl }}{% post_url 2017-09-21-building-like-a-pro-introduction %})), 
+I'll showcase the core concepts in MSBuild that will get you up and running quickly, with 
+concrete examples to try out the various constructs.
 
 If you have never tweaked your `.csproj`s in any significant way (i.e. beyond adding 
 a `Condition` here and there or tweaking a properly value), a quick overview of the 
@@ -415,25 +415,4 @@ Individual tasks can also be conditioned exactly the same way:
 That's basically it for the very basic concepts that you can use to start creating build 
 scripts, IMO. You can read more at the official [MSBuild Concepts](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-concepts) documentation.
 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[< Previous: Introduction]({{ site.baseurl }}{% post_url 2017-10-01-building-like-a-pro-primer %})

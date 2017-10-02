@@ -11,6 +11,7 @@ approaches to building a product using MSBuild, beyond just building a `.csproj`
 Index so far:
 
 * [Introduction]({{ site.baseurl }}{% post_url 2017-09-21-building-like-a-pro-introduction %})
+* [Primer]({{ site.baseurl }}{% post_url 2017-10-01-building-like-a-pro-primer %})
 
 <br />
 
@@ -125,3 +126,5 @@ With those two in after `msbuild`, you'd get just:
 
 On the next post, I'll go over the key concepts in a nutshell. They aren't all that 
 many, I promise ;)
+
+[> Next: A Primer]({{ site.baseurl }}{% post_url 2017-10-01-building-like-a-pro-primer %})
