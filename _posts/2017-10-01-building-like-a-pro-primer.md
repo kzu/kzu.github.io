@@ -6,7 +6,7 @@ constructs."
 tags: [msbuild]
 ---
 
-In this second installment in [the series](({{ site.baseurl }}{% post_url 2017-09-21-building-like-a-pro-introduction %})), 
+In this second installment in [the series]({{ site.baseurl }}{% post_url 2017-09-21-building-like-a-pro-introduction %}), 
 I'll showcase the core concepts in MSBuild that will get you up and running quickly, with 
 concrete examples to try out the various constructs.
 
