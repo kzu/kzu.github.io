@@ -56,7 +56,9 @@ Make sure you select *Blob* for the Public access level if it's intended for ano
 
 ![public blob access](http://www.cazzulino.com/img/serverless-nuget-blob.png)
 
-Finally, head over to the `Settings > Access keys` section and copy the `key1`.
+Finally, head over to the `Settings > Access keys` section and copy the `key1`:
+
+![access keys](http://www.cazzulino.com/img/serverless-nuget-key.png)
 
 Next on your MSBuild project, all you need to provide are the following properties:
 
@@ -163,7 +165,7 @@ Push:
   Successfully pushed packages.
   ```
 
-Your new feed is now available at https://[STORAGE_ACCOUNT].blob.core.windows.net/[STORAGE_CONTAINER]/index.json, 
+Your new feed is now available at `https://[STORAGE_ACCOUNT].blob.core.windows.net/[STORAGE_CONTAINER]/index.json`, 
 such as https://kzuget.blob.core.windows.net/nuget/index.json in this example.
 
 You can check the source at the [GitHub project](https://github.com/kzu/Sleet.Azure) 
