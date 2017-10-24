@@ -35,7 +35,30 @@ So extending his awesome tool, I created the
 [Sleet.Azure](https://www.nuget.org/packages/Sleet.Azure) package, which does 
 exactly that.
 
-All you need to provide are the following properties:
+Since we'll be publishing to Azure Blob Storage, let's first create the required 
+storage container for that. Head over to the [Azure Portal](https://portal.azure.com/).
+If you don't have a subscription yet, you can [create one for free](https://azure.microsoft.com/en-us/free/).
+
+If you don't have a storage account already, you can [create one now](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM):
+
+[![create storage account](http://www.cazzulino.com/img/serverless-nuget-storage.png)](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)
+
+The values in that screenshot for Account kind (Blob storage), Access tier (Hot) and 
+[Replication](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) (Read-access geo-redundant storage (RA-GRS))
+should be the optimal ones for a static nuget feed.
+
+Once you create (or navigate) to the storage account, click on the `+ Container` button to 
+create a "folder" within the account, such as *nuget*:
+
+![create storage container](http://www.cazzulino.com/img/serverless-nuget-container.png)
+
+Make sure you select *Blob* for the Public access level if it's intended for anonymous access:
+
+![public blob access](http://www.cazzulino.com/img/serverless-nuget-blob.png)
+
+Finally, head over to the `Settings > Access keys` section and copy the `key1`.
+
+Next on your MSBuild project, all you need to provide are the following properties:
 
 
 ```xml
@@ -47,7 +70,11 @@ All you need to provide are the following properties:
    <StorageContainer Condition="'$(StorageContainer)' == ''" />
 ```
 
-Then the packages you intend to push:
+The firt one would be the `key1` you copied previously. Storage account would be 
+`kzunuget` in the screenshots above. And the container would be `nuget` (the folder).
+
+
+Then, just declare the packages you intend to push:
 
 ```xml
 <ItemGroup>
@@ -65,6 +92,79 @@ By default, `Push` will validate and automatically initialize (if empty or non-e
 the feed on every push. This is a somewhat costly and slow-ish operation. So you can 
 alternatively set `<SleetInit>false</SleetInit>` (or pass in `/p:SleetInit=false`) and 
 run the `Init` target just once before the first `Push` call.
+
+The output for the initialization would be, for example:
+
+```
+Project "C:\Delete\sleetnuget\build.proj" on node 1 (push target(s)).
+Init:
+  "C:\Users\kzu\.nuget\packages\sleet\2.1.0\build\net46\..\..\tools\Sleet.exe" validate -s feed -c C:\Users\kzu\AppData\Local\Temp\tmp3B08.tmp
+  Reading feed https://kzuget.blob.core.windows.net/nuget/
+  Verifying https://kzuget.blob.core.windows.net/nuget exists.
+  Found https://kzuget.blob.core.windows.net/nuget
+  https://kzuget.blob.core.windows.net/nuget/ is missing sleet files. Use 'sleet.exe init' to create a new feed.
+  The command ""C:\Users\kzu\.nuget\packages\sleet\2.1.0\build\net46\..\..\tools\Sleet.exe" validate -s feed -c C:\Users\kzu\AppData\Local\Temp\tmp3B08.tmp" exited with code 1.
+  "C:\Users\kzu\.nuget\packages\sleet\2.1.0\build\net46\..\..\tools\Sleet.exe" init -s feed -c C:\Users\kzu\AppData\Local\Temp\tmp3B08.tmp
+  Initializing https://kzuget.blob.core.windows.net/nuget/
+  Verifying https://kzuget.blob.core.windows.net/nuget exists.
+  Found https://kzuget.blob.core.windows.net/nuget
+  Pushing https://kzuget.blob.core.windows.net/nuget/autocomplete/query
+  Compressing https://kzuget.blob.core.windows.net/nuget/autocomplete/query
+  Pushing https://kzuget.blob.core.windows.net/nuget/index.json
+  Compressing https://kzuget.blob.core.windows.net/nuget/index.json
+  Pushing https://kzuget.blob.core.windows.net/nuget/sleet.packageindex.json
+  Compressing https://kzuget.blob.core.windows.net/nuget/sleet.packageindex.json
+  Pushing https://kzuget.blob.core.windows.net/nuget/search/query
+  Compressing https://kzuget.blob.core.windows.net/nuget/search/query
+  Pushing https://kzuget.blob.core.windows.net/nuget/sleet.settings.json
+  Compressing https://kzuget.blob.core.windows.net/nuget/sleet.settings.json
+  Successfully initialized https://kzuget.blob.core.windows.net/nuget/
+```
+
+And the subsequent Push, something like:
+
+```
+Push:
+  "C:\Users\kzu\.nuget\packages\sleet\2.1.0\build\net46\..\..\tools\Sleet.exe" push "C:\Code\Personal\corebuild\updater\CoreBuild.Updater.1.0.0.nupkg" -f -s feed -c C:\Users\kzu\AppData\Local\Temp\tmp3B08.tmp
+  Reading feed https://kzuget.blob.core.windows.net/nuget/
+  Verifying https://kzuget.blob.core.windows.net/nuget exists.
+  Found https://kzuget.blob.core.windows.net/nuget
+  GET https://kzuget.blob.core.windows.net/nuget/index.json
+  Decompressing https://kzuget.blob.core.windows.net/nuget/index.json
+  Reading C:\Code\Personal\corebuild\updater\CoreBuild.Updater.1.0.0.nupkg
+  Reading feed
+  GET https://kzuget.blob.core.windows.net/nuget/sleet.settings.json
+  Decompressing https://kzuget.blob.core.windows.net/nuget/sleet.settings.json
+  GET https://kzuget.blob.core.windows.net/nuget/autocomplete/query
+  Decompressing https://kzuget.blob.core.windows.net/nuget/autocomplete/query
+  GET https://kzuget.blob.core.windows.net/nuget/sleet.packageindex.json
+  GET https://kzuget.blob.core.windows.net/nuget/search/query
+  Decompressing https://kzuget.blob.core.windows.net/nuget/sleet.packageindex.json
+  Decompressing https://kzuget.blob.core.windows.net/nuget/search/query
+  Reading existing package index
+  Pushing CoreBuild.Updater 1.0.0
+  Checking if package exists.
+  Adding CoreBuild.Updater 1.0.0
+  Committing changes to https://kzuget.blob.core.windows.net/nuget/
+  Pushing https://kzuget.blob.core.windows.net/nuget/search/query
+  Compressing https://kzuget.blob.core.windows.net/nuget/search/query
+  Pushing https://kzuget.blob.core.windows.net/nuget/flatcontainer/corebuild.updater/index.json
+  Compressing https://kzuget.blob.core.windows.net/nuget/flatcontainer/corebuild.updater/index.json
+  Pushing https://kzuget.blob.core.windows.net/nuget/flatcontainer/corebuild.updater/1.0.0/corebuild.updater.1.0.0.nupkg
+  Pushing https://kzuget.blob.core.windows.net/nuget/autocomplete/query
+  Compressing https://kzuget.blob.core.windows.net/nuget/autocomplete/query
+  Pushing https://kzuget.blob.core.windows.net/nuget/flatcontainer/corebuild.updater/1.0.0/corebuild.updater.nuspec
+  Pushing https://kzuget.blob.core.windows.net/nuget/sleet.packageindex.json
+  Compressing https://kzuget.blob.core.windows.net/nuget/sleet.packageindex.json
+  Pushing https://kzuget.blob.core.windows.net/nuget/registration/corebuild.updater/1.0.0.json
+  Compressing https://kzuget.blob.core.windows.net/nuget/registration/corebuild.updater/1.0.0.json
+  Pushing https://kzuget.blob.core.windows.net/nuget/registration/corebuild.updater/index.json
+  Compressing https://kzuget.blob.core.windows.net/nuget/registration/corebuild.updater/index.json
+  Successfully pushed packages.
+  ```
+
+Your new feed is now available at https://[STORAGE_ACCOUNT].blob.core.windows.net/[STORAGE_CONTAINER]/index.json, 
+such as https://kzuget.blob.core.windows.net/nuget/index.json in this example.
 
 You can check the source at the [GitHub project](https://github.com/kzu/Sleet.Azure) 
 which coincidentally is a nice simple example of a [corebuild](http://www.corebuild.io/) 
