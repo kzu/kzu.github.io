@@ -88,7 +88,7 @@ And finally just invoke `msbuild /t:push` on that project.
 
 Combined with [trivially created nuget packages in VS2017](https://docs.microsoft.com/en-us/nuget/guides/create-net-standard-packages-vs2017), 
 this allows you to quickly get a private Azure Storage-based feed up and running 
-with no code and no fuss. And it's even automatically CDN enabled!
+with no code and no fuss. You can even [trivially enable Azure CDN](https://docs.microsoft.com/en-us/azure/cdn/cdn-create-a-storage-account-with-cdn#step-2-enable-cdn-for-the-storage-account) on it.
 
 By default, `Push` will validate and automatically initialize (if empty or non-existing) 
 the feed on every push. This is a somewhat costly and slow-ish operation. So you can 
@@ -166,7 +166,8 @@ Push:
   ```
 
 Your new feed is now available at `https://[STORAGE_ACCOUNT].blob.core.windows.net/[STORAGE_CONTAINER]/index.json`, 
-such as https://kzuget.blob.core.windows.net/nuget/index.json in this example.
+such as https://kzuget.blob.core.windows.net/nuget/index.json in this example. The CDN 
+endpoint for the same feed wuold be https://kzuget.azureedge.net/nuget/index.json if you [enabled it](https://docs.microsoft.com/en-us/azure/cdn/cdn-create-a-storage-account-with-cdn#step-2-enable-cdn-for-the-storage-account).
 
 You can check the source at the [GitHub project](https://github.com/kzu/Sleet.Azure) 
 which coincidentally is a nice simple example of a [corebuild](http://www.corebuild.io/) 
