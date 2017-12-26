@@ -3,7 +3,7 @@ title: "Why do project dependencies become project references?"
 description: "Sometimes you want certain projects to be built before others in a solution, 
 even if there shouldn't be a project reference between them. This is how you can avoid such 
 a build dependency to become a project reference automatically."
-tags: [vssdk vsix visualstudio msbuild]
+tags: [visualstudio msbuild]
 ---
 
 Sometimes you want certain projects to be built before others in a solution, 
@@ -36,10 +36,11 @@ Yes, that's a proper *Project Reference* that's been added for the project depen
 in the IDE. 
 
 > NOTE: this project reference is only added automatically when building from MSBuild. 
-> Visual Studio already determines the build order itself so it won't for IDE builds by default.
+> Visual Studio already determines the build order itself so it won't be added 
+> for IDE builds by default.
 
 When you think about it, it sort of makes sense: how would MSBuild know to build the given projects 
-in the right order? It's only mechanism to affect the build order is indeed project references.
+in the right order? Its only mechanism to affect the build order is indeed project references.
 But this might have unintended consequences in certain cases (i.e. bringing in dependencies that you 
 didn't intend, for example). 
 
