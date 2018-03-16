@@ -1,5 +1,5 @@
 ---
-title: "How To Migrate PCL and Xamarin.Forms Apps to NETStandard"
+title: "How To Migrate PCL and Xamarin.Forms Apps to NETStandard Today"
 description: "One of the reasons devs don't update their (Xamarin.Forms) PCL library projects to 
 .NETStandard 2.0 is that there are a bunch of NuGet packages that still haven't 
 migrated to it. It turns out, that that's not a problem at all!"
