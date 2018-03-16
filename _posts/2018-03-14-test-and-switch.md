@@ -1,5 +1,10 @@
 ---
 title: "Test and Switch: testable yet high performance cross-platform libraries"
+description: "How to write cross-platform libraries without resorting to abstractions 
+that slow down an app at run-time while still being able to unit test logic that consumes 
+those libraries. Just like bait & switch gave us the trick to leverage platform-specific 
+code in cross-platform libraries, test & switch gives us the trick to author them in a 
+testable and still high performance way."
 tags: [xamarin mobile testing]
 ---
 
