@@ -34,12 +34,12 @@ Fortunately, VS provides a tool, called [vswhere](https://blogs.msdn.microsoft.c
 With it and a bit of powershell, I came up with the following script to allow you to 
 easily cleanup any misbehaving VS instance:
 
-{% gist 91aaea4 vscleanup.ps1 %}
+<script src="https://gist.github.com/kzu/91aaea46c020abe52bb21881be88597b.js?file=vscleanup.ps1"></script>
 
 If you want to run it from any Powershell prompt, you can add the following to your 
 [powershell profile](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-6):
 
-{% gist 91aaea4 Microsoft.Powershell_profile.ps1 %}
+<script src="https://gist.github.com/kzu/91aaea46c020abe52bb21881be88597b.js?file=Microsoft.Powershell_profile.ps1"></script>
 
 Running the `Cleanup-VS` from a prompt will show you something like the following:
 
