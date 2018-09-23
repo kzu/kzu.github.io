@@ -9,11 +9,9 @@ Just add the following two settings via `File | Preferences | Settings`:
 ```
     "terminal.integrated.shell.windows": "cmd.exe",
     "terminal.integrated.shellArgs.windows": [
-        "/k ""C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\Common7\\Tools\\VsDevCmd.bat"""
+        "/k", "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\Common7\\Tools\\VsDevCmd.bat"
     ]
 ```
-
-The editor will show red squiglies for the "funny" quoting of the `VsDevCmd.bat` path, but it's the right one.
 
 Also, adjust the VS install path to your version/edition of Visual Studio.
 
