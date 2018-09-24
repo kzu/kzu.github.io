@@ -7,8 +7,8 @@ I'm a fan of CI-independent [serverless nuget feeds](http://www.cazzulino.com/se
 packages from arbitrary systems to a single feed that is highly available and requires no maintenance. It can also be 
 made public access (which [Azure Artifacts](https://docs.microsoft.com/en-us/azure/devops/artifacts/nuget/consume?view=vsts&tabs=new-nav)/VSTS still doesn't allow).
 
-There is one minor issue, though: the URL isn't all that memorable or particularly short. Is format is https://[ACCOUNT].blob.core.windows.net/[CONTAINER]/index.json. 
-It's still better than a VSTS packaging feed: https://[ACCOUNT].pkgs.visualstudio.com/_packaging/[NAME]/nuget/v3/index.json, but wouldn't it be nice to have something even shorter, like http://[account].nuget.cloud/index.json? After all, it's just a trivial HTTP redirect we need. Serverless to the rescue!
+There is one minor issue, though: the URL isn't all that memorable or particularly short. Its format is `https://[ACCOUNT].blob.core.windows.net/[CONTAINER]/index.json`. 
+It's still better than a VSTS packaging feed: `https://[ACCOUNT].pkgs.visualstudio.com/_packaging/[NAME]/nuget/v3/index.json`, but wouldn't it be nice to have something even shorter, like `http://[account].nuget.cloud/index.json`? After all, it's just a trivial HTTP redirect we need. Serverless to the rescue!
 
 > NOTE: why even have that `index.json` at the end? Turns out, that is what tells NuGet to consider the feed as a v3 feed :(
 
@@ -18,7 +18,17 @@ The things we'll need for this are:
 2. An [Azure DNS](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FdnsZones) zone and records for the domain
 3. An [Azure Functions](https://portal.azure.com/#create/Microsoft.FunctionApp) app to perform the redirects
 
-I head over namecheap.com, typed "nuget" and found `nuget.cloud` for ~$3. Then I went to Azure DNS and created a new DNS zone for it. Then back to namecheap to configure the DNS for the domain.
+I head over namecheap.com, typed "nuget" and found `nuget.cloud` for ~$3. Then I went to Azure DNS and created a new DNS zone for it. 
+
+![create DNS zone](http://www.cazzulino.com/img/serverless-redirection-dnszone.png)
+
+
+> NOTE: best way to find stuff in the Azure Portal is to just type in the search box
+
+![search DNS in azure portal](http://www.cazzulino.com/img/serverless-redirection-search.png)
+
+
+Then back to namecheap to configure the DNS for the domain.
 
 After creating the functions app, I created a `redirect` function which is simple enough:
 
