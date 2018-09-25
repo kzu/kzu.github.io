@@ -59,7 +59,7 @@ Back at the DNS zone, I added a recordset for `*.nuget.cloud` to CNAME it to the
 ![add recordset](http://www.cazzulino.com/img/serverless-redirection-record.png)
 
 Finally, we need to make azure function accessible from `*.nuget.cloud/index.json`. 
-The function URL is currently https://nugetcloud.azurewebsites.net/api/redirect. In order to make it accessible 
+The function URL is currently `https://nugetcloud.azurewebsites.net/api/redirect`. In order to make it accessible 
 via a different URL, we just need to create a Proxy with the desired route:
 
 ![add proxy](http://www.cazzulino.com/img/serverless-redirection-proxy.png)
