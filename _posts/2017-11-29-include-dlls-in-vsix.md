@@ -25,7 +25,7 @@ its thing:
     </PropertyGroup>
 ```
 
-And the awesome little thinghy we need in `IncludeNuGetResolvedAssets` is just:
+And the awesome little thingy we need in `IncludeNuGetResolvedAssets` is just:
 
 ```xml
 	<Target Name="IncludeNuGetResolvedAssets" DependsOnTargets="ResolveNuGetPackageAssets">
