@@ -20,6 +20,8 @@ The things we'll need for this are:
 
 I head over namecheap.com, typed "nuget" and found `nuget.cloud` for ~$3. Then I went to Azure DNS and created a new DNS zone for it. 
 
+> NOTE: turns out that renewing that domain a year later was ~$21. I'm not going to renew it, but all instructions here are still precise and will work with your own domain, whichever one you choose ;)
+
 ![create DNS zone](http://www.cazzulino.com/img/serverless-redirection-dnszone.png)
 
 
