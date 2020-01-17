@@ -9,11 +9,16 @@ Just add the following two settings via `File | Preferences | Settings`:
 ```
     "terminal.integrated.shell.windows": "cmd.exe",
     "terminal.integrated.shellArgs.windows": [
-        "/k", "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\Common7\\Tools\\VsDevCmd.bat"
-    ]
+        "/k", "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\Common7\\Tools\\VsDevCmd.bat"
+    ],
+    "terminal.integrated.automationShell.windows": null,
 ```
 
 Also, adjust the VS install path to your version/edition of Visual Studio.
+
+> NOTE: The last line resets the [settings for automation shells](https://code.visualstudio.com/Docs/editor/tasks#_can-a-task-use-a-different-shell-than-the-one-specified-for-the-integrated-terminal)
+> (i.e. running tasks), so that we don't interfere with them.
+
 
 You may also find these two settings useful, if you want the same cursor style and blinking in the terminal 
 as in the editor:
@@ -37,4 +42,4 @@ menu by adding the following:
 ]
 ```
 
-Back to coding...
+Enjoy!
