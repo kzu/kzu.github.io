@@ -36,7 +36,8 @@ lines:
     [
         "-noe",
         "-c",
-        "\"&{Import-Module '${env:PROGRAMFILES(x86)}\\Microsoft Visual Studio\\2019\\Preview\\Common7\\Tools\\Microsoft.VisualStudio.DevShell.dll'; Enter-VsDevShell 0c9b3655}\""
+        "\"&{Import-Module '${env:PROGRAMFILES(x86)}\\Microsoft Visual Studio\\2019\\Preview\\Common7\\Tools\\Microsoft.VisualStudio.DevShell.dll'; Enter-VsDevShell 0c9b3655}\"",
+        "\"&{Set-Location '${workspaceFolder}'\""        
     ],
     "terminal.integrated.automationShell.windows": null,
 ```
