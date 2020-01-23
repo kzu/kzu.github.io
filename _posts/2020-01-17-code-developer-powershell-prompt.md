@@ -32,12 +32,11 @@ lines:
 
 ```
     "terminal.integrated.shell.windows": "${env:USERPROFILE}\\.dotnet\\tools\\pwsh.exe",
-    "terminal.integrated.shellArgs.windows": 
-    [
+    "terminal.integrated.shellArgs.windows": [
         "-noe",
+        "-wd \"${workspaceFolder}\"",
         "-c",
-        "\"&{Import-Module '${env:PROGRAMFILES(x86)}\\Microsoft Visual Studio\\2019\\Preview\\Common7\\Tools\\Microsoft.VisualStudio.DevShell.dll'; Enter-VsDevShell 0c9b3655}\"",
-        "\"&{Set-Location '${workspaceFolder}'\""        
+        "\"&{ Import-Module \\\"${Env:ProgramFiles(x86)}\\Microsoft Visual Studio\\2019\\IntPreview\\Common7\\Tools\\Microsoft.VisualStudio.DevShell.dll\\\"; Enter-VsDevShell 0c9b3655 }\""
     ],
     "terminal.integrated.automationShell.windows": null,
 ```
