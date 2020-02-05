@@ -54,6 +54,17 @@ Things to note:
 4. The last line resets the [settings for automation shells](https://code.visualstudio.com/Docs/editor/tasks#_can-a-task-use-a-different-shell-than-the-one-specified-for-the-integrated-terminal)
    (i.e. running tasks), so that we don't interfere with them.
 
+    > Due to what seems to be a [bug or limitation of the automation shell](https://github.com/microsoft/vscode/issues/90073), 
+    > you will also need (for now?) need to add the following to your tasks.json to force the default shell to *not* 
+    > pick the settings shellArgs, for each individual task:
+
+    			"options": {
+				"shell": {
+					"executable": "C:\\WINDOWS\\System32\\cmd.exe",
+					"args": [ "/d", "/c" ]
+				}
+
+
 
 Like in my [previous post](http://www.cazzulino.com/code-developer-command-prompt.html), I still find the following 
 two settings useful, if you want the same cursor style and blinking in the terminal as in the editor:
