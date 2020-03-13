@@ -3,7 +3,7 @@ title: "How to enable Xamarin.Forms XAML Intellisense in VS 2015 Update 1"
 description: "Visual Studio excelent built-in language service for XAML can now be used for Xamarin.Forms editing. Learn how to get an early preview and help us polish the experience!"
 tags: [xamarin, forms]
 ---
-As explained in [XML vs XAML intellisense](http://www.cazzulino.com/xaml-forms-intellisense.html) section of my blog post, Xamarin 4 ships with an XML-based intellisense for Xamarin.Forms we wrote from scratch. We have worked with Microsoft to make it possible to use the excelent built-in XAML language service instead, which knows about XAML's specifics, and is driven by metadata provided by the Xamarin.Forms library.
+As explained in [XML vs XAML intellisense](https://www.cazzulino.com/xaml-forms-intellisense.html) section of my blog post, Xamarin 4 ships with an XML-based intellisense for Xamarin.Forms we wrote from scratch. We have worked with Microsoft to make it possible to use the excelent built-in XAML language service instead, which knows about XAML's specifics, and is driven by metadata provided by the Xamarin.Forms library.
 
 
 In Visual Studio Update 1, a number of key issues were resolved that make the XAML language service quite usable for Xamarin.Forms XAML editing, so we're releasing [a Visual Studio extension to enable experimental support](https://visualstudiogallery.msdn.microsoft.com/8195a8e2-a842-4389-a8cb-34e4672e2e13) for it so that we can gather early feedback on what works and what doesn't. Please file bug reports at our [Xamarin Bugzilla](https://bugzilla.xamarin.com) tracker, for the `Visual Studio Extensions` product, under the `Xamarin.Forms` component.
@@ -16,11 +16,11 @@ We are providing [this extension](https://visualstudiogallery.msdn.microsoft.com
 
 If your XAML document contains an XML declaration, it will be in blue collor, rather than red:
 
-![XAML language service](http://www.cazzulino.com/img/xaml-editor.png)
+![XAML language service](https://www.cazzulino.com/img/xaml-editor.png)
 
 Versus:
 
-![XML language service](http://www.cazzulino.com/img/xaml-editor-xml.png)
+![XML language service](https://www.cazzulino.com/img/xaml-editor-xml.png)
 
 
 (you can play "spot the other difference too ;))

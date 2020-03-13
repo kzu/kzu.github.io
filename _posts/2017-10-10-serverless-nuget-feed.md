@@ -41,7 +41,7 @@ If you don't have a subscription yet, you can [create one for free](https://azur
 
 If you don't have a storage account already, you can [create one now](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM):
 
-[![create storage account](http://www.cazzulino.com/img/serverless-nuget-storage.png)](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)
+[![create storage account](https://www.cazzulino.com/img/serverless-nuget-storage.png)](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)
 
 The values in that screenshot for Account kind (Blob storage), Access tier (Hot) and 
 [Replication](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) (Read-access geo-redundant storage (RA-GRS))
@@ -50,15 +50,15 @@ should be the optimal ones for a static nuget feed.
 Once you create (or navigate) to the storage account, click on the `+ Container` button to 
 create a "folder" within the account, such as *nuget*:
 
-![create storage container](http://www.cazzulino.com/img/serverless-nuget-container.png)
+![create storage container](https://www.cazzulino.com/img/serverless-nuget-container.png)
 
 Make sure you select *Blob* for the Public access level if it's intended for anonymous access:
 
-![public blob access](http://www.cazzulino.com/img/serverless-nuget-blob.png)
+![public blob access](https://www.cazzulino.com/img/serverless-nuget-blob.png)
 
 Finally, head over to the `Settings > Access keys` section and copy the `key1`:
 
-![access keys](http://www.cazzulino.com/img/serverless-nuget-key.png)
+![access keys](https://www.cazzulino.com/img/serverless-nuget-key.png)
 
 Next on your MSBuild project, all you need to provide are the following properties:
 

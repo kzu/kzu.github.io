@@ -24,7 +24,7 @@ The [speech recognition](http://app.thunkable.com/reference/components/media.htm
 [text-to-speech](http://app.thunkable.com/reference/components/media.html#TextToSpeech) parts were very 
 straightforward involving just a couple built-in blocks with simple input-output connectors:
 
-![speech recognition block and text-to-speech](http://www.cazzulino.com/img/ai2-basic-speech.png)
+![speech recognition block and text-to-speech](https://www.cazzulino.com/img/ai2-basic-speech.png)
 
 Plugging a Web component in-between the recognized (Spanish in this case) text in 
 `when speech.After Getting Text` and the call to `call tts.Speak` proved quite 
@@ -114,13 +114,13 @@ And with that, suddenly, interacting with the Web from MIT AppInventor2 or Thunk
 straight-forward. The whole program is easy to grasp by any 12yo+ kid:
 
 1. When the button is clicked, start listening for speech:
-   ![Listen for speech](http://www.cazzulino.com/img/ai2-translator-1.png)
+   ![Listen for speech](https://www.cazzulino.com/img/ai2-translator-1.png)
 2. When speech is recognized, ship it off for translation:
-   ![Translate recognized speech](http://www.cazzulino.com/img/ai2-translator-2.png)
+   ![Translate recognized speech](https://www.cazzulino.com/img/ai2-translator-2.png)
 3. When translation JSON comes back, ship it off for "stringifying":
-   ![Parse JSON](http://www.cazzulino.com/img/ai2-translator-3.png)
+   ![Parse JSON](https://www.cazzulino.com/img/ai2-translator-3.png)
 4. When the simple string comes back from "stringify", speak it out loud:
-   ![Parse JSON](http://www.cazzulino.com/img/ai2-translator-4.png)
+   ![Parse JSON](https://www.cazzulino.com/img/ai2-translator-4.png)
 
 It would have taken that many blocks or more just to **parse** the JSON response 
 from the translation Web API. A **massive** improvement by just using a little bit 

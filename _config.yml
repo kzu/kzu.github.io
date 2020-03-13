@@ -11,11 +11,11 @@ author :
   google:         +DanielCazzulino
 
 permalink:        /:title.html 
-url:              http://www.cazzulino.com
+url:              https://www.cazzulino.com
 baseurl:          ""
 disqus:           kzu
 google_analytics: "UA-20330792-1"
-feed:             http://feeds.feedburner.com/DanielCazzulino
+feed:             https://feeds.feedburner.com/DanielCazzulino
 feed-type:        atom    # atom | rss
 
 exclude:      [ "README.md", "CNAME", ".gitattributes", ".gitignore", ".editorconfig" ]

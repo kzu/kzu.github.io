@@ -4,7 +4,7 @@ description: "When using inline C# in MSBuild, you may face the following error:
 layout: post
 tags: programming, msbuild
 ---
-<img src="http://www.cazzulino.com/img/msbuild-codetaskfactory.jpg" width="50%" align="right" class="image">
+<img src="https://www.cazzulino.com/img/msbuild-codetaskfactory.jpg" width="50%" align="right" class="image">
 
 I've posted before 
 

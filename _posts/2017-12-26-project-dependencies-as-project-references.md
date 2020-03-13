@@ -13,24 +13,24 @@ yet it does not contain a direct project reference to it.
 
 If you right-click on the test project (say) to tweak the `Project Build Order...`:
 
-![project build order](http://www.cazzulino.com/img/build-order-menu.png)
+![project build order](https://www.cazzulino.com/img/build-order-menu.png)
 
 you are instructed to use the `Project Dependencies` tab to modify the build order:
 
-![use project dependencies tab](http://www.cazzulino.com/img/build-order.png)
+![use project dependencies tab](https://www.cazzulino.com/img/build-order.png)
 
 And easy enough, you can just check the project you want to build before the current project:
 
-![check project to depend on](http://www.cazzulino.com/img/project-dependency.png)
+![check project to depend on](https://www.cazzulino.com/img/project-dependency.png)
 
 There is, however, a "slight" side-effect of doing this. When building from MSBuild, here's the relevant 
 [build log](http://msbuildlog.com) before checking that little checkbox:
 
-![before checking the project dependency](http://www.cazzulino.com/img/project-dependency-before.png)
+![before checking the project dependency](https://www.cazzulino.com/img/project-dependency-before.png)
 
 and this is what it looks like after:
 
-![after checking the project dependency, a new project reference was added](http://www.cazzulino.com/img/project-dependency-after.png)
+![after checking the project dependency, a new project reference was added](https://www.cazzulino.com/img/project-dependency-after.png)
 
 Yes, that's a proper *Project Reference* that's been added for the project dependency you declared 
 in the IDE. 

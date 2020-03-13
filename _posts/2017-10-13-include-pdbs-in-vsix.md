@@ -36,7 +36,7 @@ aptly named `DebugSymbolsProjectOutputGroup` (and there's also a `DebugSymbolsPr
 aren't set except for the `IncludeOutputGroupsInVSIXLocalOnly` (that is, for a local VSIX deployment). This  
 project reference metadata can also be specified via the Properties window:
 
-![Project reference properties](http://www.cazzulino.com/img/output-groups-vsix.png)
+![Project reference properties](https://www.cazzulino.com/img/output-groups-vsix.png)
 
 The description of those properties isn't very helpful though :(
 

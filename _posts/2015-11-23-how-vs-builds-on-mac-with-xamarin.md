@@ -5,7 +5,7 @@ tags: [msbuild, xbuild, xamarin, ios]
 ---
 When we started working for Xamarin [as consultants](http://clariusconsulting.net), a couple years ago, it was nothing short of amazing for us that Xamarin had already achieved a pretty solid "F5 experience" with an app building on the Mac and debugging like any regular local .NET app. I had the same feeling the first time I did the same thing against an Azure website. Felt like magic (in the [Arthur C. Clark](http://www.brainyquote.com/quotes/quotes/a/arthurccl101182.html#ZaMC1KSvguO7s706.99) way). 
 
-During the past year and a half since [the we joined Xamarin](http://www.cazzulino.com/hello-xamarin.html), we iterated (among other things) on this key component of the developer experience, culminating in our most recent release, [Xamarin 4](http://xmn.io/xamarin4). What started as a (more or less) batch process of "zip sources, HTTP post to Mac, build, run" (with frequent rebuilds needed), is now a fine-tuned granular incremental build system driven by MSBuild, connecting to the Mac over a resilient, auto-deployed and always-on messaging layer running on top of a bi-directional binary protocol over TCP, secured by an SSH tunnel. 
+During the past year and a half since [the we joined Xamarin](https://www.cazzulino.com/hello-xamarin.html), we iterated (among other things) on this key component of the developer experience, culminating in our most recent release, [Xamarin 4](http://xmn.io/xamarin4). What started as a (more or less) batch process of "zip sources, HTTP post to Mac, build, run" (with frequent rebuilds needed), is now a fine-tuned granular incremental build system driven by MSBuild, connecting to the Mac over a resilient, auto-deployed and always-on messaging layer running on top of a bi-directional binary protocol over TCP, secured by an SSH tunnel. 
 
 At the user experience level, it might seem that little has changed other than a fancy new connection dialog. But as Tim Cook said "the only thing that changed is everything", so I'll go over the details of how it works today with the new Xamarin 4 experience.
 
@@ -14,7 +14,7 @@ For anything but trivial apps, achieving incremental builds is key for productiv
 
 MSBuild (and XBuild on the Mac) already support incremental builds, so the first challenge was to move away from batch-style of invoking XBuild remotely, to a fully "MSBuild-native" solution. Also, we wanted to share 100% of the build logic from Xamarin.iOS targets on the Mac. So the way it works today is:
 
-![Xamarin MSBuild Flow](http://www.cazzulino.com/img/xam4-msbuild.png)
+![Xamarin MSBuild Flow](https://www.cazzulino.com/img/xam4-msbuild.png)
 
 You can see that exactly the same targets and tasks are shared between the Mac and Windows. This allows us to minimize inconsistencies between VS and XS builds. The only difference is that the Windows version of the tasks do a remote invocation to the Mac whenever the tasks that need to run on the Mac are executed. We evaluate tasks individually to determine if they must run remotely or if they can be run locally. 
 
@@ -39,7 +39,7 @@ The underlying communication facilities that Xamarin provides within Visual Stud
  - IDB: provides similar functionality to ADB (Android Debug Bridge), hence the name, an acronym of iOS Debug Bridge (we don't like the name so much nowadays ;)). Basically exposes list of simulators and devices available on the Mac
  - Stats: we support collecting some stats (execution time, payload sizes, etc.) for diagnostics.
 
-![Xamarin Communication Overview](http://www.cazzulino.com/img/xam4-overview.png)
+![Xamarin Communication Overview](https://www.cazzulino.com/img/xam4-overview.png)
 
 From top to bottom, the flow is:
 
@@ -50,7 +50,7 @@ From top to bottom, the flow is:
 
 In previous versions of Xamarin, an unexpected error on any of the individual components on the Mac could cause the whole build host to stop working, requiring manual intervention by restarting it. In Xamarin 4, we implemented process-level isolation for unrelated components:
 
-![Xamarin Process Model](http://www.cazzulino.com/img/xam4-processes.png)
+![Xamarin Process Model](https://www.cazzulino.com/img/xam4-processes.png)
 
 
 One key change from our previous versions is that now Visual Studio drives the Mac side too. Since it connects remotely to the Mac via SSH as a [local interactive user account](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/xamarin-mac-agent/#Mac_Setup), it can start processes, copy files, fetch logs, etc.  

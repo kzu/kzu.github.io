@@ -4,7 +4,7 @@ description: "Introducing MSBuilder, an open source project that enables you to 
 tags: [msbuild, nuget] 
 ---
 I'm a long-time MSBuild fan. Now that [it's open source](https://github.com/Microsoft/msbuild), 
-I've even played with bootstrapping it [with xbuild](http://www.cazzulino.com/xplat-msbuild.html) 
+I've even played with bootstrapping it [with xbuild](https://www.cazzulino.com/xplat-msbuild.html) 
 to use it even on Mac. It works like a charm, for the most part :)
 
 I've always wished I could just reuse fragments of MSBuild targets that are 
@@ -12,7 +12,7 @@ generic enough to fit in lots of projects. Things like determining whether
 we're being built with [XBuild or MSBuild](https://github.com/MobileEssentials/MSBuilder/blob/master/src/IsXBuild/build/MSBuilder.IsXBuild.props#L36), 
 determining the [location of Git](https://github.com/MobileEssentials/MSBuilder/blob/master/src/Git/build/MSBuilder.Git.props#L35), 
 or the particular [assembly location for a CodeTaskAssembly](https://github.com/MobileEssentials/MSBuilder/blob/master/src/CodeTaskAssembly/build/MSBuilder.CodeTaskAssembly.props#L29)
-(which isn't [exactly trivial](http://www.cazzulino.com/ultimate-cross-platform-nuget-restore.html)). 
+(which isn't [exactly trivial](https://www.cazzulino.com/ultimate-cross-platform-nuget-restore.html)). 
 Those kinds of things are probably a few lines of XML that could even be 
 distributed via NuGet. 
 
@@ -48,7 +48,7 @@ MSBuild/CSharp itself, or WiX, I more often than not want to inspect what variou
 contain at certain points, as well as potentially useful item metadata I might want to use 
 for my task at hand. 
 
-For example, say you want to do something [interesting with project references](http://www.cazzulino.com/smarter-project-references.html) 
+For example, say you want to do something [interesting with project references](https://www.cazzulino.com/smarter-project-references.html) 
 that requires you to know precisely what's going on in the built-in targets after project 
 and assembly references are resolved. You can just create a console app, install the package 
 
@@ -102,7 +102,7 @@ output window, such as:
     2>
     2>Build succeeded.
 
-As I come across more [useful bits of MSBuild](http://www.cazzulino.com/wix-reference-msbuild.html) that 
+As I come across more [useful bits of MSBuild](https://www.cazzulino.com/wix-reference-msbuild.html) that 
 are generic enough that deserve becoming MSBuilder blocks, I'll surely publish them, so stay tunned.
 
 Enjoy!

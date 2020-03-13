@@ -8,7 +8,7 @@ Visual Studio recently got a new [Developer PowerShell](https://devblogs.microso
 command prompt, which is super useful since it has all the environment variables properly set up to do 
 things like `msbuild` from command line and have it pick the "right" MSBuild.
 
-As a follow up to my post on [Developer Command Prompt in Visual Studio Code Integrated Terminal](http://www.cazzulino.com/code-developer-command-prompt.html), 
+As a follow up to my post on [Developer Command Prompt in Visual Studio Code Integrated Terminal](https://www.cazzulino.com/code-developer-command-prompt.html), 
 this is how you get the new powershell prompt in VS Code. 
 
 This time, however, I'll add a twist: I recently learned that you can get [PowerShell Core](https://github.com/PowerShell/PowerShell) 
@@ -66,7 +66,7 @@ Things to note:
 
 
 
-Like in my [previous post](http://www.cazzulino.com/code-developer-command-prompt.html), I still find the following 
+Like in my [previous post](https://www.cazzulino.com/code-developer-command-prompt.html), I still find the following 
 two settings useful, if you want the same cursor style and blinking in the terminal as in the editor:
 
 ```

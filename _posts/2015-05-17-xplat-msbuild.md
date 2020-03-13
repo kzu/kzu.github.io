@@ -60,4 +60,4 @@ which can be installed simply with:
 
 This will give you a top-level `build` folder with all you need for this, plus `build.proj`, 
 `xbuild.proj` and an empty solution sample. It also implements the 
-[Ultimate Cross Platform NuGet Restore](http://www.cazzulino.com/ultimate-cross-platform-nuget-restore.html).
+[Ultimate Cross Platform NuGet Restore](https://www.cazzulino.com/ultimate-cross-platform-nuget-restore.html).

@@ -4,7 +4,7 @@ description: "How Xamarin versions the build host across Visual Studio versions 
 tags: [msbuild, xbuild, xamarin, ios]
 ---
 Before I eventually get to the protocol layer underlying the new build host in Xamarin 4 (as promissed 
-in a [previous post that introducing it](http://www.cazzulino.com/how-vs-builds-on-mac-with-xamarin.html), 
+in a [previous post that introducing it](https://www.cazzulino.com/how-vs-builds-on-mac-with-xamarin.html), 
 I wanted to mention how we architected it from the get go for a key scenario that we'll want to enable 
 in the future: side-by-side (SxS) versioning.
 

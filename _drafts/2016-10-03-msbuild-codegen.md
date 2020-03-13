@@ -90,11 +90,11 @@ of approaches mentioned above for code generation.
 
 ## GitInfo: Git and SemVer info for MSBuild/C#/VB
 
-I've [written recently](http://www.cazzulino.com/git-info-from-msbuild-and-code.html) on the 
+I've [written recently](https://www.cazzulino.com/git-info-from-msbuild-and-code.html) on the 
 [GitInfo nuget package](https://www.nuget.org/packages/GitInfo) that allows you to consume your 
 Git information from code as follows:
 
-![ThisAssembly.Git intellisense](http://www.cazzulino.com/img/msbuild-codegen-1.png)
+![ThisAssembly.Git intellisense](https://www.cazzulino.com/img/msbuild-codegen-1.png)
 
 You can imagine using that information for building your [AssemblyInfo](https://github.com/kzu/GitInfo/blob/master/src/GitInfo/readme.txt#L26-L31) like:
 

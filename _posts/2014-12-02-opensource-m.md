@@ -1,6 +1,6 @@
 ---
 title: "Open Source Oslo M"
-image: http://www.cazzulino.com/img/oslo-m.png
+image: https://www.cazzulino.com/img/oslo-m.png
 tags: opensource
 ---
 For those of you on the cutting edge of Microsoft technologies that don't ship ;), you probably have fond memories of one particular product that had so much promise: Olso "M". 
@@ -13,7 +13,7 @@ Oslo as a whole, owned by the SQL Server group, ended up being a gigantic thing 
 
 But "M", separated from the rest of the SQL/RDBMS tie-ins, was a great thing in its own right, for building textual DSLs, even with nice almost automatic tooling for Visual Studio. Think keeping just the top box:
 
-![Oslo](http://www.cazzulino.com/img/oslo-overview.jpg)
+![Oslo](https://www.cazzulino.com/img/oslo-overview.jpg)
 
 ## Who does modeling anyway?
 

@@ -21,13 +21,13 @@ As a testament of our close collaboration with Microsoft, we shipped same-day su
 
 The experience basically is that now in VS 2015 you have two new templates for Android and iOS:
 
-![New Android App](http://www.cazzulino.com/img/mspreview-breadcrumb-Android.png)
+![New Android App](https://www.cazzulino.com/img/mspreview-breadcrumb-Android.png)
 
-![New iOS App](http://www.cazzulino.com/img/mspreview-breadcrumb-iOS.png)
+![New iOS App](https://www.cazzulino.com/img/mspreview-breadcrumb-iOS.png)
 
 Launching any of those two templates will create a project that is like an introduction to the product and links to download it (similar to what the Azure templates do when you don't have Azure SDK installed):
 
-![Install Xamarin](http://www.cazzulino.com/img/mspreview-breadcrumb-install.png)
+![Install Xamarin](https://www.cazzulino.com/img/mspreview-breadcrumb-install.png)
 
 Now you can just click that download button, and get the new integration for 2015!
 
@@ -41,15 +41,15 @@ Don't worry, you don't have to go download anything again, here are the easy ste
 
 1 - Go to Add/Remove programs and search for Xamarin:
 
-![Add/Remove Xamarin](http://www.cazzulino.com/img/mspreview-change.png)
+![Add/Remove Xamarin](https://www.cazzulino.com/img/mspreview-change.png)
 
 2 - Click Next on the installer window and select Change on the next screen:
 
-![Change MSI](http://www.cazzulino.com/img/mspreview-change-msi.png)
+![Change MSI](https://www.cazzulino.com/img/mspreview-change-msi.png)
 
 3 - Finally, make sure you check and install locally the Visual Studio 2015 feature:
 
-![Install 2015 Feature](http://www.cazzulino.com/img/mspreview-change-check.png)
+![Install 2015 Feature](https://www.cazzulino.com/img/mspreview-change-check.png)
 
 
 After the installer is done applying your changes, the old "starter" templates will be gone and you'll be greeted with a bunch of template that you're surely familiar with already (since this section applies to existing users only ;)). 

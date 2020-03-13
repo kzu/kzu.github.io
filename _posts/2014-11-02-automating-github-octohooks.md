@@ -24,7 +24,7 @@ OctoHook is the name of the project, since it leverages OctoKit for programming 
 
 Just create a new empty ASP.NET Web Site with WebApi in Visual Studio (or open an existing one you want to use to host the webhook):
 
-![New WebSite dialog with WebApi option](http://www.cazzulino.com/img/octohooks-new-website.png)
+![New WebSite dialog with WebApi option](https://www.cazzulino.com/img/octohooks-new-website.png)
 
 and install the `OctoHook.Web` NuGet package. 
 
@@ -52,7 +52,7 @@ You can generate a GitHub API token by going to your account's [Applications pag
 
 The tracing level is also useful for troubleshooting or even just knowing what the OctoHooks are doing in real-time, if you happen to deploy on Azure and use the nice [Streaming Logs](http://channel9.msdn.com/Shows/Azure-Friday/Streaming-Logs-from-Azure-Web-Sites-with-David-Ebbo) feature, which works great from within VS:
 
-![Azure streaming logs inside Visual Studio](http://www.cazzulino.com/img/azure-streaming-logs.png)
+![Azure streaming logs inside Visual Studio](https://www.cazzulino.com/img/azure-streaming-logs.png)
 
 After you deploy this website to your favorite hosting provider, you can set it up as a webhook by going to the repository settings page, Webhooks & Services tab, and clicking the Add Webhook button. Unless you tweaked the default routes created by the WebApi project template, the webhook Url should be:
 
@@ -111,11 +111,11 @@ The [OctoHook.AutoTask](https://github.com/kzu/OctoHook/wiki/AutoTask) package e
 
 Tasks lists are a really nice way to get a quick overview of the completion status of a given feature or user story:
 
-![Automatic Task List via OctoHook.AutoTask](http://www.cazzulino.com/img/octohook-autotasks.png)
+![Automatic Task List via OctoHook.AutoTask](https://www.cazzulino.com/img/octohook-autotasks.png)
 
 AutoTask will automatically create a task list on referenced issues, that will automatically be checked whenever the referencing issue is closed. In the above screenshot, issue #496 simply has a #495 reference in the body:
 
-![Closed task with a reference](http://www.cazzulino.com/img/octohook-autotasks-closed.png)
+![Closed task with a reference](https://www.cazzulino.com/img/octohook-autotasks-closed.png)
 
 Since the task was closed, its corresponding item in the #495 issue task list is checked automatically. If you now closed #498, it would become checked right afterwards too via AutoClose.
 
