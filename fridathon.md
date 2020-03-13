@@ -11,7 +11,7 @@ first spark an innovation mindset. It's not just a matter of telling developers 
 I don't think that's how it works (certainly not for me anyway).
 
 That prerequisite innovation mindset mostly comes, I think, from a constant self-brainstorming mode that becomes 
-a constant background thread. Ideas just spark in your mind out of nowhere, triggered by something you read, 
+a ongoing background thread. Ideas just spark in your mind out of nowhere, triggered by something you read, 
 something you are working on, or just taking a shower and daydreaming. 
 
 In order to induce that mindset, the first thing in order is random learning, spiking, prototyping on whatever 
