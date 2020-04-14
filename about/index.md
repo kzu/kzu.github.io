@@ -11,8 +11,6 @@ Around the web my alias is usually "kzu" (sounds like 'kah-zu' rather than 'kzoo
 
 - [Twitter](http://twitter.com/kzu)
 - [GitHub](https://github.com/kzu)
-- [LinkedIn](http://www.linkedin.com/in/danielcazzulino)
+- [LinkedIn](http://www.linkedin.com/in/kzu)
 - Google+ (no link, because it's dead now ;))
 - Facebook- (no link, because I don't do Facebook ;))
-
-### [<img src="/res/twitter.png" width="29" height="20" style="display:inline-block;vertical-align:middle"> @kzu](http://twitter.com/kzu)
