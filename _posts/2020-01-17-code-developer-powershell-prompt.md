@@ -13,10 +13,10 @@ this is how you get the new powershell prompt in VS Code.
 
 This time, however, I'll add a twist: I recently learned that you can get [PowerShell Core](https://github.com/PowerShell/PowerShell) 
 installed as a [.NET Global Tool](https://devblogs.microsoft.com/powershell/introducing-powershell-as-net-global-tool/), which makes 
-it super easy to install and run even on CI machines. You will want to get at least version 7.0.0-rc.1 to get a [key fix](https://github.com/PowerShell/PowerShell/pull/10461): 
+it super easy to install and run even on CI machines. You will want to get at least version 7.0.0 to get a [key fix](https://github.com/PowerShell/PowerShell/pull/10461): 
 
 ```
-dotnet tool update -g --version 7.0.0-rc.1 PowerShell
+dotnet tool update -g --version 7.0.0 PowerShell
 ```
 
 > NOTE: yes, `update` will also `install` if it's not installed. And it will ensure at least that 
@@ -35,7 +35,7 @@ lines:
     "terminal.integrated.shellArgs.windows": [
         "-noe",
         "-c",
-        "\"&{ Import-Module \\\"${Env:ProgramFiles(x86)}\\Microsoft Visual Studio\\2019\\IntPreview\\Common7\\Tools\\Microsoft.VisualStudio.DevShell.dll\\\"; Enter-VsDevShell 0c9b3655; Set-Location \"${workspaceFolder}\" }\""
+        "\"&{ $installDir='C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Preview'; Write-Host Using $installDir; Import-Module ($installDir + '\\Common7\\Tools\\Microsoft.VisualStudio.DevShell.dll'); Enter-VsDevShell -VsInstallPath $installDir}; Set-Location '${workspaceFolder}' \""
     ],
     "terminal.integrated.automationShell.windows": null,
 ```
@@ -46,12 +46,7 @@ Things to note:
    tools live in that folder shown above
 2. The fancy looking `Import-Module` contains the install directory for your VS, so it will typically be 
    `...\\2019\\[Enterprise|Professional|Communit|Preview]`, unless you customize it at install time.
-3. That final string argument to `Enter-VsDevShell` is specific to your local installation. To get the 
-   value, right-click your new `Developer PowerShell for VS 2019` start menu entry that Visual Studio provides 
-   and select `Open file location`. Then right-click again the shortcut file that's automatically selected 
-   for you and select `Properties`. The magic string will be at the end of the `Target` property for the 
-   shortcut.
-4. The last line resets the [settings for automation shells](https://code.visualstudio.com/Docs/editor/tasks#_can-a-task-use-a-different-shell-than-the-one-specified-for-the-integrated-terminal)
+3. The last line resets the [settings for automation shells](https://code.visualstudio.com/Docs/editor/tasks#_can-a-task-use-a-different-shell-than-the-one-specified-for-the-integrated-terminal)
    (i.e. running tasks), so that we don't interfere with them.
 
     > Due to what seems to be a [bug or limitation of the automation shell](https://github.com/microsoft/vscode/issues/90073), 
@@ -87,5 +82,7 @@ menu by adding the following:
     }
 ]
 ```
+
+See also [Customizing Windows Terminal with Visual Studio tabs](/devenv-terminal.html).
 
 Enjoy!
