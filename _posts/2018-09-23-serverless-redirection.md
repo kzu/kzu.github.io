@@ -69,5 +69,3 @@ via a different URL, we just need to create a Proxy with the desired route:
 With that in place, anyone using [serverless Azure nuget feeds](https://www.cazzulino.com/serverless-nuget-feed.html) can use 
 a nice sort url like `http://kzu.nuget.cloud/index.json`. The only requisite is that your storage container name must be `nuget`, 
 and the storage account becomes the subdomain of `nuget.cloud`.
-
-All my upcoming OSS stuff from CI will be available from that feed from now on :)
