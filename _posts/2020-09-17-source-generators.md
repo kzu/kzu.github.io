@@ -91,55 +91,9 @@ other two, the extra simplicity of `BuildOutputTargetFolder` works for me.
 The `Pack=true` metadata on the `PackageReference` works as I explained in my 
 [TIL: How to include package reference files in your nuget](https://til.cazzulino.com/msbuild/how-to-include-package-reference-files-in-your-nuget-package).
 
-You basically place this target in your *Directory.Build.targets*:
-
-```xml
-  <!-- For every PackageReference with Pack=true, we include the assemblies from it in the package -->
-  <Target Name="AddPackDependencies" Inputs="@(RuntimeCopyLocalItems)" Outputs="%(RuntimeCopyLocalItems.NuGetPackageId)" AfterTargets="ResolvePackageAssets">
-    <ItemGroup>
-      <NuGetPackageId Include="@(RuntimeCopyLocalItems -> '%(NuGetPackageId)')" />
-    </ItemGroup>
-    <PropertyGroup>
-      <NuGetPackageId>@(NuGetPackageId -&gt; Distinct())</NuGetPackageId>
-    </PropertyGroup>
-    <ItemGroup>
-      <PackageReferenceDependency Include="@(PackageReference -&gt; WithMetadataValue('Identity', '$(NuGetPackageId)'))" />
-    </ItemGroup>
-    <PropertyGroup>
-      <NuGetPackagePack>@(PackageReferenceDependency -> '%(Pack)')</NuGetPackagePack>
-    </PropertyGroup>
-    <ItemGroup Condition="'$(NuGetPackagePack)' == 'true'">
-      <_PackageFiles Include="@(RuntimeCopyLocalItems)" PackagePath="$(BuildOutputTargetFolder)/$(TargetFramework)/%(Filename)%(Extension)" />
-      <RuntimeCopyLocalItems Update="@(RuntimeCopyLocalItems)" CopyLocal="true" Private="true" />
-      <ResolvedFileToPublish Include="@(RuntimeCopyLocalItems)" CopyToPublishDirectory="PreserveNewest" RelativePath="%(Filename)%(Extension)" />
-    </ItemGroup>
-  </Target>
-```
-
-With this convention in place, adding extra nuget packages to the code generator is 
-trivial
-
 This is what an [actual template](https://github.com/kzu/ThisAssembly/blob/main/src/ThisAssembly.Metadata/CSharp.sbntxt) looks like:
 
-```
-/// <summary>
-/// Provides access to the current assembly information as pure constants, 
-//  without requiring reflection.
-/// </summary>
-partial class ThisAssembly
-{
-    /// <summary>
-    /// Gets the assembly metadata.
-    /// </summary>
-    public static partial class Metadata
-    {
-        {{~ for md in Metadata ~}}
-        public const string {{ md.Key }} = @"{{ md.Value }}";
-
-        {{~ end ~}}
-    }
-}
-```
+<script src="https://gist.github.com/kzu/7b4b29035a1cfd453782393ec18a88fa.js"></script>
 
 I simply embed the template files in the assembly, which is the most convenient way
 for me. Again, this can be done in a single place in the *Directory.Build.targets*:
@@ -354,20 +308,7 @@ That metadata becomes my *Model* for the template:
     }
 ```
 
-Which is rendered with the following template:
-
-```
-partial class ThisAssembly
-{
-    public static partial class Metadata
-    {
-        {{~ for md in Metadata ~}}
-        public const string {{ md.Key }} = @"{{ md.Value }}";
-
-        {{~ end ~}}
-    }
-}
-```
+Which is rendered with the template shown above in the Scriban section.
 
 The entirety of the [shipping](https://nuget.org/packages/ThisAssembly.Metadata) generator 
 is:
