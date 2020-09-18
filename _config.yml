@@ -1,3 +1,4 @@
+remote_theme: daattali/beautiful-jekyll@5.0.0
 title : Daniel Cazzulino
 description : A blog about .NET, C#, Visual Studio, Mobile, Xamarin and technology
 author :
@@ -20,7 +21,6 @@ feed-type:        atom    # atom | rss
 
 exclude:      [ "README.md", "CNAME", ".gitattributes", ".gitignore", ".editorconfig" ]
 paginate:     10
-highlighter:  "rouge"
 port:         3000
 host:         127.0.0.1
 
