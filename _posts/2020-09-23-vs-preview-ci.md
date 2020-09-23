@@ -43,18 +43,18 @@ jobs:
 Relevant steps:
 
 1. Install/update to latest & greatest dotnet-vs by simply using `dotnet tool update -g`. That will install the tool if it's not there, and ensure it's the latest otherwise. I do this because if VS preview requires some newer command args in the future, the latest `dotnet-vs` tool will likely support that too.
+
 2. The syntax for [setting an environment from a GH action](https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#setting-an-environment-variable) is a bit weird, but the notable thing here is that the `run` command will actually run Powershell Core by default, unlike on DevOps where it runs cmd.exe (on Windows agents, in both cases):
    
-   ![RunPwsh.png](https://raw.githubusercontent.com/kzu/img/main/2020/09/23-16-30-25-RunPwsh.png)
+   ![RunPwsh.png](https://raw.githubusercontent.com/kzu/kzu.github.io/master/2020/09/23-16-30-25-RunPwsh.png)
+   
    So we take advantage of that fact and just run  the `vs where` command inline to set the value of the installation directory for a preview version of VS. The `dotnet-vs` tool [where command](https://github.com/kzu/dotnet-vs#where) will return the raw value from that execution, or an empty string if no such version is found.
+
 3. We use that as the condition for the `vs install` so that we only do so if the preview isn't there already. Note how you can add any [supported workload or component ID](https://docs.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-community?view=vs-2019) to the installation with the simple `+[ID]` syntax. There are also [shorter aliases](https://github.com/kzu/dotnet-vs#workload-id-switches) for common workloads like `+core +desktop +azure +mobile`, say. The ones I'm installing in this case are just the minium I need, so I can get the install in [just about ~5 minutes](https://github.com/kzu/NuGetizer/runs/1156719236)! 
+
 4. We finally use the same "trick" as step 2 for adding the MSBuild path to the `%PATH%` so that we can finally just run `msbuild`.
 
-
-
 All in all, pretty straightforward and concise. I love it how GitHub `run` actions are rendered by default using the frst line of the command. I wish Azure DevOps did the same, instead of showing just `CmdLine` and forcing you to always annotate steps with `displayName`.
-
-
 
 ## Azure DevOps
 
@@ -86,7 +86,5 @@ steps:
 You can see that the structure is pretty much the same as for GitHub workflows. Note that we need to explicitly choose to run with powershell by using `pwsh` instead of `script`, so that the inline execution of `vs` commands when expanding the string for the variables works the same way. We use the `##vso[task.XXX]` syntax in this case instead. 
 
 The condition syntax in GitHub workflows is also so much nicer :).
-
-
 
 And that is all you need to install quickly (both in ~5' in this combination of components) and build in CI using the latest and greatest C# features!
