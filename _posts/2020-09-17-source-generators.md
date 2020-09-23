@@ -100,7 +100,7 @@ for me. Again, this can be done in a single place in the *Directory.Build.target
 
 ```xml
   <ItemGroup>
-    <EmbeddedResource Include="@(None -&gt; WithMetadataValue('Extension', '.sbntxt'))" />
+    <EmbeddedResource Include="@(None -> WithMetadataValue('Extension', '.sbntxt'))" />
   </ItemGroup>
 ```
 
@@ -158,7 +158,6 @@ public class MetadataGenerator : ISourceGenerator
 
 > NOTE: even if I don't provide a template for VB/F#, this code won't fail 
 > presently since it will only be invoked for C# ;-)
-
 
 Now on to some concrete scenarios I used that showcase the power and flexibility 
 of source generators.
@@ -475,8 +474,6 @@ With the discussion of the previous two generators, I think you, dear reader,
 will have no problems making sense of [its source](https://github.com/kzu/ThisAssembly/tree/main/src/ThisAssembly.AssemblyInfo), 
 since it looks (unsurprisingly) very similar to the ones shown above.
 
-
 Next up is the (somewhat popular) [netfx-System.StringResources](https://www.nuget.org/packages/netfx-System.StringResources) :)
-
 
 Stay tunned for more source generator galore!
