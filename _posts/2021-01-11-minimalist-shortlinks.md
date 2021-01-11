@@ -53,39 +53,39 @@ Before we get into deployment, though, let's see what the code does.
    and we added the `http` section so that we can use the shortlink URLs with 
    no prefix whatesoever (after the base URL):
 
-```json
-{
-  "$schema": "http://json.schemastore.org/host",
-  "version": "2.0",
-  "extensions": {
-    "http": {
-      "routePrefix": ""
+    ```json
+    {
+      "$schema": "http://json.schemastore.org/host",
+      "version": "2.0",
+      "extensions": {
+        "http": {
+          "routePrefix": ""
+        }
+      },
+      "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
+      }
     }
-  },
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[1.*, 2.0.0)"
-  }
-}
-```
+    ```
 
 2. The URLs will look like `[FUNCTION_URL]/[SHORT_ALIAS]`, meaning we want 
    to map *all* incoming "paths" to the same function. This is accomplished 
    with the [proxies.json](https://github.com/kzu/aka/blob/main/proxies.json)
 
-```json
-{
-    "$schema": "http://json.schemastore.org/proxies",
-    "proxies": {
-        "buildproxy": {
-            "matchCondition": {
-                "route": "{*alias}"
-            },
-            "backendUri": "https://localhost/aka/{alias}"
+    ```json
+    {
+        "$schema": "http://json.schemastore.org/proxies",
+        "proxies": {
+            "buildproxy": {
+                "matchCondition": {
+                    "route": "{*alias}"
+                },
+                "backendUri": "https://localhost/aka/{alias}"
+            }
         }
     }
-}
-```
+    ```
 
    By convention, but also to avoid infinite redirection, we do use the 
    function folder/name in the backend URI, which is defined next.
@@ -93,43 +93,43 @@ Before we get into deployment, though, let's see what the code does.
 3. The function definition specifies the route and the bindings in 
    [function.json](https://github.com/kzu/aka/blob/main/aka/function.json):
 
-```json
-{
-  "bindings": [
+    ```json
     {
-      "authLevel": "anonymous",
-      "name": "req",
-      "type": "httpTrigger",
-      "direction": "in",
-      "methods": [ "get", "head", "post", "put" ],
-      "route": "aka/{alias}"
-    },
-    {
-      "type": "table",
-      "name": "aka",
-      "tableName": "Aka",
-      "partitionKey": "aka",
-      "rowKey": "{alias}",
-      "take": 1,
-      "connection": "AzureWebJobsStorage",
-      "direction": "in"
-    },
-    {
-      "type": "table",
-      "name": "output",
-      "tableName": "Aka",
-      "connection": "AzureWebJobsStorage",
-      "direction": "out"
-    },
-    {
-      "name": "$return",
-      "type": "http",
-      "direction": "out"
-    }    
-  ],
-  "disabled": false
-}
-```
+      "bindings": [
+        {
+          "authLevel": "anonymous",
+          "name": "req",
+          "type": "httpTrigger",
+          "direction": "in",
+          "methods": [ "get", "head", "post", "put" ],
+          "route": "aka/{alias}"
+        },
+        {
+          "type": "table",
+          "name": "aka",
+          "tableName": "Aka",
+          "partitionKey": "aka",
+          "rowKey": "{alias}",
+          "take": 1,
+          "connection": "AzureWebJobsStorage",
+          "direction": "in"
+        },
+        {
+          "type": "table",
+          "name": "output",
+          "tableName": "Aka",
+          "connection": "AzureWebJobsStorage",
+          "direction": "out"
+        },
+        {
+          "name": "$return",
+          "type": "http",
+          "direction": "out"
+        }    
+      ],
+      "disabled": false
+    }
+    ```
 
    Note the `"route": "aka/{alias}"`, which matches the `backendUri` specified 
    earlier.
@@ -143,48 +143,48 @@ Before we get into deployment, though, let's see what the code does.
 4. Finally, the function code is quite trivial too, defined in 
    [run.csx](https://github.com/kzu/aka/blob/main/aka/run.csx):
 
-```csharp
-static readonly string authorization = Environment.GetEnvironmentVariable("X-Authorization");
+    ```csharp
+    static readonly string authorization = Environment.GetEnvironmentVariable("X-Authorization");
 
-public static IActionResult Run(HttpRequest req, Aka aka, ILogger log, out Aka output, string alias = "400")
-{
-    log.LogInformation($"alias={alias}, PK={aka?.PartitionKey}, RK={aka?.RowKey}, Url={aka?.Url}");
-
-    output = default;
-
-    if (alias == "400" || string.IsNullOrEmpty(alias))
-        return new BadRequestResult();
-
-    // Create
-    if (req.Method == "POST" || req.Method == "PUT")
+    public static IActionResult Run(HttpRequest req, Aka aka, ILogger log, out Aka output, string alias = "400")
     {
-        if (req.Headers.TryGetValue("X-Authorization", out var values) && 
-            values.FirstOrDefault() == authorization)
+        log.LogInformation($"alias={alias}, PK={aka?.PartitionKey}, RK={aka?.RowKey}, Url={aka?.Url}");
+
+        output = default;
+
+        if (alias == "400" || string.IsNullOrEmpty(alias))
+            return new BadRequestResult();
+
+        // Create
+        if (req.Method == "POST" || req.Method == "PUT")
         {
-            using (var reader = new StreamReader(req.Body))
+            if (req.Headers.TryGetValue("X-Authorization", out var values) && 
+                values.FirstOrDefault() == authorization)
             {
-                var url = reader.ReadToEnd();
-                if (aka != null)
-                    aka.Url = url;
-                else
-                    aka = new Aka { RowKey = alias, Url = url }; 
+                using (var reader = new StreamReader(req.Body))
+                {
+                    var url = reader.ReadToEnd();
+                    if (aka != null)
+                        aka.Url = url;
+                    else
+                        aka = new Aka { RowKey = alias, Url = url }; 
 
-                output = aka;
-                return new RedirectResult(url);
-            }    
+                    output = aka;
+                    return new RedirectResult(url);
+                }    
+            }
+            else
+            {
+                return new UnauthorizedResult();
+            }
         }
-        else
-        {
-            return new UnauthorizedResult();
-        }
+
+        if (aka == null)
+            return new NotFoundResult();
+
+        return new RedirectResult(aka.Url);
     }
-
-    if (aka == null)
-        return new NotFoundResult();
-
-    return new RedirectResult(aka.Url);
-}
-```
+    ```
 
    Notable points here are:
 
@@ -198,26 +198,26 @@ public static IActionResult Run(HttpRequest req, Aka aka, ILogger log, out Aka o
 5. To enable the "upsert" behavior (update or insert as necessary), the `Aka` class is defined 
    as follows (in the same [run.csx](https://github.com/kzu/aka/blob/main/aka/run.csx#L53-L70)): 
 
-```csharp
-public class Aka
-{
-    string rowKey = "400";
+    ```csharp
+    public class Aka
+    {
+        string rowKey = "400";
 
-    public string PartitionKey { get; set; } = "aka";
-    public string RowKey 
-    { 
-        get => rowKey;
-        set 
-        {
-            if (!string.IsNullOrEmpty(value))
-                rowKey = value;  
+        public string PartitionKey { get; set; } = "aka";
+        public string RowKey 
+        { 
+            get => rowKey;
+            set 
+            {
+                if (!string.IsNullOrEmpty(value))
+                    rowKey = value;  
+            }
         }
-    }
 
-    public string Url { get; set; }
-    public string ETag { get; } = "*";
-}
-```
+        public string Url { get; set; }
+        public string ETag { get; } = "*";
+    }
+    ```
 
    The `ETag` property is the one that allows the returned object to be considered an 
    update to the existing one. Note also how we're only setting the `RowKey` if it has 
