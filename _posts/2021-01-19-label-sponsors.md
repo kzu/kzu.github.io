@@ -1,6 +1,6 @@
 ---
 title: "Custom labeling of GitHub sponsors via Actions"
-description: "You don't really need a third-party action that likely doesn't do exactly what you need. You don't really need third-party actions most of the time, little scripts can do a whole lot with the open APIs, especially GitHub's!"
+description: "You don't really need a third-party action that may not do exactly what you need. With a little cross-platform scripting and GitHub open APIs, you can do whatever you want!"
 tags: [github]
 ---
 
