@@ -4,6 +4,8 @@ description: "You don't really need a third-party action that may not do exactly
 tags: [github]
 ---
 
+> TLDR: just go check [sponsors.yml](https://github.com/devlooped/.github/blob/main/.github/workflows/sponsors.yml) and [sponsors.ps1](https://github.com/devlooped/.github/blob/main/.github/workflows/sponsors.ps1) 😉
+
 For my new [GitHub organization](https://github.com/devlooped) (which I had to set up alongside an LLC to actually be able to be [sponsored](https://github.com/sponsors/devlooped)!), I want to automatically label issues and PRs depending on whether the author is a sponsor. Easy enough, just [use a readily available action in the marketplace](https://github.com/marketplace/actions/sponsor-labels)!
 
 It does the basics, and applies a label you can even configure:
