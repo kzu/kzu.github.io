@@ -1,5 +1,9 @@
 ---
 title: "NuGetizer as an alternative to .NET SDK Pack"
+description: |
+  NuGetizer is not just a workaround to use whenever SDK Pack falls short, but a true 
+  alternative built from the ground up with MSBuild usage in mind, therefore supporting 
+  an unparalleled range of features and customization options.
 tags: [nuget sdk dotnet]
 ---
 
