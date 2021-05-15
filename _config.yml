@@ -1,128 +1,54 @@
-remote_theme: daattali/beautiful-jekyll@5.0.0
+plugins: 
+  - jekyll-paginate
+  - jekyll-remote-theme
+
+remote_theme: kzu/beautiful-jekyll@master
+author: Daniel Cazzulino
 title : Daniel Cazzulino
 description : A blog about .NET, C#, Visual Studio, Mobile, Xamarin and technology
-author :
-  name :          Daniel Cazzulino
+title-img: https://api.kzu.io/devlooped.svg
+avatar: /img/kzu.jpg
+
+social-network-links:
   alias:          kzu
   email :         daniel@cazzulino.com
   github :        kzu
   twitter :       kzu
   stackoverflow:  24684/kzu
   linkedin:       in/DanielCazzulino
-  google:         +DanielCazzulino
+
+share-links-active:
+  github: true
+  twitter: true
+  linkedin: true
+  stackoverflow: true
+  feed: true
 
 permalink:        /:title.html 
 url:              https://www.cazzulino.com
 baseurl:          ""
 disqus:           kzu
 google_analytics: "UA-20330792-1"
+google-search-id: fab2fac2137f17958
 feed:             https://feeds.feedburner.com/DanielCazzulino
-feed-type:        atom    # atom | rss
+feed-type:        atom
 
 exclude:      [ "README.md", "CNAME", ".gitattributes", ".gitignore", ".editorconfig" ]
 paginate:     10
 port:         3000
 host:         127.0.0.1
 
-defaults:
-  -
-    scope:
-      path: ""
-    values:
-      excerpt_separator: <!--more-->
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      comments: true
-      layout:   post
-      category: programming
-  -
-    scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "default"
-
-
-# --- THEME OPTIONS --- #
-
-# --- Navigation bar options --- #
-
-# Image to show in the navigation bar - image must be a square (width = height)
-# Remove this parameter if you don't want an image in the navbar
-avatar: /img/kzu.jpg
-
-# List of links in the navigation bar
 navbar-links:
   Home: "/"
   Archive: "/archive/"
   Tags: "/tags/"
   About Me: "/about/"
   
-# --- Footer options --- #
-# Select which links to show in the footer
-footer-links-active:
-  feed: true
-  facebook: false
-  email: false
-  twitter: true
-  github: true
-  linkedin: true
-  stackoverflow: true
-
-# How to display the link to the website in the footer
-# Remove this if you don't want a link in the footer
 url-pretty: "cazzulino.com"
-  
-# --- Don't need to touch anything below here (but you can if you want) --- #
-
-# prose.io config
-prose:
-  rooturl: '_posts'
-  media: 'img'
-  ignore:
-    - LICENSE
-    - atom.xml
-    - sitemap.xml
-    - _config.yml
-    - /_layouts
-    - /_includes
-    - /css
-    - /img
-    - /js
-  metadata:
-    _posts:
-      - name: "layout"
-        field:
-          element: "hidden"
-          value: "post"
-      - name: "title"
-        field:
-          element: "text"
-          label: "Post title"
-          placeholder: "Title"
-          alterable: true
-      - name: "subtitle"
-        field:
-          element: "textarea"
-          label: "Subtitle"
-          placeholder: "A description of your post."
-          alterable: true
-      - name: "date"
-        field:
-          element: "text"
-          label: "Date"
-          help: "Enter date of post."
-          placeholder: "yyyy-mm-dd"
-          alterable: true
-      - name: "published"
-        field:
-          element: "checkbox"
-          label: "Publish"
-          help: "Check to publish post, uncheck to hide."
-  
-# Beautiful Jekyll / Dean Attali
-# 2fc73a3a967e97599c9763d05e564189
-  
+excerpt_length: 100
+feed_show_tags: true
+navbar-col: "black"
+navbar-text-col: "#41D841"
+hover-col: "lime"
+link-col: "#418C41"
+site-css: /site.css

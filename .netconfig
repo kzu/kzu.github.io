@@ -1,0 +1,20 @@
+[file "archive.html"]
+	url = https://github.com/kzu/beautiful-jekyll/blob/master/archive.html
+	sha = 29be1d0a7108d62b4f76fd6cc62ca52e14106e12
+	etag = 80f1415394b64c886145a67aa8e1b204c1ad0113b7066dda73f64bd5f63f3465
+	weak
+[file "tags.html"]
+	url = https://github.com/kzu/beautiful-jekyll/blob/master/tags.html
+	sha = 29be1d0a7108d62b4f76fd6cc62ca52e14106e12
+	etag = 88ee92d7141543372fb8804fc0fe74bbbb002a10fc470822ab7fef1df369eec3
+	weak
+[file "feed.xml"]
+	url = https://github.com/kzu/beautiful-jekyll/blob/master/feed.xml
+	sha = 2128b1c48b45868c0254a65e86d1fa5e044cd807
+	etag = e81eb3cdc5e79c4f8e4e9eb76da3f747e95b42b4b7bed2aa0d0e4e6e2f8632fb
+	weak
+[file "sitemap.xml"]
+	url = https://github.com/kzu/beautiful-jekyll/blob/master/sitemap.xml
+	sha = 2bf169efadbc3f4a206b0371ce2cc771cf4e7344
+	etag = cae29e4ce42a6f05630766aa4889724860c6e65bdf2e2fd95d21c2e77dba45aa
+	weak
