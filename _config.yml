@@ -49,7 +49,7 @@ excerpt_length: 100
 feed_show_tags: true
 navbar-col: "black"
 navbar-text-col: "#41D841"
-hover-col: "lime"
+hover-col: "green"
 link-col: "#418C41"
 site-css: /site.css
 head-extra: favicon.html
