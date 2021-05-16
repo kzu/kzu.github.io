@@ -1,3 +1,15 @@
 .cloud {
     filter: hue-rotate(280deg);
 }
+
+code {
+    color: darkgreen;
+}
+
+.highlight .nf {
+    color: darkgreen;
+}
+
+.highlight .s {
+    color: green;
+}
