@@ -52,3 +52,5 @@ navbar-text-col: "#41D841"
 hover-col: "lime"
 link-col: "#418C41"
 site-css: /site.css
+head-extra: favicon.html
+footer-extra: license.html
