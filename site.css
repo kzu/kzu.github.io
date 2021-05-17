@@ -18,6 +18,10 @@ code {
     color: lightseagreen;
 }
 
+.nav-link:hover,.nav-link:focus{
+    color: lime !important
+}
+
 .nav-link {
     animation: neonGlow 3s infinite alternate cubic-bezier(0.455, 0.030, 0.515, 0.955);
 }
