@@ -53,5 +53,9 @@ navbar-text-col: "white"
 hover-col: "green"
 link-col: "#418C41"
 site-css: /site.css
-head-extra: favicon.html
-footer-extra: license.html
+
+defaults:
+  -
+    values:
+      head-extra: favicon.html
+      footer-extra: license.html
