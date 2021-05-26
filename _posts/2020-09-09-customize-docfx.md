@@ -132,6 +132,7 @@ I simply wanted to also reference the latest & greatest CSS from highlight.js, s
 
 with the full file being:
 
+{% raw %}
 ```html
 {{!Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.}}
 
@@ -155,6 +156,7 @@ with the full file being:
   {{#_enableNewTab}}<meta property="docfx:newtab" content="true">{{/_enableNewTab}}
 </head>
 ```
+{% endraw %}
 
 ## Publishing DocFx site from GitHub Actions 
 
