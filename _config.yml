@@ -23,7 +23,7 @@ share-links-active:
   twitter: true
   linkedin: true
   stackoverflow: true
-  feed: true
+  rss: true
 
 permalink:        /:title.html 
 url:              https://www.cazzulino.com
