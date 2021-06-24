@@ -4,7 +4,7 @@ description: |
   NuGetizer is not just a workaround to use whenever SDK Pack falls short, but a true 
   alternative built from the ground up with MSBuild usage in mind, therefore supporting 
   an unparalleled range of features and customization options.
-tags: [nuget sdk dotnet]
+tags: [nuget, sdk, dotnet]
 ---
 
 There is a very long standing feature request for [NuGet Pack](https://github.com/NuGet/Home/issues/3891) to "allow project reference DLLs to be added to the parent nupkg for pack target like IncludeReferencedProjects in nuget.exe". This has been going on for years (5 almost as of 2021) and has had over 260 comments so far. Seems like quite the significant pain point for some customers.
