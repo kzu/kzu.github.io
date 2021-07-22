@@ -7,7 +7,7 @@ description: |
   style, but it might be worth considering keeping those explorations 
   around in your code base and even make them easily executable within 
   the IDE afterwards, for further learning or other team members' benefit. 
-tags: [dotnet testing]
+tags: [dotnet, testing]
 ---
 
 API exploration, whether third party or your own, is a necessary and 
