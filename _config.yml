@@ -11,19 +11,20 @@ navbar-img: https://api.kzu.io/background.svg
 avatar: /img/kzu.jpg
 
 social-network-links:
-  alias:          kzu
-  email :         daniel@cazzulino.com
-  github :        kzu
-  twitter :       kzu
-  stackoverflow:  24684/kzu
-  linkedin:       in/DanielCazzulino
+  alias:         kzu
+  email:         daniel@cazzulino.com
+  github:        kzu
+  twitter:       kzu
+  stackoverflow: 24684/kzu
+  linkedin:      in/DanielCazzulino
+  devlooped:     true
 
 share-links-active:
-  github: true
-  twitter: true
-  linkedin: true
+  github:        true
+  twitter:       true
+  linkedin:      true
   stackoverflow: true
-  rss: true
+  feed:          true
 
 permalink:        /:title.html 
 url:              https://www.cazzulino.com
@@ -55,7 +56,14 @@ link-col: "#418C41"
 site-css: /site.css
 
 defaults:
-  -
+  - scope:
+      path: ""
+      type: posts
+    values:
+      after-content: signature.html
+      comments: true
+  - scope:
+      path: ""
     values:
       head-extra: favicon.html
       footer-extra: license.html
