@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Fridathon
+comments: true
 ---
 
 **Fridathon**: *unstructured learning or hacking you can opt-in to do on any random Friday.*
