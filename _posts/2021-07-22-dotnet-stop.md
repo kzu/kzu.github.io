@@ -26,7 +26,7 @@ and determined that approach I needed was
 
 Since this is somewhat involved and I wanted to make it cross-platform and easily 
 reusable, I created the [dotnet-stop](https://www.nuget.org/packages/dotnet-stop/) 
-tool which I can now depend on an invoke from any other dotnet tool. The whole tool 
+tool which I can now depend on and invoke from any other dotnet tool. The whole tool 
 fits nicely in a single [C# 9 top-level Program.cs](https://github.com/devlooped/dotnet-stop/blob/main/src/Program.cs).
 
 On Windows, invoking a separate tool for this was unavoidable (as far as I could 
