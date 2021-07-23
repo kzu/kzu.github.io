@@ -33,7 +33,7 @@ On Windows, invoking a separate tool for this was unavoidable (as far as I could
 manage), since I couldn't re-acquire the console after signaling the external process, 
 which left the calling tool in a broken state (wouldn't even respond to Ctrl+C at 
 that point). But this was perfectly acceptable for my 
-[dotnet-evergreen](https://www.nuget.org/packages/dotnet-evergreen/) scenario anyway.
+[dotnet-evergreen]({% link _posts/2021-07-22-dotnet-evergreen.md %}) scenario anyway.
 
 Usage is trivial, with a couple options to tweak how the stopping is done:
 
