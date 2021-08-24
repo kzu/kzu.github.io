@@ -93,11 +93,11 @@ Being an MSBuild-native implementation, it's entirely possible to discover and r
 
 You can run the tool on the folder with the `Core.csproj` from above, and you'd get:
 
-![nugetize](https://github.com/kzu/kzu.github.io/raw/master/img/nugetize.png)
+![nugetize](https://github.com/kzu/kzu.github.io/raw/main/img/nugetize.png)
 
 If you didn't want the PDBs in there, you'd just add... you guessed it, `PackSymbols=false` to the project, re-run the tool, and now it's:
 
-![nugetize-symbols](https://github.com/kzu/kzu.github.io/raw/master/img/nugetize-2.png)
+![nugetize-symbols](https://github.com/kzu/kzu.github.io/raw/main/img/nugetize-2.png)
 
 # First-class Custom Packaging
 
@@ -126,7 +126,7 @@ Since you are building the content manually, you are not constrained even by NuG
 
 In this case it's quite likely you'd also not pack the build output of the project, which can be achieved simply by setting `PackBuildOutput=false` on the project. Running `nugetize` on the project folder would show:
 
-![nugetize-custom](https://github.com/kzu/kzu.github.io/raw/master/img/nugetize-3.png)
+![nugetize-custom](https://github.com/kzu/kzu.github.io/raw/main/img/nugetize-3.png)
 
 If you instead wanted instead to have Newtonsoft.Json as a dependency for NS2 but for NS2.1 you wanted to switch to System.Text.Json instead, you could explicitly set the `TargetFramework` for each dependency:
 
@@ -139,7 +139,7 @@ If you instead wanted instead to have Newtonsoft.Json as a dependency for NS2 bu
 
 Technically, it doesn't really matter for this particular example if the `TargetFramework` of the project itself is `netstandard1.0` or anything else. The output will be the same, as shown by `nugetize`:
 
-![nugetize-dependencies](https://github.com/kzu/kzu.github.io/raw/master/img/nugetize-4.png)
+![nugetize-dependencies](https://github.com/kzu/kzu.github.io/raw/main/img/nugetize-4.png)
 
 This makes **NuGetizer** an excelent tool for creating meta-packages!
 
@@ -169,7 +169,7 @@ In the previous example, we had to turn off `PackBuildOutput`, since the project
 
 With a project extension of `.msbuildproj`, Visual Studio can even open this project and show it in the solution explorer:
 
-![nugetize-vs](https://github.com/kzu/kzu.github.io/raw/master/img/nugetize-5.png)
+![nugetize-vs](https://github.com/kzu/kzu.github.io/raw/main/img/nugetize-5.png)
 
 The [Microsoft.Build.Traversal](https://github.com/microsoft/MSBuildSdks/tree/main/src/Traversal) SDK is also supported, so you can pack all your packaging projects from a single entry point, such as:
 
