@@ -48,5 +48,5 @@ Which you can embed directly in your GitHub pages-powered site like I did
 </video>
 ```
 
-Which looks great on the [published post](({% link _posts/2021-07-22-dotnet-evergreen.md %})) 
+Which looks great on the [published post]({% link _posts/2021-07-22-dotnet-evergreen.md %})
 and doesn't take any space in the actual git repository when cloning on a fresh machine 😍.
