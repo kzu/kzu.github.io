@@ -67,25 +67,8 @@ The project is basically the same as any other functions project, with the updat
 </Project>
 ```
 
-In order for the deployment to work, though, I had to make it self-contained, and target the specific 
-runtime. Since this can pollute the local build unnecessarily (got a bunch of warnings), I conditioned 
-these deploy-specific properties with the [`$(CI)`](https://github.com/kzu/til/blob/master/msbuild/detect-ci-builds-for-every-ci-system.md) property:
-
-```xml
-  <PropertyGroup Condition="$(CI)">
-    <RuntimeFrameworkVersion>5.0.7</RuntimeFrameworkVersion>
-    <RuntimeIdentifier>win10-x86</RuntimeIdentifier>
-    <SelfContained>true</SelfContained>
-  </PropertyGroup>
-```
-
-Without these properties, I ended up with the following error page when running the app:
-
-```
-HTTP Error 500.31 - ANCM Failed to Find Native Dependencies
-Common solutions to this issue:
-The specified version of Microsoft.NetCore.App or Microsoft.AspNetCore.App was not found.
-```
+> NOTE: I tried also making the deploy self-contained to work around the az cli deployment
+> but that ended up not being necessary when using func CLI for publish
 
 
 ### GitHub Actions Build/Deploy
@@ -156,6 +139,71 @@ pass additional args verbatim (without resorting to additional quotes or anythin
 And here's proof that it's indeed running .NET 6.0:
 
 ![screenshot of running functions app with dotnet 6](/img/net6functions-running.png)
+
+
+## Minimal APIs with Azure Functions?
+
+I know [ASP.NET Core 6 minimal APIs](https://www.bing.com/search?q=asp.net+core+6+minimal+apis) 
+are getting quite a bit of attention, but [this looks pretty minimal](https://github.com/kzu/MinimalFunctions/blob/main/src/MinimalFunction/Person.cs) to me for a typical Azure 
+Function app:
+
+```csharp
+record Person(string FirstName, string LastName, string Runtime, string Version);
+
+record PersonApi(ILogger<Person> Log)
+{
+    [FunctionName(nameof(GetPerson))]
+    public Person GetPerson([HttpTrigger(AuthorizationLevel.Anonymous, "GET", Route = "person")] HttpRequestMessage req)
+    {
+        Log.LogInformation("We got DI too :)");
+        return new Person("Daniel", "Cazzulino", RuntimeInformation.FrameworkDescription, ThisAssembly.Info.InformationalVersion);
+    }
+}
+```
+
+Using records to inject dependencies is so nice, as well as for the payloads themselves.
+And since you will most likely be annotating parameters with bindings and other cross-cutting 
+concerns, I don't find the lambda-based minimal APIs all that compelling. My guess is that 
+you'll end up moving those to separate methods anyway, and that point all you're gaining is 
+not having the "wrapper" class. But that's what gives you nice class-level DI that's shared 
+across all functions/methods, which is nicer than repeating all arguments in each method 
+anyway... Dunno, we'll see how people use that in the wild, I guess.
+
+As for additional configuration you might need before your app starts (the *builder* phase 
+of minimal APIs), Azure Functions provides a simple enough [hook to do that too](https://github.com/kzu/MinimalFunctions/blob/main/src/MinimalFunction/Startup.cs):
+
+```csharp
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+
+[assembly: FunctionsStartup(typeof(Startup))]
+
+public class Startup : FunctionsStartup
+{
+    public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder config) 
+    {
+        var context = config.GetContext();
+        var env = context.EnvironmentName;
+        var appPath = context.ApplicationRootPath;
+
+        config.ConfigurationBuilder
+                .AddJsonFile(Path.Combine(appPath, "appsettings.json"), optional: true, reloadOnChange: false)
+                .AddDotNetConfig(appPath)
+                .AddJsonFile(Path.Combine(appPath, $"appsettings.{env}.json"), optional: true, reloadOnChange: true)
+                .AddJsonFile(Path.Combine(appPath, "local.settings.json"), optional: true, reloadOnChange: true);
+    }
+
+    public override void Configure(IFunctionsHostBuilder builder)
+    {
+        // TODO: configure builder.Services
+    }
+}
+```
+
+In this case, I'm adding ASP.NET's [appsettings](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0) and [dotnetconfig](https://dotnetconfig.org/), 
+for example, and I could also configure DI/services to inject too, just like in "regular" ASP.NET.
+
+I'd say Azure Functions remains my go-to platform for doing serverless compute, and 
 
 
 Happy NET6-ing! (netsixing?)
