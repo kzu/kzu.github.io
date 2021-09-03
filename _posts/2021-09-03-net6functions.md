@@ -79,7 +79,16 @@ these deploy-specific properties with the [`$(CI)`](https://github.com/kzu/til/b
   </PropertyGroup>
 ```
 
-### GitHub Actions Build
+Without these properties, I ended up with the following error page when running the app:
+
+```
+HTTP Error 500.31 - ANCM Failed to Find Native Dependencies
+Common solutions to this issue:
+The specified version of Microsoft.NetCore.App or Microsoft.AspNetCore.App was not found.
+```
+
+
+### GitHub Actions Build/Deploy
 
 Even though this goes against [the recommended way, using a publish profile](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-github-actions?tabs=dotnet#generate-deployment-credentials), I 
 find it much more convenient for CI to use an [Azure Service Principal](https://github.com/Azure/functions-action#using-azure-service-principal-for-rbac-as-deployment-credential) instead. 
