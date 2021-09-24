@@ -99,8 +99,48 @@ So, explaining what the above does beyond the obvious:
     `|` at this point, and amazingly, there is no `TrimEnd` feature at all in bash. So, another 
     regex but this time with a positive look-ahead instead ¯\_(ツ)_/¯
     
-
 And that's about it. 22 LoC with no dependencies whatesoever and that can run everywhere.
+
+## A note on macOS
+
+Turns out the `-o` and `-P` options do not exist in BSD grep (which ships with macOS) but are 
+from GNU grep \o/. The "right" version can trivially be installed with `brew install grep` but 
+that will *not* become the `grep` in the `PATH`. Changing the script to use `ggrep` instead 
+as mentioned [in StackOverflow](https://stackoverflow.com/questions/59232089/how-to-install-gnu-grep-on-mac-os) 
+is hardly convenient. So changing the `PATH` to prepend the new `grep` path seems best.
+
+There are various options for [changing PATH within a shell script](https://unix.stackexchange.com/questions/23426/how-to-alter-path-within-a-shell-script) 
+but the one I found easiest to integrate with GH Actions was to conditionally generate a 
+`.bash_profile` file in a step and conditionally load it from the main script if the file 
+exists, like so:
+
+```yml
+      - name: ⚙ GNU grep
+        if: matrix.os == 'macOS-latest'
+        run: |
+          brew install grep
+          echo 'export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"' >> .bash_profile
+
+      - name: 🧪 test
+        shell: bash --noprofile --norc {0}
+        env:
+          LC_ALL: en_US.utf8
+        run: |
+          [ -f .bash_profile ] && source .bash_profile
+          ...
+```
+
+In this particular case I'm using a matrix strategy like:
+
+```yml
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+```
+
+Which drives the conditional `if` above. The first line in the script shown at the beginning 
+now just needs to source the file if it exists: `[ -f .bash_profile ] && source .bash_profile`.
+
 
 Enjoy!
   
