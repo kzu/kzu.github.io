@@ -12,34 +12,34 @@ tags: [dotnet, github, ci]
 **TL;DR;**:
 
 ```yml
-      - name: 🧪 test
-        shell: bash --noprofile --norc {0}
-        env:
-          LC_ALL: en_US.utf8
-        run: |
-          counter=0
-          exitcode=0
-          reset="\e[0m"
-          warn="\e[0;33m"
-          while [ $counter -lt 6 ]
-          do
-              if [ $filter ]
-              then
-                  echo -e "${warn}Retry $counter for $filter ${reset}"
-              fi
-              # run test and forward output also to a file in addition to stdout (tee command)
-              dotnet test --no-build --filter=$filter | tee ./output.log
-              # capture dotnet test exit status, different from tee
-              exitcode=${PIPESTATUS[0]}
-              if [ $exitcode == 0 ]
-              then
-                  exit 0
-              fi
-              # cat output, get failed test names, join as DisplayName=TEST with |, remove trailing |.
-              filter=$(cat ./output.log | grep -o -P '(?<=\sFailed\s)\w*' | awk 'BEGIN { ORS="|" } { print("DisplayName=" $0) }' | grep -o -P '.*(?=\|$)')
-              ((counter++))
-          done
-          exit $exitcode
+  - name: 🧪 test
+    shell: bash --noprofile --norc {0}
+    env:
+      LC_ALL: en_US.utf8
+    run: |
+      counter=0
+      exitcode=0
+      reset="\e[0m"
+      warn="\e[0;33m"
+      while [ $counter -lt 6 ]
+      do
+          if [ $filter ]
+          then
+              echo -e "${warn}Retry $counter for $filter ${reset}"
+          fi
+          # run test and forward output also to a file in addition to stdout (tee command)
+          dotnet test --no-build --filter=$filter | tee ./output.log
+          # capture dotnet test exit status, different from tee
+          exitcode=${PIPESTATUS[0]}
+          if [ $exitcode == 0 ]
+          then
+              exit 0
+          fi
+          # cat output, get failed test names, join as DisplayName=TEST with |, remove trailing |.
+          filter=$(cat ./output.log | grep -o -P '(?<=\sFailed\s)\w*' | awk 'BEGIN { ORS="|" } { print("DisplayName=" $0) }' | grep -o -P '.*(?=\|$)')
+          ((counter++))
+      done
+      exit $exitcode
 ```
 
 I had some networking-related tests that were (expectedly) kinda flaky. But rather than 
@@ -115,27 +115,27 @@ but the one I found easiest to integrate with GH Actions was to conditionally ge
 exists, like so:
 
 ```yml
-      - name: ⚙ GNU grep
-        if: matrix.os == 'macOS-latest'
-        run: |
-          brew install grep
-          echo 'export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"' >> .bash_profile
+  - name: ⚙ GNU grep
+    if: matrix.os == 'macOS-latest'
+    run: |
+      brew install grep
+      echo 'export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"' >> .bash_profile
 
-      - name: 🧪 test
-        shell: bash --noprofile --norc {0}
-        env:
-          LC_ALL: en_US.utf8
-        run: |
-          [ -f .bash_profile ] && source .bash_profile
-          ...
+  - name: 🧪 test
+    shell: bash --noprofile --norc {0}
+    env:
+      LC_ALL: en_US.utf8
+    run: |
+      [ -f .bash_profile ] && source .bash_profile
+      ...
 ```
 
 In this particular case I'm using a matrix strategy like:
 
 ```yml
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+  strategy:
+    matrix:
+      os: [ubuntu-latest, windows-latest, macOS-latest]
 ```
 
 Which drives the conditional `if` above. The first line in the script shown at the beginning 
