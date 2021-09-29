@@ -203,7 +203,7 @@ public class Startup : FunctionsStartup
 In this case, I'm adding ASP.NET's [appsettings](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0) and [dotnetconfig](https://dotnetconfig.org/), 
 for example, and I could also configure DI/services to inject too, just like in "regular" ASP.NET.
 
-I'd say Azure Functions remains my go-to platform for doing serverless compute, and 
+I'd say Azure Functions remains my go-to platform for doing serverless compute :) 
 
 
 Happy NET6-ing! (netsixing?)
