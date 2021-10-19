@@ -1,5 +1,5 @@
 ---
-title: "Get owner and project name from GitHub Actions using bash parameter expansion"
+title: "Get owner and project name from GitHub Actions"
 description: |
   GitHub actions provides the GITHUB_REPOSITORY envvar. This shows how to get separate 
   owner and project name from that envvar, which contains both separated by a forward slash, 
