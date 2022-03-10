@@ -9,10 +9,9 @@ description: |
 tags: [dotnet, azure, functions]
 ---
 
-**TL;DR;**:
 <details>
-  <summary>Just show me the code!</summary>
-  
+  <summary>TL;DR; just show me the code!</summary>
+
 ```csharp
 [assembly: FunctionsStartup(typeof(Startup))]
 
@@ -41,7 +40,6 @@ public class Startup : FunctionsStartup
     }
 }
 ```
-
 </details>
 
 There is a bit of an unfortunate situation with [Azure Functions' ILogger](https://github.com/Azure/Azure-Functions/issues/1256) 
