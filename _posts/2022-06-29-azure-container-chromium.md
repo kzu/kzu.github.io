@@ -66,9 +66,11 @@ For this project, I run the following commands to get the async lazy stuff (whic
 > dotnet file add https://github.com/devlooped/catbag/blob/main/System/Threading/Tasks/AsyncLazy.cs .\src\Scraper\
 ```
 
-This brings [AddAsyncLazyExtension.cs](https://github.com/devlooped/catbag/blob/main/Microsoft/Extensions/DependencyInjection/AddAsyncLazyExtension.cs) and [AsyncLazy.cs](https://github.com/devlooped/catbag/blob/main/System/Threading/Tasks/AsyncLazy.cs) into the Scraper folder, and since it ends with `\`, **dotnet-file** will interpret that as a desire to recreate the GitHub repository folder structure inside that folder, so we end up with:
+This brings [AddAsyncLazyExtension.cs](https://github.com/devlooped/catbag/blob/main/Microsoft/Extensions/DependencyInjection/AddAsyncLazyExtension.cs) and [AsyncLazy.cs](https://github.com/devlooped/catbag/blob/main/System/Threading/Tasks/AsyncLazy.cs) into the Scraper folder, and since I kept the trailing separator by using `.\src\Scraper\`, **dotnet-file** will interpret that as a desire to recreate the GitHub repository folder structure inside that folder, so we end up with:
 
 ![solution explorer with desired structure](/img/az-containerapp-cat.png)
+
+> NOTE: if I had ended up the path with a dot, it tells *dotnet-file* to instead copy the files directly into that directory. If no target path is used at all, the folder structure is created from the current directy.
 
 The best part is that I also have a "standard" [dotnet-file.yml](https://github.com/devlooped/oss/blob/main/.github/workflows/dotnet-file.yml) workflow that can fetch updates from whichever upstream repository or repositories I added files from, collect changes, create a PR and even provide a super-clean description with pointers to each commit that changed each file. The PR is even automatically re-created so that you only ever have [one rolling update](https://github.com/devlooped/dotnet-file/pull/57) to merge. Changes from multiple repositories will also be grouped appropriately.
 
