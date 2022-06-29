@@ -262,12 +262,14 @@ Two particulary important steps that link to the previous CLI section, are the c
 The [build/deploy workflow](https://github.com/devlooped/scraper/blob/main/.github/workflows/build.yml) is quite concise, involving just a few steps beyond cloning and running `dotnet build` (I'll skip all the `if: github.ref == 'refs/heads/main'` I have since I only do deployments from main in this case):
 
 1. Setup docker:
+
 ```yml
       - name: ⚙ docker
         uses: docker/setup-buildx-action@v1
 ```
 
 2. Login with the container registry credentials:
+
 ```yml
       - name: 🔓 docker login
         uses: docker/login-action@v1
@@ -278,12 +280,14 @@ The [build/deploy workflow](https://github.com/devlooped/scraper/blob/main/.gith
 ```
 
 3. The container registry will contain CI-published images, and in order to make it easy to manage and prune the registry over time, I wanted to name images so they contained the branch where an image comes from as well as the year/month, so I can easily delete older ones over time. For that, a little shell command populates an envvar used during docker push:
+
 ```yml
       - name: 📅 date
         run: echo "app_prefix=${{ github.ref_name }}.$(date +%Y-%m)" >> $GITHUB_ENV
 ```
 
 4. Use determined prefix plus commit SHA to push to the container registry using the [Dockerfile](https://github.com/devlooped/scraper/blob/main/src/Scraper/Dockerfile):
+
 ```yml
       - name: 🚀 docker push
         uses: docker/build-push-action@v2
