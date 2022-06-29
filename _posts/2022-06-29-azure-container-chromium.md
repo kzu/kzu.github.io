@@ -316,7 +316,7 @@ The [build/deploy workflow](https://github.com/devlooped/scraper/blob/main/.gith
           run: az logout            
   ```
 
-With this in place, you can hit the scraper at some endpoint like `https://scraper.teslarocks-42069.eastus2.azurecontainerapps.io?selector=body&browserOnly=true&url=https://clarius.org` 😉.
+With this in place, you can hit the scraper at some endpoint like https://scraper.teslarocks-42069.eastus2.azurecontainerapps.io?selector=body&browserOnly=true&url=https://clarius.org 😉.
 
 
 All in all, I have to say I'm impressed with the combination of dotnet 6, minimal APIs, docker, and Azure container apps. It's a breeze to develop locally and to publish in the cloud in a completely serverless way.
