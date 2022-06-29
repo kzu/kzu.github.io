@@ -263,58 +263,58 @@ The [build/deploy workflow](https://github.com/devlooped/scraper/blob/main/.gith
 
 1. Setup docker:
 
-```yml
-      - name: ⚙ docker
-        uses: docker/setup-buildx-action@v1
-```
+  ```yml
+        - name: ⚙ docker
+          uses: docker/setup-buildx-action@v1
+  ```
 
 2. Login with the container registry credentials:
 
-```yml
-      - name: 🔓 docker login
-        uses: docker/login-action@v1
-        with:
-          registry: dscraper.azurecr.io
-          username: dscraper
-          password: ${{ secrets.AZURE_CONTAINER_PWD }}
-```
+  ```yml
+        - name: 🔓 docker login
+          uses: docker/login-action@v1
+          with:
+            registry: dscraper.azurecr.io
+            username: dscraper
+            password: ${{ secrets.AZURE_CONTAINER_PWD }}
+  ```
 
 3. The container registry will contain CI-published images, and in order to make it easy to manage and prune the registry over time, I wanted to name images so they contained the branch where an image comes from as well as the year/month, so I can easily delete older ones over time. For that, a little shell command populates an envvar used during docker push:
 
-```yml
-      - name: 📅 date
-        run: echo "app_prefix=${{ github.ref_name }}.$(date +%Y-%m)" >> $GITHUB_ENV
-```
+  ```yml
+        - name: 📅 date
+          run: echo "app_prefix=${{ github.ref_name }}.$(date +%Y-%m)" >> $GITHUB_ENV
+  ```
 
 4. Use determined prefix plus commit SHA to push to the container registry using the [Dockerfile](https://github.com/devlooped/scraper/blob/main/src/Scraper/Dockerfile):
 
-```yml
-      - name: 🚀 docker push
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: dscraper.azurecr.io/${{ env.app_prefix }}:${{ github.sha }}
-          file: src/Scraper/Dockerfile
-```
+  ```yml
+        - name: 🚀 docker push
+          uses: docker/build-push-action@v2
+          with:
+            push: true
+            tags: dscraper.azurecr.io/${{ env.app_prefix }}:${{ github.sha }}
+            file: src/Scraper/Dockerfile
+  ```
 
 5. Deploy the image by updating the container app to point to the newly pushed image, using the azure service principal JSON in the repository secrets:
 
-```yml
-      - name: 🔓 azure login
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+  ```yml
+        - name: 🔓 azure login
+          uses: azure/login@v1
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: 🚀 docker deploy
-        uses: azure/CLI@v1
-        with:
-          inlineScript: |
-            az config set extension.use_dynamic_install=yes_without_prompt
-            az containerapp update -g scraper -n scraper --container-name scraper --image dscraper.azurecr.io/${{ env.app_prefix }}:${{ github.sha }}
+        - name: 🚀 docker deploy
+          uses: azure/CLI@v1
+          with:
+            inlineScript: |
+              az config set extension.use_dynamic_install=yes_without_prompt
+              az containerapp update -g scraper -n scraper --container-name scraper --image dscraper.azurecr.io/${{ env.app_prefix }}:${{ github.sha }}
 
-      - name: 🔒 logout
-        run: az logout            
-```
+        - name: 🔒 logout
+          run: az logout            
+  ```
 
 With this in place, you can hit the scraper at some endpoint like `https://scraper.teslarocks-42069.eastus2.azurecontainerapps.io?selector=body&browserOnly=true&url=https://clarius.org` 😉.
 
