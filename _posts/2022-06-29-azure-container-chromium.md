@@ -156,11 +156,13 @@ builder.Services
 
 Note how we first await the async lazy service registered previously with `builder.AddSingleton(_ => Playwright.CreateAsync());`. We could just have initialized playwright itself above too, but this showcases how async lazy dependencies can depend on each other.
 
-The key configuration part for the ASP.NET core app running in docker to resolve to the native chromium binaries is setting the `ExecutablePath`. The `runtimes` folder is automatically copied by the .NET SDK from the package providing the chromium bits from the previous step.
+The key part is setting the `ExecutablePath`. The `runtimes` folder is automatically copied by the .NET SDK from the chromium native package. Note that the path refers to the `linux-x64` runtime since even when you run this from Visual Studio, a Linux docker image will run the app, which is quite awesome and works surprisingly well, even for debugging!
+
+We're missing one important step at this point: chromium requires some libs on the docker image too!
 
 ## Setting up Dockerfile for Chromium
 
-At this point, the basic docker image we got from the VS template will not contain the necessary dependencies for Chromium to run. This was a quite painful set of trial & error and listing missing dependencies until I got all the required ones, which ended up being this lengthy list to run at the top of the [Dockerfile](https://github.com/devlooped/scraper/blob/main/src/Scraper/Dockerfile):
+The basic docker image we got from the VS template will not contain the necessary dependencies for Chromium to run. This was a quite painful set of trial & error and listing missing dependencies until I got all the required ones, which ended up being this lengthy list to run at the top of the [Dockerfile](https://github.com/devlooped/scraper/blob/main/src/Scraper/Dockerfile):
 
 ```docker
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
