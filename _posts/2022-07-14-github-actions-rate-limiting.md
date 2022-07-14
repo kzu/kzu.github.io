@@ -39,16 +39,19 @@ Next, we use the `gh` CLI to retrieve the current limit with `gh api rate_limit`
 level or for the whole workflow. I prefer the latter to avoid repetition, so you can place this before 
 the `jobs`:
 
+<!-- {% raw %} -->
 ```
 env:
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+<!-- {% endraw %} -->
 
 Importantly, the GH actions when using this built-in token are 
 [limited to 1.000 requests per hour per repository](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#requests-from-github-actions). 
 Make sure you set your own PAT instead as a secret to get the full 15k requests. I generalize this across 
 repos by adding a step that populates `GH_TOKEN` automatically from `GITHUB_TOKEN` if undefined:
 
+<!-- {% raw %} -->
 ```
 - name: 🔍 GH_TOKEN
   if: env.GH_TOKEN == ''
@@ -57,6 +60,7 @@ repos by adding a step that populates `GH_TOKEN` automatically from `GITHUB_TOKE
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   run: echo "GH_TOKEN=${GITHUB_TOKEN}" >> $GITHUB_ENV
 ```
+<!-- {% endraw %} -->
 
 This allows me to selectively bump the requests limit only on repos/orgs I want to.
 
