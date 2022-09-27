@@ -132,7 +132,7 @@ to resolve it. This allows proper behavior when the service implements more than
 one interface: resolving the scoped service using any of the implemented interfaces 
 will result in the same scoped instance being created/retrieved. This is important 
 since the generated code will register your services with all the interfaces they 
-implement, so you don't anything except the `[Service]` attribute :). This is the 
+implement, so you don't need anything except the `[Service]` attribute :). This is the 
 most intuitive thing for me, so I made it a built-in convention.
 
 If you instead do multiple `<TService, TImplementation>` registrations, each 
