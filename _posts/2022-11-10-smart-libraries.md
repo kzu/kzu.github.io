@@ -320,7 +320,7 @@ implements [powerful default heuristics](https://github.com/devlooped/nugetizer/
 (than can nevertheless be turned trivially) and consistent properties and item 
 metadata for packaging. `PackFolder`, for example, is used as a project property 
 to denote the default package folder for project artifacts. In the main library, 
-we also used it to update the package path for a build targets:
+we also used it to update the package path for a build targets file:
 
 ```xml
 <None Update="Merq.targets" PackFolder="build" />
