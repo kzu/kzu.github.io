@@ -344,7 +344,7 @@ the `PackFolder` is not necessary for the package reference: unless otherwise
 overridden (like we did for `Merq.targets`), contributed content defaults to the 
 package folder defined for the project itself.
 
-## Thoughts
+## Final Thoughts
 
 After [authoring and publishing](https://www.nuget.org/profiles/kzu) literally 
 *hundreds* of packages (not all of consistent impact, adoption or even usefulness, 
