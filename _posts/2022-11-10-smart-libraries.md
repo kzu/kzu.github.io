@@ -238,7 +238,7 @@ alongside a third-party library (the awesome
 [superpower](https://www.nuget.org/packages/Superpower/) parser combinator), the 
 build targets and the main library (and its own run-time dependencies). 
 
-It might come as a shock that the entire source for that package does not consist 
+It might come as a shock that the entire source for that package does not contain 
 custom targets, weirdly named elements and so on, but is rather straightforward, 
 and is the *same* [.csproj for the library](https://github.com/devlooped/Merq/blob/main/src/Merq/Merq.csproj): 
 
