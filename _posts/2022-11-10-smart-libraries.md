@@ -317,7 +317,7 @@ project references. Both projects are almost identical, with the latter being:
 
 Here, notice the conspicuous absence of any weird packaging concerns. **NuGetizer** 
 implements [powerful default heuristics](https://github.com/devlooped/nugetizer/#package-contents-inference) 
-(than can nevertheless turned trivially) and consistent properties and item 
+(than can nevertheless be turned trivially) and consistent properties and item 
 metadata for packaging. `PackFolder`, for example, is used as a project property 
 to denote the default package folder for project artifacts. In the main library, 
 we also used it to update the package path for a build targets:
