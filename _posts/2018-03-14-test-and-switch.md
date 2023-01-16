@@ -5,7 +5,7 @@ that slow down an app at run-time while still being able to unit test logic that
 those libraries. Just like bait & switch gave us the trick to leverage platform-specific 
 code in cross-platform libraries, test & switch gives us the trick to author them in a 
 testable and still high performance way."
-tags: [xamarin mobile testing]
+tags: [xamarin, mobile, testing]
 ---
 
 If you are writing Xamarin apps, there's a high chance you are also leveraging the MVVM pattern:
