@@ -1,6 +1,6 @@
 ---
 title: "Compile-time automatic dependency injection registrations for .NET"
-tags: [devops, github]
+tags: [di, dotnet, aspnet]
 ---
 
 [Minimal APIs](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis) bring 

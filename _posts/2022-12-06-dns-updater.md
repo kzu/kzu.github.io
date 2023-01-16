@@ -1,6 +1,6 @@
 ---
 title: "Azure DNS updater using Powershell and Azure CLI"
-tags: [devops]
+tags: [azure, powershell]
 ---
 
 Back in the day, if you had a machine with a dynamic IP and you needed to accesss it 

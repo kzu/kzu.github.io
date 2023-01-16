@@ -1,6 +1,6 @@
 ---
 title: "Smart libraries for .NET"
-tags: [devops, github]
+tags: [dotnet, nuget, roslyn]
 ---
 
 In the .NET ecosystem, there's been a slow emergence of what I like to call "smart libraries": 
