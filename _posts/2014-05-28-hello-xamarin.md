@@ -1,6 +1,7 @@
 ---
 title: "Joining Xamarin"
-excerpt: My next big adventure: helping to build the best mobile development ever, inside Visual Studio!
+excerpt |
+    My next big adventure: helping to build the best mobile development ever, inside Visual Studio!
 image: https://www.cazzulino.com/img/monkey-face.jpg
 ---
 <img src="https://www.cazzulino.com/img/vb6.png" width="35%" align="right" class="image">
