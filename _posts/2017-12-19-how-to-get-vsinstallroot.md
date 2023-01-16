@@ -2,7 +2,7 @@
 title: "How to get Visual Studio 2017 installation path"
 description: "From MSBuild it's easy, just use $(VsInstallRoot), but what about 
 your VS extension? It's also quite easy, although far less discoverable..."
-tags: [vssdk vsix visualstudio msbuild]
+tags: [vssdk, vsix, visualstudio, msbuild]
 ---
 
 From MSBuild it's easy, just use $(VsInstallRoot), but what about 

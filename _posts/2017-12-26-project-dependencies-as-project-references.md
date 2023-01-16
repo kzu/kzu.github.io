@@ -3,7 +3,7 @@ title: "Why do project dependencies become project references?"
 description: "Sometimes you want certain projects to be built before others in a solution, 
 even if there shouldn't be a project reference between them. This is how you can avoid such 
 a build dependency to become a project reference automatically."
-tags: [visualstudio msbuild]
+tags: [visualstudio, msbuild]
 ---
 
 Sometimes you want certain projects to be built before others in a solution, 

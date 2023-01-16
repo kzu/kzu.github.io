@@ -2,7 +2,7 @@
 title: "How to include PDBs in your VSIX extension"
 description: "By default, the Visual Studio SDK will not include your extension and its referenced projects' symbols. 
 Here's how to do it easily for all your project references in one go."
-tags: [vssdk vsix visualstudio msbuild]
+tags: [vssdk, vsix, visualstudio, msbuild]
 ---
 
 In order to get better stack traces and logs from your Visual Studio extensions, it may be a good idea 
