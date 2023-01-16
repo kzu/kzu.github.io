@@ -1,9 +1,12 @@
 ---
 title: "Reusing readme content across NuGet packages"
+description: "Nowadays, the official NuGet gallery provides very nice looking 
+rendering of a package readme (if provided). This post shows how to reuse readme 
+content across multiple packages and your main project markdown files seamlessly."
 tags: [devops]
 ---
 
-Nowadays, the official [NuGet](https://www.nuget.org) library provides very nice looking 
+Nowadays, the official [NuGet](https://www.nuget.org) gallery provides very nice looking 
 rendering of a [package readme](https://devblogs.microsoft.com/nuget/add-a-readme-to-your-nuget-package/) (if provided). 
 
 In my opinion, this makes your packages much friendlier to newcomers, and allow 
