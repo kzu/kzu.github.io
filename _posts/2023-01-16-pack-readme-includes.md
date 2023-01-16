@@ -82,9 +82,6 @@ The [source-only readme](https://github.com/devlooped/TableStorage/blob/main/src
 Source-only version of [TableStorage](https://www.nuget.org/packages/Devlooped.TableStorage).
 <!-- include ../../readme.md#content -->
 <!-- include ../../readme.md#sponsors -->
-
-<!-- Exclude from auto-expansion by devlooped/actions-include GH action -->
-<!-- exclude -->
 ```
 
 While the [library one](https://github.com/devlooped/TableStorage/blob/main/src/TableStorage.Source/readme.md) is:
@@ -92,9 +89,6 @@ While the [library one](https://github.com/devlooped/TableStorage/blob/main/src/
 ```
 <!-- include ../../readme.md#content -->
 <!-- include ../../readme.md#sponsors -->
-
-<!-- Exclude from auto-expansion by devlooped/actions-include GH action -->
-<!-- exclude -->
 ```
 
 Both incorporate sections of the [main project readme](https://github.com/devlooped/TableStorage/blob/main/readme.md)
@@ -224,6 +218,9 @@ be done via includes/excludes on the action itself:
 
 The syntax follows the [Get-ChildItem -Exclude](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3#-exclude) in powershell, which is used to select candidate files as 
 [seen in the action source](https://github.com/devlooped/actions-includes/blob/main/resolve-file-includes.ps1#L6-L10).
+
+My preferred mechanism is to just add `<!-- exclude -->` at the bottom of my package 
+readme files.
 
 ## Closing
 
