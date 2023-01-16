@@ -1,7 +1,8 @@
 ---
 title: "Building like a Pro: Introduction"
-description: "This is the first of a series of posts where I intend to explore the challenges and showcase 
-approaches to building a product using MSBuild, beyond just building a `.csproj` or `.sln` of course ;)."
+excerpt: |
+	This is the first of a series of posts where I intend to explore the challenges and showcase 
+	approaches to building a product using MSBuild, beyond just building a `.csproj` or `.sln` of course ;).
 tags: [msbuild]
 ---
 

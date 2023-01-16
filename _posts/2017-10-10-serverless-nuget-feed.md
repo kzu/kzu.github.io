@@ -1,8 +1,9 @@
 ---
 title: "Serverless custom NuGet feeds"
-description: "Pretty much all CI systems offer nuget feed hosting. 
-But why setup those when you can have a CI-independent, static 
-serverless feed virtually for free and almost no effort?"
+excerpt: |
+  Pretty much all CI systems offer nuget feed hosting. 
+  But why setup those when you can have a CI-independent, static 
+  serverless feed virtually for free and almost no effort?
 tags: [msbuild]
 ---
 

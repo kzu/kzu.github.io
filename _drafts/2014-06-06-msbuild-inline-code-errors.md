@@ -1,6 +1,9 @@
 ---
 title: "How to fix CodeTaskFactory build error MSB4018"
-description: "When using inline C# in MSBuild, you may face the following error: System.ArgumentException: Object of type Microsoft.Build.Framework.ITaskItem cannot be converted to [same type name!]. This happens especially when VS2013 or later is installed and you're trying to build from VS2010. This is the fix."
+excerpt: |
+	When using inline C# in MSBuild, you may face the following error: System.ArgumentException: 
+	Object of type Microsoft.Build.Framework.ITaskItem cannot be converted to [same type name!]. 
+	This happens especially when VS2013 or later is installed and you're trying to build from VS2010. This is the fix.
 layout: post
 tags: programming, msbuild
 ---

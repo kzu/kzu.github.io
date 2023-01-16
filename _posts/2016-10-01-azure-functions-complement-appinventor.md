@@ -1,6 +1,9 @@
 ---
 title: "Leveraging Azure Functions for MIT AppInventor Web Interactions"
-description: "The MIT AppInventor platform is awesome to teach kids programming concepts while building an actual Android app. Interacting with the web is super painful, however, and Azure Functions can provide the missing link."
+excerpt: |
+    The MIT AppInventor platform is awesome to teach kids programming concepts while 
+    building an actual Android app. Interacting with the web is super painful, however, 
+    and Azure Functions can provide the missing link.
 tags: [ai2, azure, functions]
 ---
 

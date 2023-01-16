@@ -1,8 +1,11 @@
 ---
 title: "Access Git Information from MSBuild and Code"
-description: "Leveraging Git information can be quite useful for generating version numbers, logging information at runtime, embedding it in assemblies and so on. Here's one way to do it easily and in a cross-platform way."
+excerpt: |
+  Leveraging Git information can be quite useful for generating version numbers, 
+  logging information at runtime, embedding it in assemblies and so on. Here's 
+  one way to do it easily and in a cross-platform way.
 layout: post
-tags: [ "programming", "git", "msbuild" ]
+tags: [programming, git, msbuild]
 ---
 # Why use git information
 

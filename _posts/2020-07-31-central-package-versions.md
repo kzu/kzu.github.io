@@ -1,6 +1,6 @@
 ---
 title: "Central Package Versions"
-description: "How to manage NuGet packages in a central place without resorting to MSBuild SDKs"
+excerpt: How to manage NuGet packages in a central place without resorting to MSBuild SDKs
 tags: [tools]
 ---
 

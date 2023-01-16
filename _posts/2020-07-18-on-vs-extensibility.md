@@ -1,6 +1,6 @@
 ---
 title: "On Visual Studio Extensibility"
-description: "Reflecting on my journey and experiences extending Visual Studio for over 15 years."
+excerpt: Reflecting on my journey and experiences extending Visual Studio for over 15 years.
 tags: [code, visualstudio]
 ---
 

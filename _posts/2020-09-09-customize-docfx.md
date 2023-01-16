@@ -1,6 +1,8 @@
 ---
 title: "How to customize and publish a docfx site"
-description: "Extending docfx in non-obvious ways for things like changing default icons, styles and scripts, and publishing from CI"
+excerpt: |
+  Extending docfx in non-obvious ways for things like changing default icons, 
+  styles and scripts, and publishing from CI
 tags: [docs, docfx]
 ---
 

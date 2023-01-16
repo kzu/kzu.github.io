@@ -1,6 +1,6 @@
 ---
 title: "How to migrate CallContext to .NETStandard and .NETCore"
-description: "If you need to flow data out of band like CallContext did in .NET, here's how in the new world."
+excerpt: If you need to flow data out of band like CallContext did in .NET, here's how in the new world.
 tags: [code]
 ---
 

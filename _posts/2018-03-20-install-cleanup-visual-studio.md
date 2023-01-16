@@ -1,9 +1,10 @@
 ---
 title: "How To Install and Cleanup Visual Studio 2017 Instances"
-description: "Visual Studio 2017 allows multiple side by side installations, which 
-makes experimenting with various versions and extensions a breeze. Here's how you quickly 
-and easily install and optionally cleanup so-called 'instances' that may have become broken 
-for whatever reason."
+excerpt: |
+    Visual Studio 2017 allows multiple side by side installations, which 
+    makes experimenting with various versions and extensions a breeze. Here's how you quickly 
+    and easily install and optionally cleanup so-called 'instances' that may have become broken 
+    for whatever reason.
 image: https://www.cazzulino.com/img/multiple-vs.jpg
 tags: [visualstudio]
 ---

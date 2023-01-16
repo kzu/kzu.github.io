@@ -1,6 +1,6 @@
 ---
 title: "Minimalistic Serverless Shortlink Service in ~70 LoC"
-description: "How to create and operate a serverless shortlink service on Azure in ~70 lines of code."
+excerpt: How to create and operate a serverless shortlink service on Azure in ~70 lines of code.
 tags: [azure]
 ---
 

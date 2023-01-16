@@ -1,8 +1,9 @@
 ---
 title: "How to include PackageReference DLLs in your VSIX extension"
-description: "If you migrate your VSIX package references from packages.config to PackageReference, 
-you will notice they all vanish from your output .vsix file. This is the easy way to bring them 
-all back in a generic fashion."
+excerpt: | 
+  If you migrate your VSIX package references from packages.config to PackageReference, 
+  you will notice they all vanish from your output .vsix file. This is the easy way to bring them 
+  all back in a generic fashion.
 tags: [vssdk, vsix, visualstudio, msbuild]
 ---
 
