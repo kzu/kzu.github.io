@@ -134,5 +134,10 @@ the [discussions](https://github.com/devlooped/SponsorLink/discussions). I want 
 thing to work and offer the best balance of gentle nudging users to sponsor (without 
 being obnoxious) and being easy to integrate in your projects.
 
+You can test the experience by installing the latest [ThisAssembly beta](https://www.nuget.org/packages/ThisAssembly/1.2.0-beta) (meta) package. Since it includes a bunch of 
+individual packages, you'll get a lot of thank you 💟:
+
+![lots of thanks from ThisAssembly](/img/thisassembly-thanks.png)
+
 
 Now, it's time for me to go back to doing what I like most: hacking on more oss stuff.
