@@ -1,10 +1,10 @@
 ---
-title: Openn Source  Software as Music
+title: Open Source  Software as Music
 ---
 
 Granted, no analogy is perfect, but bear with me for a bit.
 
- Open source software (mostly) owes its existence to the passion, creativity and ingenuity of its authorr(s), something we should all celebrate. Someone dedicated time to it, without thinking about a financial reward, just for the sake of solving a problem and sharing it with the world, without knowing if anyone would actually care.
+ Open source software (mostly) owes its existence to the passion, creativity and ingenuity of its author(s), something we should all celebrate. Someone dedicated time to it, without thinking about a financial reward, just for the sake of solving a problem and sharing it with the world, without knowing if anyone would actually care.
 
 Unlike a tool or a commodity, which you just buy to consume (and therefore at most expect to pay a one-time fee for acquiring it), it's the craftsmanship behind the software that we should seek to support. It's not about paying for the hours it took to create, or the time it takes to maintain, but about supporting someone who contributed something valuable that you enjoy every day, just like music.
 
