@@ -16,4 +16,4 @@ So perhaps one day, just like your Spotify or Apple Music subscription, you'll p
 
 This would require coordination and integration into the editors and IDEs we use to consume these projects, to properly track and attribute usage consistently, but I think it's technically doable and morally undisputable. 
 
-I think Microsoft and GitHub are in an evitable position to push for something like that, having done the heavy lifting of creating two of the most ubiquitous developer environments (VS Code and Visual Studio) as well as establishing deep ties with most other developer-focused companies, and figuring out how to get OSS devs paid throughout the world with the GitHub Sponsors program.
+I think Microsoft and GitHub are in an enviable position to push for something like that, having done the heavy lifting of creating two of the most ubiquitous developer environments (VS Code and Visual Studio) as well as establishing deep ties with most other developer-focused companies, and figuring out how to get OSS devs paid throughout the world with the GitHub Sponsors program.
