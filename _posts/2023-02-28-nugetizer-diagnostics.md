@@ -35,6 +35,16 @@ NuGetizer will detect this and issue a warning now:
 
 ![warning for default description](/img/nugetizer-ng0101.png)
 
+## NG0102: Default authors detected
+
+Likewise, trying to be helpful, the .NET SDK will default the project's `Authors` property 
+to the `AssemblyName`, but since the package 
+[authors metadata](https://learn.microsoft.com/en-us/nuget/reference/nuspec#authors) 
+should instead be a coma-separated list of nuget.org profile names, we flag that as a 
+warning too:
+
+![warning for default authors](/img/nugetizer-ng0102.png)
+
 ## NG0103: Package icon missing
 
 Highly recommended to get a more professional look on nuget.org!
