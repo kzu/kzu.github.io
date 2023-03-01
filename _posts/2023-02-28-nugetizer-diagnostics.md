@@ -12,10 +12,10 @@ tags: [oss, dotnet, nuget]
 
 Recently I was catching up on the latest & greatest guidance for NuGet 
 package authors (such as [Meziantou's blog](https://www.meziantou.net/ensuring-best-practices-for-nuget-packages.htm) and the new Microsoft 
-docs [on best practices](https://learn.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices)) and I realized it's non-trivial 
-to keep track of those on every library project you do.
+docs [on packaging best practices](https://learn.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices)) and I realized it's non-trivial 
+to keep track of those on every library project you ship.
 
-So I dedided to supercharge [NuGetizer](https://clarius.org/nugetizer) with 
+So I decided to supercharge [NuGetizer](https://clarius.org/nugetizer) with 
 the knowledge of these guidelines, so it can be even more helpful when 
 authoring non-trivial nuget packages!
 
@@ -82,10 +82,13 @@ While they may seem redundant, they are not! NG0107 checks for `RepositoryCommit
 specifically. You might have installed Source Link but may be building a package from 
 a non-source controlled location. 
 
-NG0110 checks for Source Link itself, and NG0108 checks for `RepositoryUrl`: this 
+`NG0110` checks for Source Link itself, and `NG0108` checks for `RepositoryUrl`: this 
 property might not be appropriate to all projects, especially if they are not open 
-source. It suggests setting `PublishRepositoryUrl=true` for your project if you want 
-the Source Link-determined repo url to be published.
+source. The diagnostic suggests setting `PublishRepositoryUrl=true` for your project 
+if you want the Source Link-determined repo url to be published.
+
+For example, for a non-oss project, you'll likely still want to have `RepositoryCommit` 
+populated for troubleshooting purposes, but not `RepositoryUrl`. 
 
 ## NG0109: Project URL missing
 
