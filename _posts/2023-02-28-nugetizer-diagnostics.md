@@ -1,5 +1,5 @@
 ---
-title: "NuGetizer: best practices analyzers to the rescue!"
+title: "NuGet packing best practices analyzers"
 excerpt: |
   NuGetizer, the ultimate NuGet packing tool for serious library 
   developers, has gotten a new feature that's going to make it 
