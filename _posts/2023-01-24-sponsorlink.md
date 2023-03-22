@@ -107,6 +107,11 @@ The non-dotnet specific way it works for library users is:
 In both 3) and 4), users are offered to fix the situation with a quick link to install 
 the app, and then sponsor the account.
 
+> NOTE: the actual email is *never* sent. It's hashed with SHA256, then Base62-encoded.
+> The only moment SponsorLink actually gets your email address, is *after* you install 
+> the [SponsorLink GitHub app](https://github.com/apps/sponsorlink) and give it explicit
+> permission to do so.
+
 On the sponsor account side, the way it works at a high level is:
 
 1. One-time [provision of your account](https://github.com/devlooped/sponsorlink#-open-source-developers), 
@@ -118,8 +123,8 @@ On the sponsor account side, the way it works at a high level is:
 And that's it!
 
 From this point on, any new sponsor will immediately be notified to SponsorLink which 
-will update the Azure Blob storage account with the right entries to that in mere seconds 
-the experience quickly goes from Install GH App > Sponsor > Thanks!
+will update the Azure Blob storage account with the right entries so that in mere seconds 
+the experience quickly goes from Install GH app > Sponsor account > Thanks!
 
 
 ## Closing
