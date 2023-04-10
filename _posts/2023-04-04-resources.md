@@ -27,8 +27,8 @@ solution/repo with the following content:
 ```xml
 <Project>
   <PropertyGroup>
-    <!-- For VSCode compat -->
-    <CoreCompileDependsOn>PrepareResources;$(CompileDependsOn)</CoreCompileDependsOn>
+    <!-- For VSCode and .razor compat -->
+    <CoreCompileDependsOn>PrepareResources;$(CoreCompileDependsOn)</CoreCompileDependsOn>
   </PropertyGroup>
 
   <ItemGroup>
