@@ -5,7 +5,7 @@ excerpt: |
   attaches properly but the client-side (browser) doesn't 
   in time and the connection is dropped or breakpoints 
   don't hit.
-tags: dotnet, aspnet, blazor]
+tags: [dotnet, aspnet, blazor]
 ---
 
 I'm playing (and enjoying!) Blazor WebAssembly like hell. 

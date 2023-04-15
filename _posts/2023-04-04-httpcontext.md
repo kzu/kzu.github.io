@@ -4,7 +4,7 @@ excerpt: |
   Being such a common way to access the current user 
   Claims, I thought Accessing HttpContext.User would be 
   really straightforward in ASP.NET Core. But it's not.
-tags: dotnet, aspnet, blazor]
+tags: [dotnet, aspnet, blazor]
 ---
 
 Ok, so I totally get why you shouldn't rely on statics for 

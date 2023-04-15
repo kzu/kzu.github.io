@@ -5,7 +5,7 @@ excerpt: |
   should be enough to get you started with strongly-typed 
   resources. Unfortunately, it's not that simple. Here's how
   to get it working.
-tags: dotnet, aspnet, blazor]
+tags: [dotnet, aspnet, blazor]
 ---
 
 > Copilot (in VS Code) helping me write posts is 🤯
