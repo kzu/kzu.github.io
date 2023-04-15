@@ -29,7 +29,8 @@ until the corresponding [PR is merged](https://github.com/dotnet/aspnetcore/pull
 
 ```csharp
 // 👇 Register this before your blazor app.RunAsync()
-TypeDescriptor.AddProvider(new MarkupStringTypeDescriptorProvider(TypeDescriptor.GetProvider(typeof(MarkupString))), typeof(MarkupString));
+TypeDescriptor.AddProvider(new MarkupStringTypeDescriptorProvider(
+    TypeDescriptor.GetProvider(typeof(MarkupString))), typeof(MarkupString));
 ```
 
 Note that I get the current description provider for `MarkupString` and then add my own provider, 
