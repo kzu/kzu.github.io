@@ -1,9 +1,8 @@
 ---
 title: "How to bind to MarkupString in Blazor"
 excerpt: |
-  While we wait for my PR to be merged in the aspnetcore repo, 
-  here's a quick workaround to be able to bind to raw markup 
-  variables and properties in Blazor components.
+  Since this is by-design on ASP.NET, this post shows the 
+  only way you can achieve this at the moment.
 tags: dotnet, aspnet, blazor
 ---
 
@@ -36,7 +35,8 @@ TypeDescriptor.AddProvider(new MarkupStringTypeDescriptorProvider(
 Note that I get the current description provider for `MarkupString` and then add my own provider, 
 which delegates everything to it except for the [GetConverter](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.icustomtypedescriptor.getconverter?view=net-7.0) 
 method, where we can suplement the missing converter in the platform. Let's first see the actual 
-converter which is quite trivial and I've contributed to the [aspnetcore repo](https://github.com/dotnet/aspnetcore/pull/47719):
+converter which is quite trivial and I've contributed to the [aspnetcore repo](https://github.com/dotnet/aspnetcore/pull/47719) 
+(**update**: [It won't be accepted](https://github.com/dotnet/aspnetcore/issues/47718#issuecomment-1509628032)):
 
 ```csharp
 class MarkupStringTypeConverter : TypeConverter
