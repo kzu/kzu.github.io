@@ -4,7 +4,7 @@ excerpt: |
   Somehow, using central package version is an "enterprise" feature and 
   therefore it has to be obnoxious about not shooting yourself in the foot.
   Fortunately, there's a better way.
-tags: [dotnet, aspnet, blazor]
+tags: [dotnet, nuget]
 ---
 
 Say you're dogfooding the latest and greatest .NET preview, and want to 
