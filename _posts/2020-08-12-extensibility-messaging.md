@@ -1,7 +1,7 @@
 ---
 title: "On Messaging as Extensibility API"
 description: "An exploration of an alternative Visual Studio extensibility programming style where everything is a message"
-tags: [code, patterns]
+tags: [code, patterns, vsx, visualstudio]
 ---
 
 Back in 2012, I was on [a CQRS Journey](http://cqrsjourney.github.io/) together with the fine team at [Microsoft patterns & practices](https://github.com/mspnp). We had a great [advisory board](http://cqrsjourney.github.io/advisors/members/) to discuss and learn from and it was an interesting way to tackle a novel pattern to solve a complex problem. Back then [microservices](https://www.martinfowler.com/microservices/) wasn't even a thing yet, go figure!
