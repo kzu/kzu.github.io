@@ -23,7 +23,9 @@ code {
 }
 
 .nav-link {
+    /* This is a perf killer apparently, see https://github.com/moq/moq/issues/1374#issuecomment-1671868679
     animation: neonGlow 3s infinite alternate cubic-bezier(0.455, 0.030, 0.515, 0.955);
+    */
 }
 
 @keyframes neonGlow {
