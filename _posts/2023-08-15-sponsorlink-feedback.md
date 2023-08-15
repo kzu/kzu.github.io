@@ -141,13 +141,13 @@ not something you can just do in a couple of hours over a weekend (unless
 it's a sample or a small proof of concept or utility).
 
 Let's take my attempt to rewrite Moq from scratch as an example. I started
-working on it back in 2017 (for the `aniveresary` edition as I fondly named 
+working on it back in 2017 (for the `anniversary` edition as I fondly named 
 it [back then](https://twitter.com/kzu/status/884462995719507968?s=20):
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">no more run-time proxies in <a href="https://twitter.com/hashtag/moq?src=hash&amp;ref_src=twsrc%5Etfw">#moq</a> (10th) anniversary edition mean you&#39;ll be able to mock anywhere .NET standard 2.0 is supported!</p>&mdash; Daniel Cazzulino 🇦🇷 (@kzu) <a href="https://twitter.com/kzu/status/884477571601227777?ref_src=twsrc%5Etfw">July 10, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 I have since renamed the repo to [moq/labs](https://github.com/moq/labs/) 
-and archived it as recently as last June 20, 2023. You see, I really really 
+and archived it as recently as last June 30, 2023. You see, I really really 
 did want to give the community a fresh Moq that took advantage of all the 
 learnings I accumulated over years of doing all sorts of cool .NET tooling, 
 IDE extensibility, code generation and much more. There were many new approaches 
