@@ -195,7 +195,7 @@ I shipped the initial release of SponsorLink, which I had been working on for
 a few weeks. I started slowly integrating it into my smaller and newer projects, 
 which went over several months with absolutely zero feedback from anyone. 
 
-Then and end of June I noticed some things were broken in CI for the main 
+By the end of June I noticed some things were broken in CI for the main 
 Moq repo, and I decided to take a look. That's when I sort of assumed I was 
 never going to be able to put any serious work on a new Moq, and I decided 
 to rename [moq/moq > moq/labs](https://github.com/moq/labs) and archive it. 
