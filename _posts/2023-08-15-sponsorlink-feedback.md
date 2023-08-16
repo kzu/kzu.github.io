@@ -250,6 +250,59 @@ I would MUCH rather we put together our significant collective brain
 power to make OSS sponsorships a commonplace occurrence in the dotnet 
 OSS community, than just give up on it entirely. 
 
+### How about organizations?
+
+My initial intention was/is that SponsorLink should encourage fellow 
+developers that one day might be OSS developers themselves too, to 
+sponsor the projects they use and enjoy. As a matter of personal 
+gratitude and to achieve some level of a personal connection that 
+goes beyond simply reporting issues and complaining when things 
+don't work great.
+
+One area where I think most OSS devs are in agreement is that doing 
+this seems like not only a thankless job, but an actually hostile 
+one at times. Too many demands, sometimes not even politely asked, 
+and you simply never get to hear from folks that are actually 
+happy using it. This is not exclusive of OSS software, mind you. 
+When I was at both Xamarin and Microsoft (Visual Studio) afterwards, 
+it was easy to feel the same, since your only feedback channel 
+is typically the issue tracker where folks report problems.
+
+If you had a more personal relationship (even if is through the $1 
+sponsorship), you would keep in mind the individual(s) behind the 
+project because you *actively* reached out for your pocket. So 
+when it's time to report an issue, I think you'll be more likely 
+to remember the person and me kinder.
+
+As an OSS developer, seeing an issue report tagged with a Sponsor 
+label, likewise, will remind you that they care about you, 
+*personally*, and you are likely going to be more eager to help.
+
+
+That said, I realize that not everyone chooses the libraries they
+use, in particular in larger organizations. So I think now that 
+there is growing support for org-wide sponsorships from GitHub 
+Sponsors, it [should also be supported](https://github.com/devlooped/SponsorLink/issues/47).
+
+The way this would work is to consider developers that belong to 
+the given organization (i.e. they have an email that matches the  
+org-validated domain) as sponsors too.
+
+
+### How could it scale?
+
+Many have pointed out that if 300 OSS packages used SponsorLink, it would 
+be a nightmare of diagnostic messages in the editor, and that it would 
+be an economic disaster if they had to personally sponsor each one 
+even if it was with $1 each.
+
+This is a fair point, even if I think it's a bit early to plan for 
+basically a v3+ of SponsorLink. One way this can be solved is by 
+sponsoring a (say) `Sponsorware` organization, which collects a 
+Spotify-like fee, which is then split based on usage.
+
+## Closing thoughts
+
 Imagine if you could have an experience like the following:
 
 1. You find an issue with a library you use, which is sponsorable
@@ -271,6 +324,8 @@ and you can get your issues fixed faster by sponsoring them.
 So don't tell me the status quo is just fine. It's not. It's not fine 
 that a newcomer to the project, looking to learn something but also 
 earn something, has no way to get paid for their work. 
+
+
 
 Hopefully we can all work together to make this (or some version of 
 it) a reality.
