@@ -2,7 +2,7 @@ plugins:
   - jekyll-paginate
   - jekyll-remote-theme
 
-remote_theme: kzu/beautiful-jekyll@master
+remote_theme: kzu/beautiful-jekyll@main
 author: Daniel Cazzulino
 title : Daniel Cazzulino
 description : A blog about .NET, C#, Visual Studio, Mobile, Xamarin and technology
@@ -17,6 +17,7 @@ social-network-links:
   twitter:       kzu
   stackoverflow: 24684/kzu
   linkedin:      in/DanielCazzulino
+  feed:          https://feeds.feedburner.com/DanielCazzulino
   devlooped:     true
 
 share-links-active:
@@ -30,10 +31,8 @@ permalink:        /:title.html
 url:              https://www.cazzulino.com
 baseurl:          ""
 disqus:           kzu
-google_analytics: "UA-20330792-1"
+gtag:             G-5THB4CL7H1
 google-search-id: fab2fac2137f17958
-feed:             https://feeds.feedburner.com/DanielCazzulino
-feed-type:        atom
 
 exclude:      [ "README.md", "CNAME", ".gitattributes", ".gitignore", ".editorconfig" ]
 paginate:     10
