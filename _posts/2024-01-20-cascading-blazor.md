@@ -36,7 +36,7 @@ and then:
 > In the App component (Components/App.razor), adopt an interactive render mode for the entire app
 
 Hm, seems like quite the limitation not being able to use 
-`InteractiveAuto` render mode. Hopefully there's another alternative: 
+`InteractiveAuto` render mode. Luckily there's another alternative: 
 
 > Specify a root-level cascading value as a service by calling the AddCascadingValue extension method on the service collection builder.
 
