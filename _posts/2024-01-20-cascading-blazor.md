@@ -74,7 +74,7 @@ as follows:
       }
       ```
 
-   The second component, for example, makes changes to the value, either programmatically
+   Another component, for example, makes changes to the value, either programmatically
    (e.g. a button click) or via bi-directional binding:
 
       ```razor
@@ -106,7 +106,7 @@ as follows:
 ## Good old INotifyPropertyChanged to the rescue
 
 According to the [API documentation](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.cascadingvaluesource-1.notifychangedasync?view=aspnetcore-8.0#microsoft-aspnetcore-components-cascadingvaluesource-1-notifychangedasync), 
-we can invoke `NotifyChangedAsync` to notify "subscribers that the value has changed (for example, if it has been mutated).", which seems just like what we need. 
+we can invoke `NotifyChangedAsync` to notify "*subscribers that the value has changed (for example, if it has been mutated).*", which seems just like what we need. 
 
 We can create our own `CascadingValueSource` factory class that supports 
 `INotifyPropertyChanged` and automatically invokes `NotifyChangedAsync` 
