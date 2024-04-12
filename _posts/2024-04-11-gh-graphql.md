@@ -69,7 +69,8 @@ iframe {
 }
 ```
 
-After adding the script, ensure the `IFRAME` option is checked:
+After adding the script, ensure the `IFRAME` option is checked (so it applies to the graphiql iframe) 
+and uncheck the `DOMAIN` option (so it applies to the specific URL) as follows:
 
 ![Checking IFRAME option for custom CSS](/img/graphql-customcss.png)
 
