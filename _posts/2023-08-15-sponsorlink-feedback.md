@@ -240,7 +240,7 @@ Please DO engage, as I'm most certainly not going to just give up on it
 just yet, and I most definitely disagree with those that think the status 
 quo is just fine and we should just leave it at that. 
 
-This is just a statement of fact, take as you want but believe me it's 
+This is just a statement of fact, take it as you want but believe me it's 
 my honest feeling at this fork in the road: either SponsorLink works 
 acceptably for folks and it gets significant traction (for myself but 
 also others wishing to get sponsored for their OSS work), or I'm just 
@@ -272,7 +272,7 @@ If you had a more personal relationship (even if is through the $1
 sponsorship), you would keep in mind the individual(s) behind the 
 project because you *actively* reached out for your pocket. So 
 when it's time to report an issue, I think you'll be more likely 
-to remember the person and me kinder.
+to remember the person and be kinder.
 
 As an OSS developer, seeing an issue report tagged with a Sponsor 
 label, likewise, will remind you that they care about you, 
