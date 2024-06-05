@@ -9,7 +9,7 @@ I'm the original co-founder of [Clarius Consulting](http://www.clariusconsulting
 
 Around the web my alias is usually "kzu" (sounds like 'kah-zu' rather than 'kzoo', since the letter k is "kah" in spanish):
 
-- [Twitter](http://twitter.com/kzu)
+- [X](http://x.com/kzu)
 - [GitHub](https://github.com/kzu)
 - [LinkedIn](http://www.linkedin.com/in/DanielCazzulino)
 - Google+ (no link, because it's dead now ;))
