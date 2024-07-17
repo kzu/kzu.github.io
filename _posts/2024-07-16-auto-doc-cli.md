@@ -11,7 +11,7 @@ It's annoying and repetitive (run with `--help`, copy-paste) and it's not uncomm
 
 Here's one way to automate the whole thing so you can just focus on making your tool awesome.
 
-1. Have your project emit the help to a text file, say `help.txt`:
+1. Have your project emit the help to a text file, say `help.md`:
 
    ```xml
    <Target Name="RenderHelp" AfterTargets="Build">
@@ -30,7 +30,7 @@ Here's one way to automate the whole thing so you can just focus on making your 
     ```markdown
     # My Awesome Tool
     Tool options: 
-    <!-- include src/dotnet-trx/help.txt -->
+    <!-- include src/dotnet-trx/help.md -->
     ```
 
 3. Set up a github workflow that keeps the readme up-to-date with changes in the 
