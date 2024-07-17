@@ -99,9 +99,18 @@ Real example:
 - [Automated PR that updates main readme](https://github.com/devlooped/dotnet-trx/pull/26)
 
 
-> NOTE: at this time, if you use the awesome [Spectre.Console](https://github.com/spectreconsole/spectre.console/) project for your CLI, an issue with the `NO_COLOR` environment variable is 
-> causing the help output to contain some formatting that shouldn't be there. Hopefully my 
-> [PR](https://github.com/spectreconsole/spectre.console/issues/1583) will be merged soon 🙏.
+If you use the awesome [Spectre.Console](https://github.com/spectreconsole/spectre.console/) project for your CLI, 
+you need to disable the default bold color for default option values to avoid having style ANSI codes in the output:
 
+```csharp
+var app = new CommandApp();
+// ...
+app.Configure(config =>
+{
+  if (Environment.GetEnvironmentVariables().Contains("NO_COLOR") &&
+      config.Settings.HelpProviderStyles?.Options is { } options)
+      options.DefaultValue = Style.Plain;
+});
+```
 
 Happy coding! 🚀[𝕩](https://x.com/kzu)
