@@ -83,3 +83,6 @@ for markdown inclusion in the [package readme](https://github.com/devlooped/nuge
     Tool options: 
     <!-- include help.md -->
     ```
+
+At pack time, the include is expanded and the readme inside the package will 
+contains the latest help output.
