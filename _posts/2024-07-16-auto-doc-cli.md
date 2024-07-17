@@ -1,5 +1,5 @@
 ---
-title: "Auto-document CLI tool via markdown readmes"
+title: "Auto-document dotnet CLI tool via dynamically generated markdown readme fragments"
 tags: [tool, dotnet, markdown, github]
 ---
 
