@@ -11,7 +11,7 @@ It's annoying and repetitive (run with `--help`, copy-paste) and it's not uncomm
 
 Here's one way to automate the whole thing so you can just focus on making your tool awesome.
 
-1. Have your project emit the help to a text file, say `help.md`:
+First, have your project emit the help to a text file, say `help.md`:
 
    ```xml
    <Target Name="RenderHelp" AfterTargets="Build">
@@ -25,7 +25,30 @@ Here's one way to automate the whole thing so you can just focus on making your 
    > NOTE: I'm passing [NO_COLOR](https://github.com/spectreconsole/spectre.console/issues/1236#issuecomment-1742539809) 
    > to disable Spectre console colors in the output.
 
-2. Create a project `readme.md` that uses [+Mᐁ includes](https://github.com/devlooped/actions-includes), like:
+Next, if you only need to include the help in the package readme, include the auto-generated 
+help file using the following syntax:
+
+   ```markdown
+   # My Awesome Tool
+   Tool options: 
+   <!-- include help.md -->
+   ```
+
+> NOTE: the file path must be relative to the including file.
+
+Then install [NuGetizer](https://nuget.org/packages/nugetizer) to perform the packing instead, 
+which supports this markdown inclusion feature via the [package readme](https://github.com/devlooped/nugetizer?tab=readme-ov-file#package-readme).
+
+> NOTE: nugetizer is pretty much 100% compatible with SDK pack, in particular for dotnet tools, 
+> unless you have fancy customization of the package contents via MSBuild or nuspec.
+
+At pack time, **nugetizer** will resolve the includes and expand them in the package readme.
+
+
+If you also want to keep a repository readme up-to-date, you can use a GitHub workflow that
+automatically updates the readme with the latest help output after a commit to the main branch:
+
+1. Create a project `readme.md` that uses [+Mᐁ includes](https://github.com/devlooped/actions-includes), using the same syntax above for package readme:
 
     ```markdown
     # My Awesome Tool
@@ -33,7 +56,9 @@ Here's one way to automate the whole thing so you can just focus on making your 
     <!-- include src/dotnet-trx/help.md -->
     ```
 
-3. Set up a github workflow that keeps the readme up-to-date with changes in the 
+   > NOTE: the path is now relative to the root of the repository, as an example.
+
+2. Set up a github workflow that keeps the readme up-to-date with changes in the 
    auto-generated help file:
 
     ```yml
@@ -43,7 +68,6 @@ Here's one way to automate the whole thing so you can just focus on making your 
           - 'main'
         paths:
           - '**.md'
-          - '**.txt'
 
     jobs:
       includes:
@@ -56,7 +80,7 @@ Here's one way to automate the whole thing so you can just focus on making your 
             uses: devlooped/actions-include@v1
 
           - name: ✍ pull request
-            uses: peter-evans/create-pull-request@v3
+            uses: peter-evans/create-pull-request@v6
             with:
               add-paths: '**.md'
               base: main
@@ -68,21 +92,16 @@ Here's one way to automate the whole thing so you can just focus on making your 
               body: +Mᐁ includes
     ```
 
-4. Merge the docs PR whenever it shows up, and you're done!
+3. Merge the docs PR whenever it shows up, and you're done!
 
 Real example: 
 - [PR that adds auto-doc help file](https://github.com/devlooped/dotnet-trx/pull/25) 
 - [Automated PR that updates main readme](https://github.com/devlooped/dotnet-trx/pull/26)
 
-If instead of a project readme, the goal is to keep a package readme up-to-date, you can 
-instead use [NuGetizer](https://nuget.org/packages/nugetizer), which supports the same syntax 
-for markdown inclusion in the [package readme](https://github.com/devlooped/nugetizer?tab=readme-ov-file#package-readme) file, such as:
 
-    ```markdown
-    # My Awesome Tool
-    Tool options: 
-    <!-- include help.md -->
-    ```
+> NOTE: at this time, if you use the awesome [Spectre.Console](https://github.com/spectreconsole/spectre.console/) project for your CLI, an issue with the `NO_COLOR` environment variable is 
+> causing the help output to contain some formatting that shouldn't be there. Hopefully my 
+> [PR](https://github.com/spectreconsole/spectre.console/issues/1583) will be merged soon 🙏.
 
-At pack time, the include is expanded and the readme inside the package will 
-contains the latest help output.
+
+Happy coding! 🚀
