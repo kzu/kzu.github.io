@@ -1,14 +1,13 @@
 ---
 title: "Beautiful dotnet test summary reports"
-description: |
-  Running tests across multiple projects in a solution doesn't 
-  have to look like the 90s in today's console. Now you can 
-  use a simple dotnet global tool to get an intuitive glimpse 
-  at what happened with that last test run that resulted in 
-  gazillion lines of text :)
-
 tags: [dotnet, test, cli]
 ---
+
+Running tests across multiple projects in a solution doesn't 
+have to look like the 90s in today's console. Now you can 
+use a simple dotnet global tool to get an intuitive glimpse 
+at what happened with that last test run that resulted in 
+gazillion lines of text :)
 
 **TL;DR;**:
 
