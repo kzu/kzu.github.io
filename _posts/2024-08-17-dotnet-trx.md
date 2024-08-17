@@ -11,8 +11,6 @@ gazillion lines of text :)
 
 **TL;DR;**:
 
-----
-
 Install:
 ```shell
 dotnet tool install -g dotnet-trx
