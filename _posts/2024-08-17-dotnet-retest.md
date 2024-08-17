@@ -6,7 +6,8 @@ tags: [dotnet, test, cli]
 When running dotnet test, there is no built-in mechanism 
 to retry failed tests, and constructing the filter format 
 for re-running them is non-trivial. This post showcases 
-a new dotnet global tool (`retest`) that fixes this.
+a new dotnet global tool [dotnet-retest](https://nuget.org/packages/dotnet-retest) 
+that fixes this.
 
 **TL;DR;**:
 
@@ -61,6 +62,8 @@ in the implementation from [dotnet-trx](2024-08-17-dotnet-trx.md):
 
 ![image](https://github.com/user-attachments/assets/0aaedb9a-b849-46a8-94e1-3e085edd04c1)
 
+Learn more about [dotnet-retest](https://nuget.org/packages/dotnet-retest) in the 
+[project repository](https://github.com/devlooped/dotnet-retest)
 
 Enjoy!
   

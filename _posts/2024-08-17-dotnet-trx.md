@@ -5,7 +5,7 @@ tags: [dotnet, test, cli]
 
 Running tests across multiple projects in a solution doesn't 
 have to look like the 90s in today's console. Now you can 
-use a simple dotnet global tool to get an intuitive glimpse 
+use a simple [dotnet global](https://nuget.org/packages/dotnet-trx) tool to get an intuitive glimpse 
 at what happened with that last test run that resulted in 
 gazillion lines of text :)
 
@@ -80,6 +80,7 @@ outcome, or even inspect a failing test error and even console output:
 For the GitHub integration, the tool uses the [GitHub CLI](https://cli.github.com) 
 tool, which in CI is already present and properly authenticated by default. 
 
+Learn more about [dotnet-trx](https://nuget.org/packages/dotnet-trx) in the 
+[project repository](https://github.com/devlooped/dotnet-trx)
 
 Enjoy!
-  
