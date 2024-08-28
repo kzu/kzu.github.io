@@ -1,7 +1,7 @@
 ---
 title: "Open Source Oslo M"
 image: https://www.cazzulino.com/img/oslo-m.png
-tags: opensource
+tags: [oss]
 ---
 For those of you on the cutting edge of Microsoft technologies that don't ship ;), you probably have fond memories of one particular product that had so much promise: Olso "M". 
 
