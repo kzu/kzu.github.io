@@ -1,5 +1,6 @@
 ---
-layout: post
+title: Beyond Open Source
+tags: [oss, moq]
 ---
 
 # Beyond Open Source
