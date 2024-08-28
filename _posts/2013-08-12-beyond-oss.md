@@ -3,8 +3,6 @@ title: Beyond Open Source
 tags: [oss, moq]
 ---
 
-# Beyond Open Source
-
 At the end of my [previous post](rebirth.html) I talked about how we could go beyond "just" open source for Moq Rebirth. The basic idea was to document the creation process by having a Google+ Live Hangout, so that any number of attendees can join, but also to automatically keep a public recording of it automatically on YouTube. 
 
 [Mark Seemann](https://twitter.com/ploeh) made [a comment](http://www.moqthis.com/rebirth.html#comment-958981087) that got me thinking, however: 
