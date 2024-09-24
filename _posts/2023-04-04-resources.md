@@ -1,5 +1,5 @@
 ---
-title: "Strongly-typed resources with .NET 6+"
+title: "Strongly-typed resources with .NET 6, 8, Blazor and beyond"
 excerpt: |
   It would seem that adding a .resx file to your project 
   should be enough to get you started with strongly-typed 
