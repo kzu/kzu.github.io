@@ -27,13 +27,12 @@ solution/repo with the following content:
 ```xml
 <Project>
   <PropertyGroup>
-    <!-- For VSCode and .razor compat -->
-    <CoreCompileDependsOn>PrepareResources;$(CoreCompileDependsOn)</CoreCompileDependsOn>
+    <!-- Required for intellisense -->
+    <CoreCompileDependsOn>CoreResGen;$(CoreCompileDependsOn)</CoreCompileDependsOn>
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="@(EmbeddedResource)">
-      <Generator>MSBuild:Compile</Generator>
+    <EmbeddedResource Update="@(EmbeddedResource -> WithMetadataValue('Generator', 'MSBuild:Compile'))" Type="Resx">
       <StronglyTypedFileName>$(IntermediateOutputPath)\$([MSBuild]::ValueOrDefault('%(RelativeDir)', '').Replace('\', '.').Replace('/', '.'))%(Filename).g$(DefaultLanguageSourceExtension)</StronglyTypedFileName>
       <StronglyTypedLanguage>$(Language)</StronglyTypedLanguage>
       <StronglyTypedNamespace Condition="'%(RelativeDir)' == ''">$(RootNamespace)</StronglyTypedNamespace>
@@ -44,12 +43,22 @@ solution/repo with the following content:
 </Project>
 ```
 
-Some notes:
-1. The key is `Generator=MSBuild:Compile`, but that requires the other metadata items
-2. The `RelativeDir` built-in metadata is used to generate the namespace and unique target 
+This triggers the generation of the typed resource class just as if it had the (legacy?) 
+`ResXFileCodeGenerator` (or `PublicResXFileCodeGenerator`) custom tool set in the `.resx` file 
+properties. The benefit of this approach is that you don't get the `.Designer.cs` file 
+checked into your repo. In order to trigger the code generation, you instead set the 
+custom tool to `MSBuild:Compile` in the `.resx` file properties.
+
+The reason to keep a custom tool (and not assigning it automatically to all `.resx` files)
+is that you only need the strongly-typed resource class for the root/neutral `.resx`, not 
+the per-locale ones. You might also have other resource files you don't want to generate 
+code for.
+
+Some notes on the implementation of item metadata above:
+1. The `RelativeDir` built-in metadata is used to generate the namespace and unique target 
    file name. We cannot use it without replacing path separators with dots because the 
    resgen tool will not create the directory structure for us.
-3. The `StronglyTypedLanguage` is set to the current project `$(Language)` which should 
+2. The `StronglyTypedLanguage` is set to the current project `$(Language)` which should 
    work for the supported languages by the [resgen tool](https://learn.microsoft.com/en-us/dotnet/framework/tools/resgen-exe-resource-file-generator).
 
 
