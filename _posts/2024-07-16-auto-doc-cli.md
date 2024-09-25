@@ -14,7 +14,7 @@ Here's one way to automate the whole thing so you can just focus on making your 
 First, have your project emit the help to a text file, say `help.md`:
 
    ```xml
-   <Target Name="RenderHelp" AfterTargets="Build">
+   <Target Name="RenderHelp" AfterTargets="Build" Condition="$(DesignTimeBuild) != 'true'" >
      <WriteLinesToFile Lines="```shell" Overwrite="true" File="help.md" />
      <Exec Command="dotnet run --no-build -- --help &gt;&gt; help.md" 
            EnvironmentVariables="NO_COLOR=true" />
