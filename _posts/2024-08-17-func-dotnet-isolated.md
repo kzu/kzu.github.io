@@ -22,6 +22,9 @@ combined with `--force` will ensure the app is updated to use that runtime too, 
 func azure functionapp publish <FunctionAppName> --dotnet-isolated --force
 ```
 
-This took me quite a while to figure out, so I hope it helps you too.
+Alternatively, you can use the officially documented `--worker-runtime dotnet-isolated` flag to specify the runtime.
+
+It's quite bad that running the CLI with `--help` returns no information about this flag and many others. It's 
+hopelessly out of sync with the [docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-core-tools-reference?tabs=v2#func-azure-functionapp-publish).
 
 Enjoy!

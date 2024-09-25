@@ -100,16 +100,15 @@ Real example:
 
 
 If you use the awesome [Spectre.Console](https://github.com/spectreconsole/spectre.console/) project for your CLI, 
-you need to disable the default bold color for default option values to avoid having style ANSI codes in the output:
+you need to disable all styles when `NO_COLOR` is specified, to avoid having style ANSI codes in the output:
 
 ```csharp
 var app = new CommandApp();
 // ...
 app.Configure(config =>
 {
-  if (Environment.GetEnvironmentVariables().Contains("NO_COLOR") &&
-      config.Settings.HelpProviderStyles?.Options is { } options)
-      options.DefaultValue = Style.Plain;
+  if (Environment.GetEnvironmentVariables().Contains("NO_COLOR"))
+      config.Settings.HelpProviderStyles = null;
 });
 ```
 
