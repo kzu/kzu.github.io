@@ -51,7 +51,7 @@ that also supports org-wide sponsorships.
 > and colleages at conferences, MVP summits or whatever. 
 
 So, for those who think I've been pushing Moq down everyone's throat just so 
-down the road I can monetize it, I'm sorry to disappoint you. I wasn't even 
+down the road I can monetize it, I'm sorry to disappoint you. It wasn't even 
 all that surprising to me that even some of my favorite coworkers didn't know 
 I was the author of Moq:
 
