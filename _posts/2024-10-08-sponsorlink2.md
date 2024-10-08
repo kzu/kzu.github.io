@@ -54,6 +54,14 @@ This time around, things are much more conscientious in this regard:
 An explicit [privacy policy](https://www.devlooped.com/SponsorLink/privacy/) is 
 also provided, which is also shown in the CLI tool on first use.
 
+It sounds complicated, but it actually is pretty straightforward:
+
+```shell
+dotnet tool install -g dotnet-sponsor
+sponsor sync devlooped
+```
+
+> The same tool can be used by any other SponsorLink v2 self-hosted backend.
 
 ### Transparency
 
@@ -98,6 +106,30 @@ in order of precedence:
 
 Any combination of these roles can be present simultaneously.
 
+In addition, the sponsorship tiers can provide arbitrary metadata that is 
+then persisted in the manifest as JWT claims too. For example, I use the following 
+metadata in my sponsor tiers as a hidden HTML comment:
+
+```yml
+<!-- 
+tier: basic|silver|gold|platinum|bitcoin
+label: sponsor 💜
+priority: 
+color: '#D4C5F9'
+-->
+```
+
+The CLI will show the resulting JWT as follows for a sponsoring organization:
+
+![org sponsor](/img/sponsorlink-jwt.png)
+
+These claims can be checked by developer tooling (analyzers, MSBuild, etc.) to 
+selectively enable features, issue warnings and whatnot.
+
+The `label` and `color` claims are used to tag issues reported by sponsors, for example.
+I'm currently not using the tier for any particular feature toggle in any of my libraries, 
+but it's there if someone needs the functionality.
+
 ### Fellow OSS developers
 
 The last one (`oss`) can be opted-out by the self-hoster, but it's on for my organization. 
@@ -107,7 +139,7 @@ provide popular nuget packages (>200 downloads/day) are considered implicit spon
 I always thought it was a bit silly to ask fellow OSS developers to sponsor 
 me when I'm likely using their great libraries in turn. This fixes it for good, 
 so if you are an OSS developer (whether original author, regular or sporadic 
-contributor), you will never have to sponsor me unless you want to.
+contributor), you will never have to sponsor me, unless you want to 🫶.
 
 It was so important for me to recognize fellow OSS developers that I now 
 [scrap nuget.org](https://github.com/devlooped/nuget) downloads at the beginning 
@@ -131,10 +163,9 @@ from the [docs site](https://www.devlooped.com/SponsorLink/github/oss/)!
 
 It was also pointed out that it looked like sponsoring users didn't get any 
 benefits beyond removing annoyances. The most egregious annoyance was a one-time 
-(for the lifetime of the IDE) build pause.
-
-> As an OSS-luminary friend noted: if you're building Swift code, the build pause 
-> will go entirely unnoticed since the build already takes forever 😂
+(for the lifetime of the IDE) build pause. As an OSS-luminary friend noted: if 
+you're building Swift code, the build pause will go entirely unnoticed since 
+the build already takes forever 😂.
 
 The previous analyzer-based approach is now just a sample that libraries may 
 or may not adopt. If they do, it now involves a single solution-wide, IDE-only,
@@ -165,6 +196,21 @@ needed.
 All these benefits can be trivially leveraged by other libraries that self-host 
 the backend and configure it for their own sponsor account. This is documented 
 in the [GitHub Sponsors Reference Implementation](https://www.devlooped.com/SponsorLink/github/).
+
+I also feature active sponsors at the time of a package publishing in the 
+readme itself (see [ThisAssembly](https://www.nuget.org/packages/ThisAssembly#sponsors) for example).
+This involves fetching sponsor profile image, properly formatting it for display 
+on nuget.org (i.e. square for orgs, circles for users) and with an easy to use 
+[markdown inclusion](https://www.cazzulino.com/pack-readme-includes.html) mechanism.
+You can explore the approach at [devlooped/sponsors](https://github.com/devlooped/sponsors/), 
+the results being something like the following in every package I publish:
+
+![devlooped sponsors readme footer](/img/sponsorlink-readme.png)
+
+![devlooped sponsors readme footer](/img/sponsorlink-readme-light.png)
+
+This is a nice recognition to the folks that make each release possible, although not 
+specifically tied to SponsorLink.
 
 ## The Future
 
@@ -218,12 +264,13 @@ If you are a .NET/C# OSS developer, just pause and think about it: there's only
 
 ![OSS NuGet Authors](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fdevlooped%2Fnuget%2Fraw%2Frefs%2Fheads%2Fmain%2Fnuget.json&query=%24.summary.authors&style=social&logo=nuget&label=OSS%20NuGet%20Authors)
 
-SponsorLink is not about making money from the community, it's about making 
-money from the companies and users that benefit from our work. It's an exploration 
-of a different way to monetize OSS, which might arguably fail, but perhaps 
-it will also succeed. And if it does, it's open for any of those ~35k authors 
-to jump in too.
+SponsorLink is not about making money from the community, but from the companies 
+and users that benefit from our work. It's an exploration of a different way to 
+monetize OSS, which might arguably fail, but perhaps it will also succeed. And 
+if it does, it's open for any of those ~35k authors to jump in too.
 
 I'd love to get your feedback on this new approach. Please explore the 
 [SponsorLink docs](https://www.devlooped.com/SponsorLink/) and let me know 
 in the [GitHub repo](https://github.com/devlooped/SponsorLink/issues/100)
+
+Happy coding!
