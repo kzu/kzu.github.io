@@ -226,4 +226,4 @@ to jump in too.
 
 I'd love to get your feedback on this new approach. Please explore the 
 [SponsorLink docs](https://www.devlooped.com/SponsorLink/) and let me know 
-in the [GitHub discussions](
+in the [GitHub repo](https://github.com/devlooped/SponsorLink/issues/100)
