@@ -1,5 +1,8 @@
 ---
 title: "Typed chat completions with OpenAI and .NET 9"
+excerpt: |
+  How to combine OpenAI structured outputs with .NET 9 ability to 
+  export JSON schemas to provide a strong-typed API for chat completions.
 tags: [dotnet, openai, ai]
 ---
 
