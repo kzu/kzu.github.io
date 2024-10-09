@@ -77,6 +77,9 @@ Once you upload the file somewhere public, you can now create badges like the fo
 )](https://www.nuget.org/profiles/kzu)
 ```
 
+The `url` parameter is encoded, but looks like `https://github.com/devlooped/nuget/raw/refs/heads/main/kzu.json` in my case.
+
+
 Note how I use the `query` parameter to extract the relevant data from the JSON file, which looks like the following:
 
 ```json
