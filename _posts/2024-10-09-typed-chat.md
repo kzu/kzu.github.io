@@ -40,7 +40,9 @@ automatically:
 
 <details>
 
+
 <summary>ChatClientTypedExtensions.cs</summary>
+
 
 ```csharp
 using System;
@@ -155,6 +157,7 @@ static partial class ChatClientTypedExtensions
     }
 }
 ```
+
 
 </details>
 
