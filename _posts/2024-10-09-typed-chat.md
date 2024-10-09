@@ -39,10 +39,9 @@ automatically:
    OpenAI limitation that the schema root element must be an object (not an array).
 
 <details>
-
-
 <summary>ChatClientTypedExtensions.cs</summary>
 
+Full [source code](https://github.com/devlooped/catbag/blob/main/OpenAI/Chat/ChatClientTypedExtensions.cs):
 
 ```csharp
 using System;
@@ -157,8 +156,7 @@ static partial class ChatClientTypedExtensions
     }
 }
 ```
-
-
+See notes below.
 </details>
 
 
