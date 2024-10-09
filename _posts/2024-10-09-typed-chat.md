@@ -38,7 +38,11 @@ automatically:
 5. If the type is an array/enumerable, wrap your T in a `Values<T>` to workaround the 
    OpenAI limitation that the schema root element must be an object (not an array).
 
+<details><summary>View ChatClientTypedExtensions.cs</summary>
+
 <script src="https://gist.github.com/kzu/ce03963cdb0fd48ce1bbef6e6bcad52b.js"></script>
+
+</details>
 
 The code is fairly straightforward, with some things to note:
 
