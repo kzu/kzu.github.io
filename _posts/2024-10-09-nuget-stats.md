@@ -107,4 +107,4 @@ Totals are the raw numbers, while the summary is a string representation of the 
 You can fully automate this with a GitHub Actions workflow like the one 
 I run at [devlooped/nuget](https://github.com/devlooped/nuget/blob/main/.github/workflows/nuget.yml).
 
-I look forward to those badges in your project readmes!
+I look forward to seeing those badges in your project readmes!
