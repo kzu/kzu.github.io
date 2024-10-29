@@ -7,6 +7,7 @@ excerpt: |
   to get it working.
 tags: [dotnet, aspnet, blazor]
 ---
+*Updated 2024-10-29*
 
 > Copilot (in VS Code) helping me write posts is 🤯
 
@@ -21,7 +22,35 @@ quite annoying. I just spent a while figuring out why and found this excelent
 [blog post](https://www.paraesthesia.com/archive/2022/09/30/strongly-typed-resources-with-net-core/) on how to enable it.
 It's *almost* there as a generic solution.
 
-My solution for this is to add a `Directory.Build.targets` file to the root of my 
+Nowadays (.NET 8), when you add a new `.resx` file to your project and you get the **old** 
+experience of having a `.Designer.cs` which you check into your repo. This is so 2000s!
+
+My solution involves: 
+1. Deleting the `.Designer.cs` file from the project
+2. Deleting the MSBuild item emitted for the `.resx` itself in the project file, which looks 
+   like the following (polluting your project file):
+
+```xml
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+```
+
+3. Setting the `Custom Tool` property of the `.resx` file to `MSBuild:Compile` in the 
+  properties window. 
+
+4. Add a `Directory.Build.targets` file to the root of my 
 solution/repo with the following content:
 
 ```xml
