@@ -62,7 +62,7 @@ Note the `OWNER` is the nuget.org account owner, not the GitHub account. `--tos`
 accepts the `dotnet-sponsor` terms of service. Note how you can get package stats for packages 
 that aren't OSS or where the source repository is not on GitHub.
 
-The result of this invocation is a `owner.json` file like [mine](https://github.com/devlooped/nuget/blob/main/kzu.json). 
+The result of this invocation is a `[OWNER].json` file like [mine](https://github.com/devlooped/nuget/blob/main/kzu.json). 
 
 Once you upload the file somewhere public, you can now create badges like the following:
 
@@ -71,13 +71,13 @@ Once you upload the file somewhere public, you can now create badges like the fo
 )](https://www.nuget.org/profiles/kzu)
 
 ```markdown
-[![NuGet Packages](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fdevlooped%2Fnuget%2Fraw%2Frefs%2Fheads%2Fmain%2Fkzu.json&query=%24.summary.packages&style=social&logo=nuget&label=packages)](https://www.nuget.org/profiles/kzu)
+[![NuGet Packages](https://img.shields.io/badge/dynamic/json?url=[URL_OF_OWNER.JSON]&query=%24.summary.packages&style=social&logo=nuget&label=packages)](https://www.nuget.org/profiles/kzu)
 
-[![Daily Downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fdevlooped%2Fnuget%2Fraw%2Frefs%2Fheads%2Fmain%2Fkzu.json&query=%24.summary.downloads&style=social&logo=nuget&label=daily%20downloads
+[![Daily Downloads](https://img.shields.io/badge/dynamic/json?url=[URL_OF_OWNER.JSON]&query=%24.summary.downloads&style=social&logo=nuget&label=daily%20downloads
 )](https://www.nuget.org/profiles/kzu)
 ```
 
-The `url` parameter is encoded, but looks like `https://github.com/devlooped/nuget/raw/refs/heads/main/kzu.json` in my case.
+The `url` parameter must be encoded, in the badges above, it's at `https://github.com/devlooped/nuget/raw/refs/heads/main/kzu.json`.
 
 
 Note how I use the `query` parameter to extract the relevant data from the JSON file, which looks like the following:
