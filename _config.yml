@@ -31,20 +31,19 @@ url:              https://www.cazzulino.com
 baseurl:          ""
 gtag:             G-5THB4CL7H1
 google-search-id: fab2fac2137f17958
-comments:
-  provider: giscus
-  giscus:
-    repo: "kzu/kzu.github.io"
-    repo-id: "MDEwOlJlcG9zaXRvcnkxOTQzNTIyMA=="
-    category: "Comments"
-    category-id: "DIC_kwDOASiO1M4Cl5AB"
-    mapping: "pathname"
-    reactions-enabled: "1"
-    emit-metadata: "0"
-    input-position: "top"
-    theme: "light"
-    lang: "en"
-    crossorigin: "anonymous"
+giscus:
+  hostname: giscus.app
+  repository: "kzu/kzu.github.io"
+  repository-id: "MDEwOlJlcG9zaXRvcnkxOTQzNTIyMA=="
+  category: "Comments"
+  category-id: "DIC_kwDOASiO1M4Cl5AB"
+  mapping: "pathname"
+  reactions-enabled: "1"
+  emit-metadata: "0"
+  input-position: "top"
+  theme: "light"
+  lang: "en"
+  crossorigin: "anonymous"
 
 exclude:      [ "README.md", "CNAME", ".gitattributes", ".gitignore", ".editorconfig" ]
 paginate:     10
