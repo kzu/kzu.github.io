@@ -44,7 +44,6 @@ comments:
     input-position: "top"
     theme: "light"
     lang: "en"
-    loading: "lazy"
     crossorigin: "anonymous"
 
 exclude:      [ "README.md", "CNAME", ".gitattributes", ".gitignore", ".editorconfig" ]
