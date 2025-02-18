@@ -46,10 +46,11 @@ of all results. You run it simply with `trx`. You'd typically invoke
 it right after running tests, as follows:
 
 ```shell
-dotnet test --logger trx; trx [--output].
+dotnet test --logger trx; trx --output
 ```
 
-> NOTE: `--output` will collect and add the test console output, i.e. from `ITestOutputHelper` in xUnit.
+> NOTE: `--output` is optional, and will collect and add the test console output, 
+> i.e. from `ITestOutputHelper` in xUnit.
 
 Of course, one of the places where running tests from the CLI is 
 unavoidable, is in CI, particularly in GitHub Actions which is what 
