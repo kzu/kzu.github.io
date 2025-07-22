@@ -1,5 +1,6 @@
+---
 title: "SmallSharp 2.0: The End of ConsoleApplication128"
-description: |
+description: 
    .NET 10 can run standalone C# files now. Wouldn't it be awesome if you could edit them in Visual Studio 
    with the full power of its editor and debugger? Moreover, wouldn't it be awesome to be able to keep 
    multiple such files in a SINGLE project and just select the startup one and have package references and 
@@ -7,6 +8,7 @@ description: |
 
    This is precisely what SmallSharp allows. Read on to learn more!
 tags: [ai]
+---
 
 # SmallSharp 2.0: The End of ConsoleApplication128
 
