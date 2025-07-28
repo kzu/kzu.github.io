@@ -19,7 +19,7 @@ But that was not all! A developer on the team had assigned the issue to Copilot,
 and sent an [initial PR](https://github.com/microsoft/vscode/pull/256267) with in-depth explanations of 
 the changes made, and even a test case to verify the fix!
 
-THe developer then suggested: 
+The developer then suggested: 
 
 > @copilot handle this internally within McpServerRequestHandler. The logger passed there already has an event.
 
