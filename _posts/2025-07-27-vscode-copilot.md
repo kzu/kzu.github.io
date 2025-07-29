@@ -25,6 +25,8 @@ The developer then suggested:
 
 Which resulted in a follow-up commit and subsequent comment explaining the new changes.
 
-It was then approved, merged, and shipped in the next VSCode Insiders build.
+It was then approved, merged, and shipped in the next VSCode Insiders build. All within the same say in the span of a few hours:
+
+![Timeline of copilot](https://raw.githubusercontent.com/kzu/kzu.github.io/main/img/vscode-copilot.png)
 
 Pretty mind-blowing. Microsoft is not kidding around with AI coding.
