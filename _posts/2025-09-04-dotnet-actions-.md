@@ -9,7 +9,7 @@ What a monumental release for .NET scripting is .NET 10! The long journey that s
 has finally culminated in a full-fledged scripting experience that leverages the entire .NET ecosystem in 
 .NET 10:
 
-1. [File-based apps](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/file-based-programs) goes beyond just C# statements and now supports `#:sdk`, `#:package` and `#:property`
+1. [File-based apps](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/file-based-programs) go beyond just C# statements and now supports `#:sdk`, `#:package` and `#:property`
    directives that allow the full breadth of .NET SDKs and NuGet packages to be used in scripts without 
    the need for a project file.
 2. [SmallSharp](https://github.com/devlooped/SmallSharp) is a tiny NuGet package / MSBuild SDK that 
