@@ -1,7 +1,7 @@
 ---
 title: "Project dependency does not build with Xamarin"
 description: "In a solution with one or more shared portable libraries and one app project for each target platform (iOS, Android and Windows Phone), when selecting iPhone or iPhoneSimulator as the platform, Visual Studio seems to 'forget' to build the shared library, and just fails with a less than helpful 'Metadata [dependency project dll] could not be found'. This is the fix."
-tags: xamarin
+tags: [xamarin]
 ---
 <img src="https://www.cazzulino.com/img/dependency-build-errors.png" width="50%" align="right" class="image">
 It's not at all uncommon to face this error while working with Xamarin iOS projects. The scenario shown in the screenshot is fairly typical: a multi-platform solution with one or more shared portable libraries and one app project for each target platform, in this case iOS, Android and Windows Phone 8.0. In theses cases, when you select iPhone or iPhoneSimulator as the platform, suddendly, Visual Studio seems to "forget" to build the shared library, and just fails with a less than helpful "Metadata [dependency project dll] could not be found".

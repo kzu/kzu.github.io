@@ -1,6 +1,6 @@
 ---
 title: "Serverless redirection to save us from ugly URLs"
-tags: [azure serverless]
+tags: [azure, serverless]
 ---
 
 I'm a fan of CI-independent [serverless nuget feeds](https://www.cazzulino.com/serverless-nuget-feed.html): you can push 

@@ -3,7 +3,7 @@ title: "How to bind to MarkupString in Blazor"
 excerpt: |
   Since this is by-design on ASP.NET, this post shows the 
   only way you can achieve this at the moment.
-tags: dotnet, aspnet, blazor
+tags: [dotnet, aspnet, blazor]
 ---
 
 Blazor [allows rendering raw HTML](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-7.0#raw-html), 

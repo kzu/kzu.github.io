@@ -1,7 +1,7 @@
 ---
 title: "dotnet actions: C# scripting to the rescue"
 description: "Ever since C# introduced top-level programs, I've been wanting a full end-to-end scripting experience leveraging all of .NET's capabilities, including NuGet packages, SDKs, Visual Studio for editing, etc. With the goodies in .NET 10 SDK, it's finally possible!"
-tags: [dotnet visualstudio github]
+tags: [dotnet, visualstudio, github]
 ---
 
 What a monumental release for .NET scripting is .NET 10! The long journey that started with 

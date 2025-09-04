@@ -2,7 +2,7 @@
 title: "Inline C# MSBuild Tasks"
 description: Every now and then, when trying to do something in MSBuild, I hit a roadblock (or maybe just some unintuitive “feature”) and I’m left thinking “gosh, now I have to create a custom MSBuild task for this one-liner that is SO trivial in plain C#!”.
 layout: post
-tags: programming, msbuild
+tags: [programming, msbuild]
 ---
 <img src="https://www.cazzulino.com/img/msbuild-inline-tasks.png" width="50%" align="right" class="image">
 

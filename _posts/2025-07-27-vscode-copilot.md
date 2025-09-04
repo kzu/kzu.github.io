@@ -1,7 +1,7 @@
 ---
 title: "VSCode shipping cadence: AI coding is real"
 description: "We have all read about how awesome GitHub Copilot is, how Microsoft is (supposedly?) using it right now to ship production features, etc. But is that real o just marketing?"
-tags: [dotnet vscode copilot]
+tags: [dotnet, vscode, copilot]
 ---
 
 I started playing with the [MCP C# SDK](https://github.com/modelcontextprotocol/csharp-sdk) soon after it came out, and soon realized that there 

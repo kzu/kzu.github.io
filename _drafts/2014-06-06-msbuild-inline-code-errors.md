@@ -5,7 +5,7 @@ excerpt: |
 	Object of type Microsoft.Build.Framework.ITaskItem cannot be converted to [same type name!]. 
 	This happens especially when VS2013 or later is installed and you're trying to build from VS2010. This is the fix.
 layout: post
-tags: programming, msbuild
+tags: [programming, msbuild]
 ---
 <img src="https://www.cazzulino.com/img/msbuild-codetaskfactory.jpg" width="50%" align="right" class="image">
 
