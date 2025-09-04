@@ -16,7 +16,7 @@ has finally culminated in a full-fledged scripting experience that leverages the
    teaches Visual Studio how to edit multiple file-based apps in a single project, using the complete capabilities 
    of the IDE, including IntelliSense, debugging, refactoring, etc.
 3. [dnx tool execution](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-10/sdk#the-new-dnx-tool-execution-script) allows running tools without having to first install them, npx-style.
-4. [runcs](https://github.com/devlooped/runcs) is a tiny CLI tool that makes it easy to run (and auto-update) 
+4. [runcs](https://github.com/devlooped/runcs) is a tiny dotnet tool that makes it easy to run (and auto-update) 
    file-based apps hosted on GitHub, GitLab and Azure DevOps.
 
 This means that with the .NET 10 SDK, you can run the following [sample script](https://github.com/devlooped/actions/blob/main/hello.cs) 
@@ -58,9 +58,23 @@ This is a game-changer for automation and scripting with .NET, as it combines th
 
 I have done my share of [GitHub Actions](https://github.com/orgs/devlooped/repositories?q=actions-) and 
 I'm totally willing to sacrifice the [Marketplace](https://github.com/marketplace?type=actions) visibility 
-for the extreme simplicity of just invoking a C# script from a repo from my GitHub workflows.
+for the extreme simplicity of just invoking a C# script from a repo from my GitHub workflows. 
 
-But for quickly sharing little programs with friends and colleagues, it's also a great way to avoid 
+It means you can replace my existing [which-dotnet action](https://github.com/marketplace/actions/which-dotnet):
+
+```yaml
+      - name: 🤌 dotnet
+        uses: devlooped/actions-which-dotnet@v1
+```
+
+with the equivalent that runs the [which-dotnet.cs script](https://github.com/devlooped/actions/blob/main/which-dotnet.cs):
+
+```yaml
+      - name: 🤌 dotnet
+        run: dnx runcs devlooped/actions@v1:which-dotnet.cs
+```
+
+For quickly sharing little programs with friends and colleagues, it's also a great way to avoid 
 having to create a nuget package, push to nuget.org, only so they can run `dnx mytool` and have it 
 auto-update whenever I push a new version. The combination of `dnx`, `runcs` and file-based apps is a
 killer combo for sharing code snippets that just work and stay up-to-date.
