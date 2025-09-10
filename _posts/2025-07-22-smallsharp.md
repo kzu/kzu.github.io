@@ -18,7 +18,7 @@ No project file, no ceremony. Just write your code and go. You can even add NuGe
 
 ```csharp
 #:package Humanizer@2.14.1
-#:property LangVersion preview
+#:property LangVersion=preview
 
 using Humanizer;
 
@@ -91,14 +91,14 @@ Here’s how you can use the new directives:
 **Set an MSBuild property:**
 
 ```csharp
-#:property LangVersion preview
+#:property LangVersion=preview
 ```
 
 **Full example:**
 
 ```csharp
 #:package Newtonsoft.Json@13.0.3
-#:property DefineConstants DEBUG;TRACE
+#:property DefineConstants=DEBUG;TRACE
 
 using Newtonsoft.Json;
 
@@ -120,8 +120,7 @@ With SmallSharp, you can keep all your experiments, scripts, and utilities toget
 To get started, just add SmallSharp to your project as an SDK:
 
 ```xml
-<Project Sdk="Microsoft.NET.Sdk">
-   <Sdk Name="SmallSharp" Version="2.0.0" />
+<Project Sdk="SmallSharp/2.2.1">
    <PropertyGroup>
       <OutputType>Exe</OutputType>
       <TargetFramework>net10.0</TargetFramework>
