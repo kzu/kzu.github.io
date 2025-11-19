@@ -6,7 +6,7 @@ remote_theme: kzu/beautiful-jekyll@main
 author: Daniel Cazzulino
 title : Daniel Cazzulino
 description : A blog about .NET, C#, Visual Studio and technology
-title-img:  https://api.kzu.app/icon.svg
+title-img:  https://api.kzu.app/devlooped.svg
 navbar-img: https://api.kzu.app/background.svg
 avatar: /img/KzuBadge-SpaceX.png
 
