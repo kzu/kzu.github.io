@@ -44,7 +44,7 @@ This command fetches the `clean.cs` script from the `main` branch of the `kzu/ru
 Here is the full source code of the script, which uses `Spectre.Console` for nice output and `ConsoleAppFramework` for argument parsing:
 
 ```csharp
-// Cleans bin/obj recursively
+﻿// Cleans bin/obj recursively
 #:package Spectre.Console@0.51.*
 #:property Nullable=enable
 #:property ImplicitUsings=enable
@@ -53,41 +53,55 @@ Here is the full source code of the script, which uses `Spectre.Console` for nic
 using Spectre.Console;
 using ConsoleAppFramework;
 
-ConsoleApp.Run(args, () => DeleteDirectories(Directory.GetCurrentDirectory()));
+ConsoleApp.Run(args, Clean);
 
-static void DeleteDirectories(string dir)
+/// <summary>Recursively cleans bin/obj</summary>
+/// <param name="dir">Optional directory to start the clean. Defaults to current directory.</param>
+/// <param name="dryRun">List directories but don't actually delete them.</param>
+static void Clean(bool dryRun, [Argument] string? dir = default, CancellationToken cancellation = default)
+    => DeleteDirectories(dir ?? Directory.GetCurrentDirectory(), dryRun, cancellation);
+
+static void DeleteDirectories(string dir, bool dryRun, CancellationToken cancellation)
 {
-    // Delete bin and obj in current directory
-    TryDeleteDirectory(Path.Combine(dir, "bin"));
-    TryDeleteDirectory(Path.Combine(dir, "obj"));
+    if (cancellation.IsCancellationRequested)
+        return;
 
-    // Recurse into subdirectories
+    TryDeleteDirectory(Path.Combine(dir, "bin"), dryRun);
+    TryDeleteDirectory(Path.Combine(dir, "obj"), dryRun);
+
     foreach (string subDir in Directory.GetDirectories(dir))
     {
-        DeleteDirectories(subDir);
+        if (cancellation.IsCancellationRequested)
+            break;
+            
+        DeleteDirectories(subDir, dryRun, cancellation);
     }
 }
 
-static void TryDeleteDirectory(string dir)
+static void TryDeleteDirectory(string dir, bool dryRun)
 {
-    if (Directory.Exists(dir))
+    if (!Directory.Exists(dir))
+        return;
+    
+    try
     {
-        try
-        {
+        if (!dryRun) 
             Directory.Delete(dir, true);
-            AnsiConsole.MarkupLine($":check_mark_button: .{dir.Substring(Directory.GetCurrentDirectory().Length)}");
-        }
-        catch (Exception ex)
-        {
-            AnsiConsole.MarkupLine($":cross_mark: .{dir.Substring(Directory.GetCurrentDirectory().Length)}: {ex.Message}");
-        }
+
+        AnsiConsole.MarkupLine($":check_mark_button:{(dryRun ? ":ghost:" : "")} .{dir.Substring(Directory.GetCurrentDirectory().Length)}");
+    }
+    catch (Exception ex)
+    {
+        AnsiConsole.MarkupLine($":cross_mark: .{dir.Substring(Directory.GetCurrentDirectory().Length)}: {ex.Message}");
     }
 }
 ```
 
-        }
-    }
-}
+You can run the script with a `--dry-run` option to see what would be deleted without actually performing the deletions:
+
+```bash
+dnx runfile kzu/run:clean.cs --dry-run
+```
 
 ## Aliasing
 
