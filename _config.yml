@@ -75,5 +75,7 @@ defaults:
   - scope:
       path: ""
     values:
-      head-extra: favicon.html
+      head-extra: 
+        - favicon.html
+        - font.html
       footer-extra: license.html
