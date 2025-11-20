@@ -77,5 +77,4 @@ defaults:
     values:
       head-extra: 
         - favicon.html
-        - font.html
       footer-extra: license.html
