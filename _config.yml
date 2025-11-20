@@ -8,7 +8,7 @@ title : Daniel Cazzulino
 description : A blog about .NET, C#, Visual Studio and technology
 title-img:  https://api.kzu.app/devlooped.svg
 navbar-img: https://api.kzu.app/background.svg
-avatar: /img/KzuBadge-SpaceX.png
+avatar: https://api.kzu.app/badge.png
 
 social-network-links:
   alias:         kzu
