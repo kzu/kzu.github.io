@@ -31,6 +31,10 @@ updating them and leaving them to rot over time.
 
 ## NuGetizer to the rescue!
 
+> You can now use the streamlined [Readme](https://nuget.org/packages/Readme) package 
+> instead of switching entirely to nugetizer. It has the same include feature, but 
+> is compatible with both nugetizer and SDK pack.
+
 Luckily, I'm using [nugetizer](https://github.com/devlooped/nugetizer/) to 
 pack my project, which has a great feature for [package readme](https://github.com/devlooped/nugetizer#package-readme): includes!
 
