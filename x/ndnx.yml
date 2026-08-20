@@ -1,0 +1,32 @@
+# X post for /ndnx.html
+text: |
+  .NET 10 shipped `dnx` — npx for @nuget tools. The catch: it's an SDK command. Even a cached `dnx stop@2.1.0` is still ~500ms. That's the SDK tax.
+
+  And once tools are Native AOT, starting a native exe through the SDK is kinda the opposite of the point.
+
+  So I built ndnx. Same CLI. Native AOT itself. No SDK. No .NET, if the tool doesn't need it.
+
+  If you can `dnx stop`, you can `ndnx stop`. You don't need `--` before the tool args either. Things Just Work.
+
+  I'm using `stop` as the sample: it sends SIGINT (Ctrl+C) to a process in a cross-platform way — same as hitting Ctrl+C, not Stop-Process / kill -9. The RID packages run with no .NET installed at all.
+
+  Cached start on linux-x64: 10ms vs 580ms.
+
+  Windows:
+
+  ```
+  irm https://github.com/devlooped/ndnx/releases/latest/download/install.ps1 | iex
+  ```
+
+  macOS / Linux:
+
+  ```
+  curl -fsSL https://github.com/devlooped/ndnx/releases/latest/download/install.sh | sh
+  ```
+
+  Same nuget cache as `dnx`. Pin a version and a second run doesn't hit the feed. Leave it floating and it stays current — MCP servers, agent harnesses, bots.
+
+  https://www.cazzulino.com/ndnx.html
+images:
+  - /img/ndnx-carbon-usage.png
+  - /img/ndnx-carbon-timing.png
