@@ -11,6 +11,7 @@ text: |
   I'm using `stop` as the sample: it sends SIGINT (Ctrl+C) to a process in a cross-platform way — same as hitting Ctrl+C, not Stop-Process / kill -9. The RID packages run with no .NET installed at all.
 
   Cached start on linux-x64: 10ms vs 580ms.
+  `winget` TUI on win-x64: 275ms vs 820ms.
 
   Windows:
 
