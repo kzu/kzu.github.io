@@ -38,12 +38,14 @@ Read `AGENTS.md` and write as kzu. Imitate 2020–2024 how-tos, not the
 | Thing | Path | Live URL |
 |---|---|---|
 | Draft | `_drafts/YYYY-MM-DD-{slug}.md` | not published |
-| Post | `_posts/YYYY-MM-DD-{slug}.md` | `/{slug}.html` |
+| Post | `_posts/YYYY-MM-DD-{slug}.md` | `/{slug}` |
 | X post | `x/{slug}.yml` | `/x/{slug}.yml` |
 | Screenshots | `img/{slug}-*.png` | `/img/{slug}-*.png` |
 
-`permalink` is `/:title.html`. `{slug}` is the filename after the date, not
-the `title:` string. Site: `https://www.cazzulino.com`.
+Jekyll still publishes `/{slug}.html` (`permalink: /:title.html`). When
+linking a post (X yml, tweet, chat), omit `.html`:
+`https://www.cazzulino.com/{slug}`. `{slug}` is the filename after the date,
+not the `title:` string.
 
 `x/` is a normal folder. Jekyll copies `x/{slug}.yml` as a static file. Do
 **not** put YAML front matter (`---`) on it, or Jekyll will treat it as a page.
@@ -81,7 +83,7 @@ Only on explicit approve ("approve", "draft approved", "move it to posts"):
 ## Phase 3 — X draft + screenshots
 
 Same voice. Can be longer than 280. End with
-`https://www.cazzulino.com/{slug}.html`.
+`https://www.cazzulino.com/{slug}` (no `.html`).
 
 Screenshots only when a snippet *is* the point (CLI comparison, a number).
 Use carbon.now.sh via `npx carbon-now-cli`:
@@ -103,7 +105,7 @@ Only on explicit approve of the X copy. Write `x/{slug}.yml` with **no**
 `---` front matter:
 
 ```yaml
-# X post for /{slug}.html
+# X post for /{slug}
 text: |
   ...tweet body, including the live URL...
 images:
@@ -126,7 +128,7 @@ This repo uses the native `pages-build-deployment` workflow.
 1. Find the run kicked off by the push:
    `gh run list --repo kzu/kzu.github.io --workflow=pages-build-deployment --limit 3`
 2. `gh run watch` until success. On failure, print the log and stop.
-3. `GET https://www.cazzulino.com/{slug}.html` — 200, body is the post.
+3. `GET https://www.cazzulino.com/{slug}` — 200, body is the post.
 4. `GET https://www.cazzulino.com/x/{slug}.yml` — 200, YAML parses, `text`
    is present, each `images` URL is 200.
 
@@ -139,5 +141,6 @@ When live, print both URLs.
 - Do not write `x/{slug}.yml` without a second approve.
 - Do not commit or push until the matching approve.
 - Do not put `---` front matter on `x/*.yml`.
+- Do not put `.html` on post URLs. Jekyll still writes `{slug}.html`; links omit it.
 - Do not tweet.
 - Do not commit unrelated files (`AGENTS.md`, other drafts, `.lock`).

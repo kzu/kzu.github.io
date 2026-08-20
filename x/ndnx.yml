@@ -1,4 +1,4 @@
-# X post for /ndnx.html
+# X post for /ndnx
 text: |
   .NET 10 shipped `dnx` — npx for @nuget tools. The catch: it's an SDK command. Even a cached `dnx stop@2.1.0` is still ~500ms. That's the SDK tax.
 
@@ -26,7 +26,7 @@ text: |
 
   Same nuget cache as `dnx`. Pin a version and a second run doesn't hit the feed. Leave it floating and it stays current — MCP servers, agent harnesses, bots.
 
-  https://www.cazzulino.com/ndnx.html
+  https://www.cazzulino.com/ndnx
 images:
   - /img/ndnx-carbon-usage.png
   - /img/ndnx-carbon-timing.png
